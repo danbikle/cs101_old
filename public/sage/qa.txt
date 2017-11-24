@@ -1,5 +1,18 @@
 ~/cs101/public/sage/qa.txt
 
+q: How to get started once I get a notebook running?
+a: The help-link in the upper-right leads to a page full of good content:
+   - Manuual
+   - Tutorial
+   - Thematic Tutorial
+   - http://localhost:8080/doc/static/faq/index.html
+   - http://localhost:8080/doc/static/prep/index.html
+   - Youtube:
+   - https://www.youtube.com/watch?v=1wQ0rc5s04k
+   - https://www.youtube.com/user/wstein389/videos
+   - https://cocalc.com/projects/4d0f1d1d-7b70-4fc7-88a4-3b4a54f77b18/files/lectures/2016-04-25/?session=default
+   - https://cocalc.com/projects/4d0f1d1d-7b70-4fc7-88a4-3b4a54f77b18/files/lectures/?session=default
+
 q: How to install Sage?
 a: http://mirrors.mit.edu/sage/linux/64bit/index.html
    Above url gives me a tar file.
@@ -25,10 +38,14 @@ a: Dont try, just get the tar file and use that.
 
 
 q: What is a Sage notebook and how to create one?
+a: get a sage-prompt and then type notebook()
 
 q: The intro shows a: "sage:" CLI prompt. How I get that displayed on my laptop?
+a: After I deployed the tar-file to ~sage/SageMath , I type this: ~sage/SageMath/sage
 
 q: Should I run Sage on Python 2.7?
+a: Actually I just install Sage from tar file and when I start sage, it runs its own copy of Python
+
 
 q: I did this on a Python 2.7 account:
    conda install sage -c conda-forge
@@ -93,6 +110,8 @@ q: I did this on a Python 2.7 account:
   -rwxrwxr-x  2 sage sage      191 Jun  5 01:08 sage-upgrade
   -rwxrwxr-x  2 sage sage      774 Jun  5 01:08 sage-valgrind
   -rw-rw-r--  2 sage sage      173 Jun  5 01:08 sage-version.sh
-  
+a: None of those seem to work; I should avoid it all.
+
+
   
    
