@@ -1,5 +1,29 @@
 ~/cs101/public/sage/qa.txt
 
+q: How to install Sage?
+a: http://mirrors.mit.edu/sage/linux/64bit/index.html
+   Above url gives me a tar file.
+   
+q: How to fix this:
+sage@h79:~ $ anaconda2/bin/sage
+Error: You must set the SAGE_ROOT environment variable or run this
+script from the SAGE_ROOT or SAGE_ROOT/local/bin/ directory.
+??
+a: Dont try, just get the tar file and use that.
+
+q: How to fix this:
+sage@h79:~ $ anaconda2/bin/sage-notebook
+Traceback (most recent call last):
+  File "anaconda2/bin/sage-notebook", line 13, in <module>
+    from sage.env import SAGE_ROOT
+  File "/home/sage/anaconda2/lib/python2.7/site-packages/sage/env.py", line 151, in <module>
+    SINGULAR_SO = SAGE_LOCAL+"/lib/libSingular."+extension
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+sage@h79:~ $
+??
+a: Dont try, just get the tar file and use that.
+
+
 q: What is a Sage notebook and how to create one?
 
 q: The intro shows a: "sage:" CLI prompt. How I get that displayed on my laptop?
