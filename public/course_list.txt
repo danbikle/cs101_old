@@ -1,0 +1,30 @@
+~/cs101/public/course_list.txt
+
+Stanford:
+
+  cme204 ,  41
+  cme206 ,   ?
+  cs106a , 999
+  cs106aJS
+  cs106ap [ python ]
+  cs106b , 409
+  cs106x ,  83
+  cs107  , 236
+  cs161  , 200
+  cs205a , 100
+  cs221  , 1100
+  cs224n ,  393
+  cs229  , 1200
+  cs231a ,  127
+  cs231n ,  April
+  cs246  ,  280
+  cs255  ,  190
+  ee214b ,   19
+  ee364a ,  133
+  ee364b ,  June
+  ee376a ,   51
+  stats191, 130
+  stats216,  59 
+  stats216v, june
+  stats290,  46
+  
