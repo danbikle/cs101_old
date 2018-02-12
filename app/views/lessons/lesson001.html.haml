@@ -104,4 +104,38 @@
 
 %p Next, I clicked the blue "Create" button.
 
+%p GCP started the instance in about 1 minute.
+
+%p I saw the corresponding IP address: 35.227.120.155
+
+%p I tried to login with this shell command:
+
+.syntax
+  %pre
+    %code ssh 35.227.120.155
+
+%p It failed.
+
+%p After a bit of detective work I learned that I needed to specify an account which match the name in my gmail account:
+
+.syntax
+  %pre
+    %code ssh dan@35.227.120.155
+
+%p The above command worked perfectly.
+
+%p Next I followed the instructions in this page:
+
+%p
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-compute-engine/index.html#4' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-compute-engine/index.html#4
+.syntax
+  %pre
+    %code.bash
+      sudo apt-get update
+      sudo apt-get -y -qq install git
+      git --version
+
+%p The above shell commands worked perfectly in my new GCP instance.
+
 %hr/
