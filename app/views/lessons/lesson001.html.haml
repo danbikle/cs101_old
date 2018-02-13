@@ -248,6 +248,81 @@
 
 %p It served me a page, called "Browser", prompting me to upload files into the bucket.
 
+%p The page reminds me of the page served to me by AWS when I work with S3.
 
+
+%p I returned to the cpb100 page:
+
+%p
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#4' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#4
+
+%p I clicked the next node in the page and landed on this URL:
+
+%p
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#5' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#5
+
+%p I returned to the shell prompt of my GCP instance and type a command:
+
+.syntax
+  %pre
+    %code.bash gsutil cp earthquakes.* gs://cs101feb2018
+
+%p I am confident it worked.
+
+%p I verified by returning to the "Browser" page and inspecting the contents of cs101feb2018.
+
+%p It listed three files:
+
+%ul
+  %li earthquakes.csv
+  %li earthquakes.htm
+  %li earthquakes.png
+  
+
+%p I returned to the cpb100 page:
+
+%p
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#5' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#5
+
+%p I clicked the next node in the page and landed on this URL:
+
+%p
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#6' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#6
+
+
+%p I returned to the "Browser" page, AKA GCP Console, and checked the boxes to "Share publicly" the three files in cs101feb2018.
+
+%p I list the resulting URLs below:
+
+%ul
+  %li
+    %a(href='https://storage.cloud.google.com/cs101feb2018/earthquakes.csv' target='x')
+      https://storage.cloud.google.com/cs101feb2018/earthquakes.csv
+  %li
+    %a(href='https://storage.cloud.google.com/cs101feb2018/earthquakes.htm' target='x')
+      https://storage.cloud.google.com/cs101feb2018/earthquakes.htm
+  %li
+    %a(href='https://storage.cloud.google.com/cs101feb2018/earthquakes.png' target='x')
+      https://storage.cloud.google.com/cs101feb2018/earthquakes.png
+
+%p On my laptop I verified that the public could see earthquakes.png
+
+.syntax
+  %pre
+    %code.bash
+      cd /tmp
+      wget https://storage.cloud.google.com/cs101feb2018/earthquakes.png
+
+%p I tried to use an incognito-browser to see earthquakes.png
+
+%p The google server asked me to authenticate.
+
+%p I sense that to be a bug or some evil product-management.
+
+%p Google should not force me to login to gmail in order to see publicly-shared content.
 
 %hr/
