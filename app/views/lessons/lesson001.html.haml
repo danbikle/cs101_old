@@ -415,6 +415,42 @@
   %pre
     =render 'lesson001c'
 
+%p I can see in the above syntax that the SQL script declares three tables and their columns:
 
+%ul
+  %li Accommodation
+  %li
+    %ul
+      %li id varchar(255),	 
+      %li title varchar(255),	 
+      %li location varchar(255), 
+      %li price int,		 
+      %li rooms int,		 
+      %li rating float,		 
+      %li type varchar(255),     
+  %li Rating
+  %li
+    %ul
+      %li userId varchar(255),
+      %li accoId varchar(255),
+      %li rating int,
+  %li Recommendation
+  %li
+    %ul
+      %li userId varchar(255),
+      %li accoId varchar(255),
+      %li prediction float,
+  
+%p I see two relationships in the above syntax:
+
+%ul
+  %li An Accommodation has 0 or more Ratings
+  %li An Accommodation has 0 or more Recommendations
+  
+%p 
+  
+  
+  
+  
   
 %hr/
