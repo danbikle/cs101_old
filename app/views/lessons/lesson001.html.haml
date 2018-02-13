@@ -151,7 +151,9 @@
 
 %p I studied the page there and clicked through until I landed at this URL:
 
-https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#2
+%p
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#2' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#2
 
 %p I verified that I could ssh into the GCP instance I had created earlier.
 
@@ -172,6 +174,80 @@ https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#
       less ingest.sh
       bash ingest.sh
       head earthquakes.csv
+
+%p I clicked the next node in the page and landed on this URL:
+
+%p
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#3' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#3
+  
+%p I read the content on that page and then visited the URL below:
+
+%p
+  %a(href='https://github.com/GoogleCloudPlatform/datalab-samples/blob/master/basemap/earthquakes.ipynb' target='x')
+    https://github.com/GoogleCloudPlatform/datalab-samples/blob/master/basemap/earthquakes.ipynb
+  
+%p I ran two shell commands inside the GCP instance:
+
+.syntax
+  %pre
+    %code.bash
+      bash install_missing.sh
+      python transform.py
+      
+%p The last command resulted in some warnings from Python but I am confident it worked.
+
+%p I noticed a new file which python created:
+
+.syntax
+  %pre
+    =render 'lesson001a'
+
+%p I copied the PNG file to my laptop and looked at it:
+
+%img(width='999' src='/lesson001/earthquakes.png')
+
+%p I clicked the next node in the page and landed on this URL:
+
+%p
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#4' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#4
+
+%p I visited the URL below:
+
+%p
+  %a(href='https://cloud.google.com/' target='x')
+    https://cloud.google.com/
+    
+%p I hovered the button: "GO TO CONSOLE".
+
+%p I made note of its href-URL:
+
+%p
+  %a(href='https://console.cloud.google.com' target='x')
+    https://console.cloud.google.com
+  
+
+%p I clicked the button.
+
+%p It sent me to a page I call: "Dashboard".
+
+%p I clicked the upper-left-hamburger-link and from there clicked: "Storage".
+
+%p It served me a page with blue-button: "Create bucket".
+
+%p I clicked "Create bucket".
+
+%p It served me a form asking me to name a new bucket.
+
+%p I called my new bucket: cs101feb2018
+
+%p At the bottom of the form I clicked the blue "Create" button.
+
+%p I saw evidence that it worked.
+
+%p It served me a page, called "Browser", prompting me to upload files into the bucket.
+
 
 
 %hr/
