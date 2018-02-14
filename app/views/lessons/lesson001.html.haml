@@ -474,6 +474,18 @@
   %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/index.html#3' target='x')
     https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/index.html#3
 
+%p In Cloud-Shell I ran another command:
+
+.syntax
+  %pre
+    %code.bash gsutil cp cloudsql/* gs://cs101feb2018/sql/
+
+%p It was very slow; it needed 60 seconds to finish:
+
+.syntax
+  %pre
+    =render 'lesson001e'
+
 
   
 %hr/
