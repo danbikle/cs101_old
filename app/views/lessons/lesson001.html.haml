@@ -499,7 +499,9 @@
 
 %p I studied that page.
 
-%p I visited this URL:
+%p The page listed 10 steps.
+
+%p To start step 1, I visited this URL:
 
 %p
   %a(href='https://console.cloud.google.com' target='x')
@@ -536,5 +538,21 @@
   %li MySQL 2nd Gen 5.7	35.226.122.211	cpb100-195004:us-central1:rentals
   %li IP: 35.226.122.211
   %li Instance connection name: cpb100-195004:us-central1:rentals
+
+%p Next I started a Cloud-Shell in my browser by clicking an icon in the upper-right.
+
+%p I ran shell commands:
+
+.syntax
+  %pre
+    %code.bash
+      cd ~/training-data-analyst/CPB100/lab3a
+      bash ./find_my_ip.sh
+
+%p I saw this:
+
+.syntax
+  %pre
+    =render 'lesson001f'
 
 %hr/
