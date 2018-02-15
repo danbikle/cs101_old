@@ -678,4 +678,38 @@
 
 
 
+
+%p I navigated to the next page in the sequence:
+
+%p
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/index.html#6' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/index.html#6
+
+%p GCP served me a page named: "8. Explore Cloud SQL".
+
+%p I studied that page.
+
+%p The page contained 5 steps.
+
+%p To start step 1, I visited this page:
+
+%p
+  %a(href='https://console.cloud.google.com/sql' target='x')
+    https://console.cloud.google.com/sql
+  
+%p I used that page to get the IP address of the MySQL instance: 35.226.122.211
+
+%p Next, I entered a shell command into Cloud Shell:
+
+.syntax
+  %pre
+    %code.bash mysql --host=35.226.122.211 --user=root --password
+
+%p I saw this:
+
+
+.syntax
+  %pre
+    =render 'lesson001h'
+
 %hr/
