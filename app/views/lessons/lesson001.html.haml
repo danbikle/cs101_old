@@ -968,6 +968,41 @@
   %pre
     %code.bash nano sparkml/train_and_apply.py
 
+%p I typed in the IP-address of the Cloud-SQL-Instance: 35.192.114.78
+
+%p I entered a shell command:
+
+.syntax
+  %pre
+    %code.bash gsutil cp sparkml/tr*.py gs://cs101feb2018/
+
+%p I visited this URL:
+%p
+  %a(href='https://console.cloud.google.com/dataproc/clusters/' target='x')
+    https://console.cloud.google.com/dataproc/clusters/
+    
+%p I clicked the "Jobs" icon on the left.
+
+%p It served me a page with blue-button: "Submit job".
+
+%p I clicked "Submit job".
+
+%p GCP served me a job-submission form for Hadoop.
+
+%p I changed the job-type to: "PySpark"
+
+%p I indicated the location of the Python script to be this:
+
+.syntax
+  %pre
+    %code.bash gs://cs101feb2018/train_and_apply.py
+
+%p Near the bottom, I clicked on the blue-button: "Subimit"
+
+%p GCP accepted the job and then gave it a status of: "Running".
+
+%p On the left-hand menu of the Dataproc section, click on Jobs
+
 %a(href='#top') [top]
 %hr/
 %h2#bigquery-dataset Bigquery-Dataset
