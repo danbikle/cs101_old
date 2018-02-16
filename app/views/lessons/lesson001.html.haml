@@ -1001,7 +1001,43 @@
 
 %p GCP accepted the job and then gave it a status of: "Running".
 
-%p On the left-hand menu of the Dataproc section, click on Jobs
+%p After two minutes, GCP changed the status to "Succeeded".
+
+
+%p I clicked the next link in the series:
+
+%p
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-dataproc/#4' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-dataproc/#4
+
+%p I studied that page.
+
+%p I got the IP address of MySQL from this URL:
+
+%p
+  %a(href='https://console.cloud.google.com/sql/instances' target='x')
+    https://console.cloud.google.com/sql/instances
+  
+%p I verified that my Cloud Shell could connect to MySQL.
+
+.syntax
+  %pre
+    %code.bash mysql --host=35.192.114.78 --user=root --password
+
+%p I issued a command:
+
+.syntax
+  %pre
+    %code.bash use recommendation_spark;
+
+%p I issued a SQL command:
+
+.syntax
+  %pre
+    =render 'lesson001p'
+
+
+
 
 %a(href='#top') [top]
 %hr/
