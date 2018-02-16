@@ -1,0 +1,19 @@
+<code class='bash'>
+cs101@cpb100-195004:~/training-data-analyst/CPB100/lab3b$
+cs101@cpb100-195004:~/training-data-analyst/CPB100/lab3b$ bash authorize_dataproc.sh cluster-27ae us-central1-f 2
+Machines to authorize: cluster-27ae-m cluster-27ae-w-0 cluster-27ae-w-1 in us-central1-f ... finding their IP addresses
+IP address of cluster-27ae-m is 35.184.175.89/32
+IP address of cluster-27ae-w-0 is 35.188.122.227/32
+IP address of cluster-27ae-w-1 is 35.225.185.28/32
+Authorizing [35.184.175.89/32,35.188.122.227/32,35.225.185.28/32] to access cloudsql=rentals
+When adding a new IP address to authorized networks, make sure to also
+ include any IP addresses that have already been authorized.
+Otherwise, they will be overwritten and de-authorized.
+
+Do you want to continue (Y/n)?  y
+
+ERROR: (gcloud.sql.instances.patch) HTTPError 404: The Cloud SQL instance does not exist.
+cs101@cpb100-195004:~/training-data-analyst/CPB100/lab3b$
+cs101@cpb100-195004:~/training-data-analyst/CPB100/lab3b$
+cs101@cpb100-195004:~/training-data-analyst/CPB100/lab3b$
+</code>

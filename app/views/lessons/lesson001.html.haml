@@ -911,6 +911,63 @@
 
 %p GCP server a page indicating it was busy building the cluster.
 
+%p In Cloud-Shell I issued shell commands:
+
+.syntax
+  %pre
+    %code.bash
+      cd ~/training-data-analyst/CPB100/lab3b
+      bash authorize_dataproc.sh cluster-27ae us-central1 2
+
+%p It served me an error:
+
+
+.syntax
+  %pre
+    =render 'lesson001m'
+
+%p I studied the page at this URL:
+
+%p
+  %a(href='https://console.cloud.google.com/dataproc/clusters' target='x')
+    https://console.cloud.google.com/dataproc/clusters
+  
+%p In Cloud-Shell I tried this shell command:
+
+.syntax
+  %pre
+    %code.bash
+      bash authorize_dataproc.sh cluster-27ae us-central1-f 2
+
+%p It served me another error:
+
+.syntax
+  %pre
+    =render 'lesson001n'
+
+%p I used the web UI to authorize the addresses listed in the above error.
+
+%p I found the web UI at this URL:
+
+%p
+  %a(href='https://console.cloud.google.com/sql/instances/rentals2/authorization' target='x')
+    https://console.cloud.google.com/sql/instances/rentals2/authorization
+
+
+%p I clicked the next link in the series:
+
+%p
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-dataproc/#3' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-dataproc/#3
+
+%p I studied that page.
+
+%p I ran a shell command to open an editor in Cloud-Shell:
+
+.syntax
+  %pre
+    %code.bash nano sparkml/train_and_apply.py
+
 %a(href='#top') [top]
 %hr/
 %h2#bigquery-dataset Bigquery-Dataset
