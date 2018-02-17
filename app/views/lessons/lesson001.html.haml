@@ -23,6 +23,10 @@
     %a(href='https://codelabs.developers.google.com/codelabs/cpb100-dataproc' target='x')
       https://codelabs.developers.google.com/codelabs/cpb100-dataproc
   %li
+    %a(href='https://codelabs.developers.google.com/codelabs/cpb100-datalab' target='x')
+      https://codelabs.developers.google.com/codelabs/cpb100-datalab
+
+  %li
     %a(href='https://codelabs.developers.google.com/codelabs/cpb100-bigquery-dataset' target='x')
       https://codelabs.developers.google.com/codelabs/cpb100-bigquery-dataset
   %li
@@ -37,10 +41,6 @@
   %li
     %a(href='https://codelabs.developers.google.com/codelabs/cpb100-distributed-landsat' target='x')
       https://codelabs.developers.google.com/codelabs/cpb100-distributed-landsat
-  %li
-    %a(href='https://codelabs.developers.google.com/codelabs/cpb100-datalab' target='x')
-      https://codelabs.developers.google.com/codelabs/cpb100-datalab
-
 
 
 %p The above links are discussed below:
@@ -56,6 +56,8 @@
   %li
     %a(href='#dataproc') dataproc
   %li
+    %a(href='#datalab') datalab
+  %li
     %a(href='#bigquery-dataset') bigquery-dataset
   %li
     %a(href='#tensorflow') tensorflow
@@ -65,8 +67,6 @@
     %a(href='#serverless-ingest') serverless-ingest
   %li
     %a(href='#distributed-landsat') distributed-landsat
-  %li
-    %a(href='#datalab') datalab
 
 
 
@@ -1072,8 +1072,72 @@
 
 %p That ended my interaction with the CPB100-node I call: "Dataproc".
 
+
 %a(href='#top') [top]
 %hr/
+%h2#datalab  Datalab
+
+%p Next, I clicked the next link in the series:
+%p
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-datalab' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-datalab
+
+%p I studied the page it served me:
+%p
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-datalab/#0' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-datalab/#0
+  
+%p I clicked the next link in the series:
+
+%p
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-datalab/#1' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-datalab/#1
+  
+%p I visited the URL below:
+
+%p
+  %a(href='https://console.cloud.google.com' target='x')
+    https://console.cloud.google.com
+
+%p I started a Cloud-Shell by clicking the white-icon in upper-right.
+
+%p I entered a shell command:
+
+.syntax
+  %pre
+    %code.bash gcloud compute zones list
+
+%p I decided I want to use: "us-central1-f"
+
+%p I entered a shell command:
+
+.syntax
+  %pre
+    %code.bash datalab create mydatalabvm --zone us-central1-f
+
+%p GCP issued an error:
+
+cs101@cpb100-195004:~$
+cs101@cpb100-195004:~$ datalab create mydatalabvm --zone us-central1-f
+Creating the network datalab-network
+Creating the firewall rule datalab-network-allow-ssh
+Creating the disk mydatalabvm-pd
+Creating the repository datalab-notebooks
+
+ERROR: (gcloud.source.repos.create) ResponseError: status=[PERMISSION_DENIED], code=[403], message=[User [cs101@gmail.com] does not have permission to access project [cpb100-195004] (or it may not exist): The caller does not have permission].
+details:
+- Cloud Source Repositories API is not enabled. Please enable the API on the Google
+  Cloud console.
+enable at: https://console.cloud.google.com/apis/library/sourcerepo.googleapis.com/?project=cpb100-195004
+Failed to find or create the repository datalab-notebooks.
+
+Ask a project owner to create it for you.
+cs101@cpb100-195004:~$
+
+%p under construction
+
+
+
 %h2#bigquery-dataset Bigquery-Dataset
 
 %p Next, I clicked the next link in the series:
@@ -1087,7 +1151,7 @@
   %a(href='https://codelabs.developers.google.com/codelabs/cpb100-bigquery-dataset/#0' target='x')
     https://codelabs.developers.google.com/codelabs/cpb100-bigquery-dataset/#0
   
-
+  
 
 
 %p under construction
@@ -1113,11 +1177,6 @@
 %a(href='#top') [top]
 %hr/
 %h2#distributed-landsat Distributed-Landsat
-%p under construction
-
-%a(href='#top') [top]
-%hr/
-%h2#datalab  Datalab
 %p under construction
 
 %a(href='#top') [top]
