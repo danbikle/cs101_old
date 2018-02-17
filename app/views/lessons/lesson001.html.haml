@@ -1117,22 +1117,40 @@
 
 %p GCP issued an error:
 
-cs101@cpb100-195004:~$
-cs101@cpb100-195004:~$ datalab create mydatalabvm --zone us-central1-f
-Creating the network datalab-network
-Creating the firewall rule datalab-network-allow-ssh
-Creating the disk mydatalabvm-pd
-Creating the repository datalab-notebooks
+.syntax
+  %pre
+    =render 'lesson001r'
 
-ERROR: (gcloud.source.repos.create) ResponseError: status=[PERMISSION_DENIED], code=[403], message=[User [cs101@gmail.com] does not have permission to access project [cpb100-195004] (or it may not exist): The caller does not have permission].
-details:
-- Cloud Source Repositories API is not enabled. Please enable the API on the Google
-  Cloud console.
-enable at: https://console.cloud.google.com/apis/library/sourcerepo.googleapis.com/?project=cpb100-195004
-Failed to find or create the repository datalab-notebooks.
 
-Ask a project owner to create it for you.
-cs101@cpb100-195004:~$
+%p I visited the URL below:
+
+%p
+  %a(href='https://console.cloud.google.com/apis/library/sourcerepo.googleapis.com' target='x')
+    https://console.cloud.google.com/apis/library/sourcerepo.googleapis.com
+
+%p The above page served a blue-button: "ENABLE".
+
+%p I clicked the button.
+
+%p I started a Cloud-Shell by clicking the white-icon in upper-right.
+
+%p I entered a shell command:
+
+.syntax
+  %pre
+    %code.bash datalab create mydatalabvm --zone us-central1-f
+
+%p GCP offered a better response:
+
+
+.syntax
+  %pre
+    =render 'lesson001s'
+
+
+
+
+
 
 %p under construction
 
