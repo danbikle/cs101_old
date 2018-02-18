@@ -1314,7 +1314,46 @@
   %a(href='https://codelabs.developers.google.com/codelabs/cpb100-tensorflow/#2' target='x')
     https://codelabs.developers.google.com/codelabs/cpb100-tensorflow/#2
 
-%p I visited the URL listed below:
+%p I visited the console-URL:
+%p
+  %a(href='https://console.cloud.google.com' target='x')
+    https://console.cloud.google.com
+
+%p I started a Cloud-Shell by clicking an icon in upper-left.
+
+%p Inside the Cloud-Shell, I issued a shell command:
+
+.syntax
+  %pre
+    %code.bash datalab connect mydatalabvm
+  
+
+%p GCP offered a good response:
+
+.syntax
+  %pre
+    =render 'lesson001v'
+
+%p I clicked the Web-Preview button in upper right and changed the port to 8081.
+
+%p GCP loaded this URL into my browser:
+
+%p
+  %a(href='https://8081-dot-3516970-dot-devshell.appspot.com/tree/datalab/notebooks' target='x')
+    https://8081-dot-3516970-dot-devshell.appspot.com/tree/datalab/notebooks
+
+%p I clicked the +notebook button in upper-left.
+
+%p GCP served a page with name: "Untitled Notebook1".
+
+%p The page offered an input field for notebook commands.
+
+%p The author of this notebook server assumes that I know how to operate a Python Jupyter notebook.
+
+%p A GCP-datalab notebook offers behavior similar to a Jupyter notebook.
+
+
+%p I visited the URL listed below which offers syntax for a Jupyter notebook:
 %p
   %a(href='http://github.com/GoogleCloudPlatform/training-data-analyst/tree/master/CPB100/lab4a/demandforecast.ipynb' target='x')
     demandforecast.ipynb
@@ -1331,37 +1370,26 @@
   %pre
     =render 'lesson001u'
 
-%p I visited the console-URL:
+%p I returned to the top of demandforecast.ipynb
+
+%p I copied syntax from demandforecast.ipynb into "Untitled Notebook1".
+
+%p I did the copying bit-by-bit; I was patient.
+
+%p I wanted to study the output a slow pace.
+
+%p Eventually I worked all the way through the syntax in demandforecast.ipynb
+
+%p Next, I visited this URL:
+
 %p
-  %a(href='https://console.cloud.google.com' target='x')
-    https://console.cloud.google.com
+  %a(href='https://console.cloud.google.com/compute/instances' target='x')
+    https://console.cloud.google.com/compute/instances
 
-%p I started a Cloud-Shell by clicking an icon in upper-left.
+%p I stopped mydatalabvm to avoid adding costs to my account.
 
-%p Inside the Cloud-Shell, I issued a shell command:
+%p That ended my interaction with the CPB100-node I call: "TensorFlow".
 
-.syntax
-  %pre
-    %code.bash datalab connect mydatalabvm
-  
-
-
-bikle101@cpb100-195004:~$
-bikle101@cpb100-195004:~$ datalab connect mydatalabvm
-Starting instance(s) mydatalabvm...done.
-Updated [https://www.googleapis.com/compute/v1/projects/cpb100-195004/zones/us-central1-f/instances/mydatalabvm].
-Connecting to mydatalabvm.
-This will create an SSH tunnel and may prompt you to create an rsa key pair. To manage these keys, see https://cloud.google.com/compute/docs/instances/adding-removing-ssh-keys
-Waiting for Datalab to be reachable at http://localhost:8081/
-
-The connection to Datalab is now open and will remain until this command is killed.
-Click on the *Web Preview* (square button at top-right), select *Change port > Port 8081*, and start using Datalab.
-
-
-
-
-
-%p under construction
 
 
 
