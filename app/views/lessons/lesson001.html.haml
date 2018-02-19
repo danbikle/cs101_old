@@ -1742,7 +1742,25 @@
 
 .syntax
   %pre
-    %code cd training-data-analyst
+    %code cd ~/training-data-analyst/CPB100/lab2b/scheduled
+
+%p I examined a Python script in that folder:
+
+.syntax
+  %pre
+    %code cat ingestapp.py
+
+%p The script had only two shell commands:
+
+.syntax
+  %pre
+    %code rm -f earthquakes.csv
+
+.syntax
+  %pre
+    %code wget http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.csv -O earthquakes.csv
+
+
 
 
 
