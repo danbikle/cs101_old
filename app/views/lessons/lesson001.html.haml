@@ -1782,7 +1782,63 @@
   %li create png
   %li upload to cloud storage
   %li change permissions: make_public()
-  
+
+%p After I finished my study of that script, I returned to the codelabs-tab.
+
+%p In codelabs-tab, I clicked the next link in the series:
+
+%p
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-serverless-ingest/#2' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-serverless-ingest/#2
+%p I studied the above page.
+
+%p In Cloud-Shell-tab I ran a command:
+
+.syntax
+  %pre
+    %code cat Dockerfile
+
+%p I saw this:
+
+.syntax
+  %pre
+    %code
+      cs101@cpb100-195004:~/training-data-analyst/CPB100/lab2b/scheduled$ cat Dockerfile
+      FROM ubuntu:latest
+      MAINTAINER Rajdeep Dua "dua_rajdeep@yahoo.com"
+      RUN apt-get update -y
+      RUN apt-get install -y python-pip python-dev build-essential python-mpltoolkits.basemap python-numpy python-matplotlib
+      COPY . /app
+      WORKDIR /app
+      RUN pip install -r requirements.txt
+      ENTRYPOINT ["python"]
+      CMD ["ingestapp.py"]
+      cs101@cpb100-195004:~/training-data-analyst/CPB100/lab2b/scheduled$
+      cs101@cpb100-195004:~/training-data-analyst/CPB100/lab2b/scheduled$
+      cs101@cpb100-195004:~/training-data-analyst/CPB100/lab2b/scheduled$
+      cs101@cpb100-195004:~/training-data-analyst/CPB100/lab2b/scheduled$
+
+%p I saw that this Dockerfile declares that I want an Ubuntu host.
+
+%p After the host is available, root should run shell commands:
+
+.syntax
+  %pre
+    %code
+      apt-get update -y
+      apt-get install -y python-pip python-dev build-essential python-mpltoolkits.basemap python-numpy python-matplotlib
+
+%p Next, Docker should copy "." into /app of the host.
+%p Then, Docker should make /app the Current Working Directory.
+%p Next, Docker should run a shell command:
+
+.syntax
+  %pre
+    %code pip install -r requirements.txt
+
+%p Then, Docker should run python script: ingestapp.py
+
+%p I assume that after Docker runs ingestapp.py, then a Flask app will be running on the host.
 
 
 
