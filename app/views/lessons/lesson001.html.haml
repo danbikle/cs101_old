@@ -20,7 +20,7 @@
       %li Tab 3: github
       %li Tab 4: GCP 1
       %li Tab 5: GCP Cloud-Shell
-      %li Tab 6: GCP 2
+      %li Tab 6: DataLab
       %li Tab 7: GCP 3
 
 %p I started this lesson by creating a new Chrome-window.
@@ -1193,7 +1193,7 @@
 %hr/
 %h2#datalab  Datalab
 
-%p Next, I clicked the next link in the series:
+%p Next, in codelabs-tab, I clicked the next link in the series:
 %p
   %a(href='https://codelabs.developers.google.com/codelabs/cpb100-datalab' target='x')
     https://codelabs.developers.google.com/codelabs/cpb100-datalab
@@ -1209,15 +1209,13 @@
   %a(href='https://codelabs.developers.google.com/codelabs/cpb100-datalab/#1' target='x')
     https://codelabs.developers.google.com/codelabs/cpb100-datalab/#1
   
-%p I visited the URL below:
+%p In the GCP-tab, I visited the URL below:
 
 %p
   %a(href='https://console.cloud.google.com' target='x')
     https://console.cloud.google.com
 
-%p I started a Cloud-Shell by clicking the white-icon in upper-right.
-
-%p I entered a shell command:
+%p In the Cloud-Shell-tab I entered a command:
 
 .syntax
   %pre
@@ -1238,7 +1236,7 @@
     =render 'lesson001r'
 
 
-%p I visited the URL below:
+%p In the GCP-tab, I visited the URL below:
 
 %p
   %a(href='https://console.cloud.google.com/apis/library/sourcerepo.googleapis.com' target='x')
@@ -1248,9 +1246,7 @@
 
 %p I clicked the button.
 
-%p I started a Cloud-Shell by clicking the white-icon in upper-right.
-
-%p I entered a shell command:
+%p In Cloud-Shell-tab I entered a shell command:
 
 .syntax
   %pre
@@ -1272,11 +1268,15 @@
   %a(href='https://8081-dot-3516970-dot-devshell.appspot.com/tree/datalab#' target='x')
     https://8081-dot-3516970-dot-devshell.appspot.com/tree/datalab#
 
+%p I made sure that page was in tab 6, the tab after the Cloud-Shell-tab.
+
+%p I call tab 6 the DataLab-tab.
+
 %p I captured an image of the page:
 
 %img(src='/lesson001/lesson001t.png')
 
-%p Also I visited this URL:
+%p In the GCP-tab,  I visited this URL:
 %p
   %a(href='https://console.cloud.google.com/compute/instances' target='x')
     https://console.cloud.google.com/compute/instances
@@ -1284,7 +1284,7 @@
 %p The page told me that GCP had just started an VM instance named "mydatalabvm".
 
 
-%p I clicked the next link in the series:
+%p In codelabs-tab, I clicked the next link in the series:
 
 %p
   %a(href='https://codelabs.developers.google.com/codelabs/cpb100-datalab/#2' target='x')
@@ -1295,19 +1295,19 @@
 %p I ran an experiment to verify the information there:
 
 %ul
-  %li I stopped VM instance named "mydatalabvm"
-  %li I verified that I could not access:
+  %li In GCP-tab, I stopped VM instance named "mydatalabvm"
+  %li In DataLab-tab, I verified that I could not access:
   %li
     %a(href='https://8081-dot-3516970-dot-devshell.appspot.com/tree/datalab#' target='x')
       https://8081-dot-3516970-dot-devshell.appspot.com/tree/datalab#
-  %li I ran a command in Cloud-Shell
+  %li In Cloud-Shell tab I ran a command:
   %li
     .syntax
       %pre
         %code.bash datalab connect mydatalabvm
   %li GCP responded to that by restarting the VM instance named "mydatalabvm".
   %li I wait a minute for the VM to boot.
-  %li I verified that I could access:
+  %li In DataLab-tab, I verified that I could access:
   %li
     %a(href='https://8081-dot-3516970-dot-devshell.appspot.com/tree/datalab#' target='x')
       https://8081-dot-3516970-dot-devshell.appspot.com/tree/datalab#
@@ -1316,12 +1316,13 @@
 
 %p That ended my interaction with the CPB100-node I call: "Datalab".
 
+
 %a(href='#top') [top]
 %hr/
 
 %h2#bigquery-dataset Bigquery-Dataset
 
-%p I clicked the next link in the series:
+%p In codelabs-tab, I clicked the next link in the series:
 %p
   %a(href='https://codelabs.developers.google.com/codelabs/cpb100-bigquery-dataset' target='x')
     https://codelabs.developers.google.com/codelabs/cpb100-bigquery-dataset
@@ -1348,13 +1349,13 @@
     
 %p I studied that page.
 
-%p I verified this URL was active:
+%p In DataLab-tab, I verified this URL was active:
 
 %p
   %a(href='https://8081-dot-3516970-dot-devshell.appspot.com/tree/datalab#' target='x')
     https://8081-dot-3516970-dot-devshell.appspot.com/tree/datalab#
 
-%p I clicked the next node in the sequence:
+%p In codelabs-tab, I clicked the next node in the sequence:
 
 %p
   %a(href='https://codelabs.developers.google.com/codelabs/cpb100-bigquery-dataset/#3' target='x')
@@ -1362,7 +1363,7 @@
     
 %p I studied that page.
 
-%p I visited this URL:
+%p In DataLab-tab, I visited this URL:
 
 %p
   %a(href='https://8081-dot-3516970-dot-devshell.appspot.com/tree/datalab#' target='x')
@@ -1372,7 +1373,7 @@
 
 %p The server responded with a page which reminds me of a Jupyter Notebook UI.
 
-%p I visited this URL:
+%p In Github-tab, I visited this URL:
 
 %p
   %a(href='http://github.com/GoogleCloudPlatform/training-data-analyst/tree/master/CPB100/lab4a/demandforecast.ipynb' target='x')
@@ -1380,7 +1381,9 @@
 
 %p I copied some Python syntax from demandforecast.ipynb into the field in the new notebook UI.
 
-%p Then I asked the UI to run it.
+%p So, I was bouncing between the Github-tab and DataLab-tab.
+
+%p In the DataLab-tab, I asked the UI to run it.
 
 %p It ran fine.
 
@@ -1388,7 +1391,7 @@
 
 %p Each section ran just as expected.
 
-%p Next, I visited this URL:
+%p Next, in GCP-tab, I visited this URL:
 
 %p
   %a(href='https://console.cloud.google.com/compute/instances' target='x')
@@ -1397,9 +1400,6 @@
 %p I stopped mydatalabvm to avoid adding costs to my account.
 
 %p That ended my interaction with the CPB100-node I call: "Bigquery-Dataset".
-
-
-
 
 
 %a(href='#top') [top]
