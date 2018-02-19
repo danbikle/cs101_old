@@ -1727,6 +1727,25 @@
   %pre
     %code git clone https://github.com/GoogleCloudPlatform/training-data-analyst
 
+%p Cloud-Shell served me an error:
+
+.syntax
+  %pre
+    %code
+      fatal: destination path 'training-data-analyst' already exists and is not an empty directory.
+
+%p I see that as a good error.
+
+%p It means that I had already git-cloned training-data-analyst.
+
+%p I responded with a shell command:
+
+.syntax
+  %pre
+    %code cd training-data-analyst
+
+
+
 
 
 
