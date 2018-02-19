@@ -1776,7 +1776,13 @@
 
 %p Near the end of the response, Flask uploads the image to GCP-Cloud-Storage.
 
-
+%p The author of the script separated ingest_last_week() into sections:
+%ul
+  %li verify that this is a cron job request
+  %li create png
+  %li upload to cloud storage
+  %li change permissions: make_public()
+  
 
 
 
