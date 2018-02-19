@@ -1748,17 +1748,33 @@
 
 .syntax
   %pre
-    %code cat ingestapp.py
+    %code pg ingestapp.py
 
-%p The script had only two shell commands:
+%p In my Github-tab I studied ingestapp.py by visiting the URL listed below:
+
+%p
+  %a(href='https://github.com/GoogleCloudPlatform/training-data-analyst/blob/master/CPB100/lab2b/scheduled/ingestapp.py' target='x')
+    https://github.com/GoogleCloudPlatform/training-data-analyst/blob/master/CPB100/lab2b/scheduled/ingestapp.py
+
+%p The script is a simple Python Flask App.
+
+%p This app has one interesting route:
 
 .syntax
   %pre
-    %code rm -f earthquakes.csv
+    %code '/ingest'
 
-.syntax
-  %pre
-    %code wget http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.csv -O earthquakes.csv
+%p Flask uses that route to act as a proxy for the URL listed below:
+
+%p
+  %a(href='http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.csv' target='x')
+    http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.csv
+
+%p Flask transforms the CSV-data into an image of earthquake activity.
+
+%p This happens during a Flask response to a request of the '/ingest' route.
+
+%p Near the end of the response, Flask uploads the image to GCP-Cloud-Storage.
 
 
 
