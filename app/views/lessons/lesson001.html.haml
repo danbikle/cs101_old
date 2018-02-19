@@ -1841,6 +1841,34 @@
 %p I assume that after Docker runs ingestapp.py, then a Flask app will be running on the host.
 
 
+%p In codelabs-tab, I clicked the next link in the series:
+
+%p
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-serverless-ingest/#3' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-serverless-ingest/#3
+%p I studied the above page.
+
+%p In Cloud-Shell-tab, I ran a shell command:
+
+.syntax
+  %pre
+    %code cat cron.yaml
+
+%p I saw this:
+
+.syntax
+  %pre
+    =render 'lesson001w2'
+
+%p I wanted to use the bucket I had created in the Cloud-Storage lab.
+
+%p That bucket is named: "cs101feb2018".
+
+%p In Cloud-Shell-tab, I used the nano editor to enhance app.yaml:
+
+.syntax
+  %pre
+    =render 'lesson001x'
 
 
 
