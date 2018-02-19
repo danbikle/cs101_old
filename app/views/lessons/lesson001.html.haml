@@ -778,6 +778,24 @@
   %pre
     =render 'lesson001g'
 
+%p The intent of the above syntax is to grant networking permission from MySQL to Cloud-Shell.
+
+%p If you have problems getting permissions granted, GCP allows you to grant permissions in a web page.
+
+%p A clue to do that is described below:
+
+%p In the GCP-tab, visit this URL:
+
+%p
+  %a(href='https://console.cloud.google.com/sql' target='x')
+    https://console.cloud.google.com/sql
+
+%p Then look for a link for the MySQL instance.
+
+%p Explore pages under that link to find the page for granting permissions.
+
+%p Enough about that; back to the lesson.
+  
 
 %p In the codelabs-tab, I navigated to the next page in the sequence:
 
@@ -881,7 +899,7 @@
   %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/index.html#6' target='x')
     https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/index.html#6
 
-%p GCP served me a page named: "8. Explore Cloud SQL".
+%p I noticed a page named: "8. Explore Cloud SQL".
 
 %p I studied that page.
 
@@ -937,7 +955,7 @@
 %hr/
 %h2#dataproc Dataproc
 
-%p Next, I clicked the next link in the series:
+%p Next, in the codelabs-tab, I clicked the next link in the series:
 %p
   %a(href='https://codelabs.developers.google.com/codelabs/cpb100-dataproc' target='x')
     https://codelabs.developers.google.com/codelabs/cpb100-dataproc
@@ -947,13 +965,13 @@
   %a(href='https://codelabs.developers.google.com/codelabs/cpb100-dataproc/#0' target='x')
     https://codelabs.developers.google.com/codelabs/cpb100-dataproc/#0
   
-%p I started a Cloud-Shell.
+%p In the Cloud-Shell tab I typed "ls".
 
 %p I verifed that repo: "training-data-analyst" was still available.
 
 %p I verified that my MySQL instance was still available.
 
-%p I navigated to the URL listed below:
+%p In the GCP-tab, I navigated to the URL listed below:
 
 %p
   %a(href='https://console.cloud.google.com/sql' target='x')
@@ -963,7 +981,7 @@
 
 %p I followed the import procedure I followed in the previous lab.
 
-%p I collected output from Cloud-Shell during my effort to verify tables:
+%p I collected output from Cloud-Shell-tab during my effort to verify tables:
 
 
 .syntax
@@ -971,7 +989,7 @@
     =render 'lesson001k'
 
 
-%p I clicked the next link in the series:
+%p In the codelabs-tab, I clicked the next link in the series:
 
 %p
   %a(href='https://codelabs.developers.google.com/codelabs/cpb100-dataproc/#1' target='x')
@@ -987,7 +1005,7 @@
 
 %p I studied the page it served me.
 
-%p I noted the region of my Cloud SQL instance: "us-central1".
+%p In the GCP-tab I noted the region of my Cloud SQL instance: "us-central1".
 
 %p I clicked the upper-left-hamburger-link and from there clicked: "Dataproc".
 
@@ -1009,9 +1027,9 @@
 
 %p I clicked the blue-button: "Create".
 
-%p GCP server a page indicating it was busy building the cluster.
+%p GCP served a page indicating it was busy building the cluster.
 
-%p In Cloud-Shell I issued shell commands:
+%p In Cloud-Shell-tab I issued shell commands:
 
 .syntax
   %pre
@@ -1026,13 +1044,13 @@
   %pre
     =render 'lesson001m'
 
-%p I studied the page at this URL:
+%p In the GCP-tab, I studied the page at this URL:
 
 %p
   %a(href='https://console.cloud.google.com/dataproc/clusters' target='x')
     https://console.cloud.google.com/dataproc/clusters
   
-%p In Cloud-Shell I tried this shell command:
+%p In Cloud-Shell-tab I tried this shell command:
 
 .syntax
   %pre
@@ -1045,7 +1063,7 @@
   %pre
     =render 'lesson001n'
 
-%p I used the web UI to authorize the addresses listed in the above error.
+%p In GCP-tab, I used the web UI to authorize the addresses listed in the above error.
 
 %p I found the web UI at this URL:
 
@@ -1054,7 +1072,7 @@
     https://console.cloud.google.com/sql/instances/rentals2/authorization
 
 
-%p I clicked the next link in the series:
+%p In the codelabs-tab, I clicked the next link in the series:
 
 %p
   %a(href='https://codelabs.developers.google.com/codelabs/cpb100-dataproc/#3' target='x')
@@ -1062,7 +1080,7 @@
 
 %p I studied that page.
 
-%p I ran a shell command to open an editor in Cloud-Shell:
+%p I ran a shell command to open an editor in Cloud-Shell-tab:
 
 .syntax
   %pre
@@ -1076,7 +1094,7 @@
   %pre
     %code.bash gsutil cp sparkml/tr*.py gs://cs101feb2018/
 
-%p I visited this URL:
+%p In GCP-tab, I visited this URL:
 %p
   %a(href='https://console.cloud.google.com/dataproc/clusters/' target='x')
     https://console.cloud.google.com/dataproc/clusters/
@@ -1104,7 +1122,7 @@
 %p After two minutes, GCP changed the status to "Succeeded".
 
 
-%p I clicked the next link in the series:
+%p In codelabs-tab, I clicked the next link in the series:
 
 %p
   %a(href='https://codelabs.developers.google.com/codelabs/cpb100-dataproc/#4' target='x')
@@ -1112,13 +1130,13 @@
 
 %p I studied that page.
 
-%p I got the IP address of MySQL from this URL:
+%p In GCP-tab, I got the IP address of MySQL from this URL:
 
 %p
   %a(href='https://console.cloud.google.com/sql/instances' target='x')
     https://console.cloud.google.com/sql/instances
   
-%p I verified that my Cloud Shell could connect to MySQL.
+%p In Cloud-Shell-tab, I verified that I could connect to MySQL.
 
 .syntax
   %pre
@@ -1138,7 +1156,6 @@
 
 %p I saw this:
 
-
 .syntax
   %pre
     =render 'lesson001q'
@@ -1147,8 +1164,7 @@
 
 %p So, I see that as solid evidence that I was able to finish the Dataproc lab.
 
-
-%p I clicked the next link in the series:
+%p In the codelabs-tab, I clicked the next link in the series:
 
 %p
   %a(href='https://codelabs.developers.google.com/codelabs/cpb100-dataproc/#5' target='x')
@@ -1156,7 +1172,7 @@
 
 %p I studied that page.
 
-%p I visited this URL:
+%p In the GCP-tab, I visited this URL:
 %p
   %a(href='https://console.cloud.google.com/sql/instances' target='x')
     https://console.cloud.google.com/sql/instances
