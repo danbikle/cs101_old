@@ -1,0 +1,134 @@
+<code class='bash'>
+~/training-data-analyst/CPB100/lab2b/scheduled $ gcloud app create
+You are creating an app for project [cpb100-195004].
+WARNING: Creating an App Engine application for a project is irreversible and the region
+cannot be changed. More information about regions is at
+<https://cloud.google.com/appengine/docs/locations>.
+
+Please choose the region where you want your App Engine application
+located:
+
+ [1] europe-west2  (supports standard and flexible)
+ [2] us-east1      (supports standard and flexible)
+ [3] us-east4      (supports standard and flexible)
+ [4] asia-northeast1 (supports standard and flexible)
+ [5] asia-south1   (supports standard and flexible)
+ [6] australia-southeast1 (supports standard and flexible)
+ [7] southamerica-east1 (supports standard and flexible)
+ [8] northamerica-northeast1 (supports standard and flexible)
+ [9] europe-west   (supports standard and flexible)
+ [10] us-central    (supports standard and flexible)
+ [11] europe-west3  (supports standard and flexible)
+ [12] cancel
+Please enter your numeric choice:  10
+
+Success! The app is now created. Please use `gcloud app deploy` to deploy your first app.
+~/training-data-analyst/CPB100/lab2b/scheduled $ 
+~/training-data-analyst/CPB100/lab2b/scheduled $
+
+
+
+~/training-data-analyst/CPB100/lab2b/scheduled $ bash -x deploy.sh
++ gcloud app deploy --quiet app.yaml cron.yaml
+Services to deploy:
+
+descriptor:      [/home/bikle101/training-data-analyst/CPB100/lab2b/scheduled/app.yaml]
+source:          [/home/bikle101/training-data-analyst/CPB100/lab2b/scheduled]
+target project:  [cpb100-195004]
+target service:  [quakes]
+target version:  [20180219t162445]
+target url:      [https://quakes-dot-cpb100-195004.appspot.com]
+
+
+Configurations to update:
+
+descriptor:      [/home/bikle101/training-data-analyst/CPB100/lab2b/scheduled/cron.yaml]
+type:            [cron jobs]
+target project:  [cpb100-195004]
+
+
+Enabling service appengineflex.googleapis.com on project cpb100-195004...
+Waiting for async operation operations/tmo-acf.0d9b20fe-cd69-4b68-ac76-c7377a2f24a4 to complete...
+Operation finished successfully. The following command can describe the Operation details:
+ gcloud services operations describe operations/tmo-acf.0d9b20fe-cd69-4b68-ac76-c7377a2f24a4
+Beginning deployment of service [quakes]...
+Building and pushing image for service [quakes]
+Some files were skipped. Pass `--verbosity=info` to see which ones.
+You may also view the gcloud log file, found at
+[/tmp/tmp.QocpD6EQEJ/logs/2018.02.19/16.24.40.703846.log].
+
+snip...
+
+Enabling service appengineflex.googleapis.com on project cpb100-195004...
+Waiting for async operation operations/tmo-acf.0d9b20fe-cd69-4b68-ac76-c7377a2f24a4 to complete...
+Operation finished successfully. The following command can describe the Operation details:
+ gcloud services operations describe operations/tmo-acf.0d9b20fe-cd69-4b68-ac76-c7377a2f24a4
+Beginning deployment of service [quakes]...
+Building and pushing image for service [quakes]
+Some files were skipped. Pass `--verbosity=info` to see which ones.
+You may also view the gcloud log file, found at
+[/tmp/tmp.QocpD6EQEJ/logs/2018.02.19/16.24.40.703846.log].
+Started cloud build [d51d999d-6d05-41f3-a6a3-e8cdf2da67f6].
+To see logs in the Cloud Console: https://console.cloud.google.com/gcr/builds/d51d999d-6d05-41f3-a6a3-e8cdf2da67f6?project=cpb100-195004
+ REMOTE BUILD OUTPUT
+starting build "d51d999d-6d05-41f3-a6a3-e8cdf2da67f6"
+
+FETCHSOURCE
+Fetching storage object:
+gs://staging.cpb100-195004.appspot.com/us.gcr.io/cpb100-195004/appengine/quakes.20180219t162445:latest#1519086313923670
+Copying
+gs://staging.cpb100-195004.appspot.com/us.gcr.io/cpb100-195004/appengine/quakes.20180219t162445:latest#1519086313923670...
+/ [1 files][  3.1 KiB/  3.1 KiB]
+Operation completed over 1 objects/3.1 KiB.
+BUILD
+Already have image (with digest): gcr.io/cloud-builders/docker
+Sending build context to Docker daemon  14.85kB
+Step 1/9 : FROM ubuntu:latest
+ ---> 0458a4468cbc
+Step 2/9 : MAINTAINER Rajdeep Dua "dua_rajdeep@yahoo.com"
+ ---> Running in d42b7a4560fc
+ ---> 2e1bdd9517e2
+Removing intermediate container d42b7a4560fc
+Step 3/9 : RUN apt-get update -y
+ ---> Running in 689b61313dc0
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Get:2 http://archive.ubuntu.com/ubuntu xenial InRelease [247 kB]
+Get:3 http://security.ubuntu.com/ubuntu xenial-security/universe Sources [58.7 kB]
+Get:4 http://security.ubuntu.com/ubuntu xenial-security/main amd64 Packages [563 kB]
+Get:5 http://security.ubuntu.com/ubuntu xenial-security/restricted amd64 Packages [12.7 kB]
+Get:6 http://security.ubuntu.com/ubuntu xenial-security/universe amd64 Packages [259 kB]
+Get:7 http://security.ubuntu.com/ubuntu xenial-security/multiverse amd64 Packages [3486 B]
+Get:8 http://archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:9 http://archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+
+
+... snip ...
+92914665e7f6: Waiting
+c98ef191df4b: Waiting
+9c7183e0ea88: Waiting
+ff986b10a018: Waiting
+6f4ce6b88849: Layer already exists
+92914665e7f6: Layer already exists
+c98ef191df4b: Layer already exists
+9c7183e0ea88: Layer already exists
+ff986b10a018: Layer already exists
+46cf199533b7: Pushed
+6fe5a19310d3: Pushed
+c33e188f7b53: Pushed
+585709c03fa1: Pushed
+latest: digest: sha256:3250e8f33fd1002b51cadb0b9aa623a0b698b96169dd9393e6d12515ebe7d75a size: 2202
+DONE
+
+
+ERROR:
+(gcloud.app.deploy) INVALID_ARGUMENT:
+The first service (module) you upload to a new application must be the 'default' service (module).
+Please upload a version of the 'default' service (module) before uploading a version for the\
+ 'quakes' service (module). See the documentation for more information.
+ Python: (https://developers.google.com/appengine/docs/python/modules/#Python_Uploading%%20modules)
+ Java: (https://developers.google.com/appengine/docs/java/modules/\
+#Java_Uploading%%20modules)
+~/training-data-analyst/CPB100/lab2b/scheduled $ 
+~/training-data-analyst/CPB100/lab2b/scheduled $ 
+~/training-data-analyst/CPB100/lab2b/scheduled $ 
+</code>

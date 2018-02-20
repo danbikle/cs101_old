@@ -1871,7 +1871,35 @@
     =render 'lesson001x'
 
 
+%p In codelabs-tab, I clicked the next link in the series:
 
+%p
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-serverless-ingest/#4' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-serverless-ingest/#4
+%p I studied the above page.
+
+%p In Cloud-Shell-tab, I ran a shell command:
+
+.syntax
+  %pre
+    %code gcloud app deploy --quiet app.yaml cron.yaml
+
+%p I saw this:
+
+.syntax
+  %pre
+    =render 'lesson001y'
+
+%p I ran other shell commands and saw this:
+
+
+.syntax
+  %pre
+    =render 'lesson001z'
+
+%p The above two shell commands generated many-many pages of text.
+
+%p Then at the end it issued an error.
 
 
 %p under construction
