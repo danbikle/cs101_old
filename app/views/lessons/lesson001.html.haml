@@ -1926,7 +1926,36 @@
 
 %p I found it; I enabled it.
 
+%p In codelabs-tab, I clicked the next link in the series:
 
+%p
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-distributed-landsat/#2' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-distributed-landsat/#2
+
+%p I studied that page.
+
+%p In tab-7 I visited the URL below:
+
+%p
+  %a(href='https://cloud.google.com/blog/big-data/2016/11/how-to-do-distributed-processing-of-landsat-data-in-python' target='x')
+    how-to-do-distributed-processing-of-landsat-data-in-python
+  
+%p In Github-tab, I visited the URL below:
+%p
+  %a(href='https://github.com/GoogleCloudPlatform/training-data-analyst/blob/master/blogs/landsat/dfndvi.py' target='x')
+    dfndvi.py
+%p In the above page I studied the run() method.
+
+%p Below, I list sections of that method which I see:
+
+%ul
+  %li parse arguments
+  %li create beam.Pipeline object
+  %li Read the index file and find all scenes that cover this area
+  %li for each month and spacecraft-coverage-pattern (given by the path and row), find clearest scene
+  %li write out info about scene
+  %li compute ndvi on scene
+  
 
 %p under construction
 
