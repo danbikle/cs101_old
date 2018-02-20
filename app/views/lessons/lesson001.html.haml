@@ -1964,23 +1964,18 @@
 
 %p I studied that page.
 
-%p In Cloud-Shell-tab, I ran shell commands:
+%p In Cloud-Shell-tab, I ran commands:
 
 .syntax
   %pre
     %code
       cd ~/training-data-analyst/blogs/landsat/
-      nano run_on_cloud.sh
+      cat run_on_cloud.sh
     
-%p I changed the PROJECT and BUCKET variables to values suitable for me:
-
+%p I ran another shell command which listed both my project and bucket I want to use:
 .syntax
   %pre
-    %code 
-      PROJECT=cpb100-195004
-      BUCKET=cs101feb2018
-
-
+    %code ./run_on_cloud.sh cpb100-195004 cs101feb2018
 
 
 
