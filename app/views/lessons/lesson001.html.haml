@@ -1889,7 +1889,6 @@
 
 %p Perhaps in the future I will encounter App-Engine training content which works better.
 
-
 %p That ended my interaction with the CPB100-node I call: "Serverless-Ingest".
 
 %a(href='#top') [top]
@@ -1970,18 +1969,61 @@
   %pre
     %code
       cd ~/training-data-analyst/blogs/landsat/
-      cat run_on_cloud.sh
+      cat run_oncloud.sh
     
 %p I ran another shell command which listed both my project and bucket I want to use:
 .syntax
   %pre
-    %code ./run_on_cloud.sh cpb100-195004 cs101feb2018
+    %code ./run_oncloud.sh cpb100-195004 cs101feb2018
+
+%p The command failed:
+
+.syntax
+  %pre
+    =render 'lesson001z'
+
+%p The above error was caused by a missing Python module and/or package.
+
+%p I ran two shell scripts I found in the folder:
+
+.syntax
+  %pre
+    %code sudo bash install_ee.sh
+    
+.syntax
+  %pre
+    %code sudo bash install_packages.sh
+
+%p I ran another shell command which listed both my project and bucket I want to use:
+.syntax
+  %pre
+    %code ./run_oncloud.sh cpb100-195004 cs101feb2018
+
+%p I saw this:
+
+.syntax
+  %pre
+    =render 'lesson001za'
 
 
 
 
 
-%p under construction
+
+
+
+
+
+
+
+
+%hr/
+
+%p I decided to abandon this effort.
+
+%p Perhaps in the future I will encounter App-Engine training content which works better.
+
+%p That ended my interaction with the CPB100-node I call: "Distributed-Landsat".
 
 %a(href='#top') [top]
 
