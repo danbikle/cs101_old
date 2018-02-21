@@ -146,7 +146,7 @@
 %p
   %a(href='https://console.developers.google.com/freetrial' target='x')
     https://console.developers.google.com/freetrial
-  
+
 %p
   I logged in using my gmail account.
 
@@ -154,6 +154,7 @@
   It worked well; I gave it my credit-card info.
 %p
   It gave me $300 of cloud-credit from Google.
+%img(src='/lesson001/ss10.png')
 
 %p
   I hope that you can also get that credit.
@@ -186,6 +187,8 @@
 
 %p It did behave well and I was ready to move on.
 
+%img(src='/lesson001/ss11.png')
+
 %p In the codelabs-tab, I returned to the URL listed below:
 %p
   %a(href='https://codelabs.developers.google.com/cpb100' target='x')
@@ -199,13 +202,13 @@
 
 %p Next, in the codelabs-tab, I clicked the next link in the series:
 %p
-  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-compute-engine/index.html' target='x')
-    https://codelabs.developers.google.com/codelabs/cpb100-compute-engine/index.html
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-compute-engine' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-compute-engine
 
 %p I quickly clicked through the first two links in that page and landed at this URL:
 %p
-  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-compute-engine/index.html#2' target='x')
-    https://codelabs.developers.google.com/codelabs/cpb100-compute-engine/index.html#2
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-compute-engine/#2' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-compute-engine/#2
 
 %p It asked me to click the upper-left-hamburger-link in my project page.
 
@@ -215,11 +218,20 @@
 %p
   %a(href='https://console.cloud.google.com/compute' target='x')
     https://console.cloud.google.com/compute
+
+%p I saw this:
+
+%img(src='/lesson001/ss12.png')
+
 %p I clicked the "Create"  button.
 %p It served me a form from this URL:
 %p
   %a(href='https://console.cloud.google.com/compute/instancesAdd' target='x')
     https://console.cloud.google.com/compute/instancesAdd
+    
+%p I saw this:
+
+%img(src='/lesson001/ss13.png')
 
 %p I clicked radio-button: "Allow full access to all Cloud APIs"
 
@@ -250,19 +262,28 @@
       dan@ubu42.net
 
 %p Notice the last line.
+
 %p The last line asks GCP to create a Linux account named "dan" in the new Linux instance.
+
+%p I saw this:
+
+%img(src='/lesson001/ss14.png')
 
 %p Next, I clicked the blue "Create" button.
 
 %p GCP started the instance in about 1 minute.
 
-%p I saw the corresponding IP address: 35.227.120.155
+%p I saw the corresponding IP address: 35.229.101.148
+
+%p I saw this:
+
+%img(src='/lesson001/ss15.png')
 
 %p I tried to login with this shell command:
 
 .syntax
   %pre
-    %code ssh 35.227.120.155
+    %code ssh 35.229.101.148
 
 %p It failed.
 
@@ -270,15 +291,19 @@
 
 .syntax
   %pre
-    %code ssh dan@35.227.120.155
+    %code ssh dan@35.229.101.148
 
 %p The above command worked perfectly.
+
+%p If you do not know how to start a shell on your laptop, you should click the SSH-link in your GCP-tab:
+
+%img(src='/lesson001/ss16.png')
 
 %p Next, I returned to the codelabs-tab; I studied the instructions in this page:
 
 %p
-  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-compute-engine/index.html#4' target='x')
-    https://codelabs.developers.google.com/codelabs/cpb100-compute-engine/index.html#4
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-compute-engine/#4' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-compute-engine/#4
 
 %p I returned to my shell-window.
 
@@ -315,8 +340,8 @@
 %p I studied the page there and clicked through until I landed at this URL:
 
 %p
-  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#2' target='x')
-    https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#2
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/#2' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/#2
 
 %p I verified that I could ssh into the GCP instance I had created earlier.
 
@@ -341,8 +366,8 @@
 %p In the codelabs-tab, I clicked the next node in the page and landed on this URL:
 
 %p
-  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#3' target='x')
-    https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#3
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/#3' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/#3
   
 %p I read the content on that page.
 
@@ -381,8 +406,8 @@
 %p In the codelabs-tab, I clicked the next node in the page and landed on this URL:
 
 %p
-  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#4' target='x')
-    https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#4
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/#4' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/#4
 
 %p I clicked on the GCP-tab.
 
@@ -430,14 +455,14 @@
 %p In the codelabs-tab, I returned to the cpb100 page:
 
 %p
-  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#4' target='x')
-    https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#4
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/#4' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/#4
 
 %p I clicked the next node in the page and landed on this URL:
 
 %p
-  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#5' target='x')
-    https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#5
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/#5' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/#5
 
 %p I returned to the shell prompt of my GCP instance and type a command:
 
@@ -460,14 +485,14 @@
 %p In the codelabs-tab, I returned to the cpb100 page:
 
 %p
-  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#5' target='x')
-    https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#5
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/#5' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/#5
 
 %p I clicked the next node in the page and landed on this URL:
 
 %p
-  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#6' target='x')
-    https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#6
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/#6' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/#6
 
 
 %p I returned to the "Browser" page in the GCP-tab.
@@ -506,14 +531,14 @@
 %p In the codelabs-tab, I returned to the cpb100 page:
 
 %p
-  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#6' target='x')
-    https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#6
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/#6' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/#6
 
 %p I clicked the next node in the page and landed on this URL:
 
 %p
-  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#7' target='x')
-    https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/index.html#7
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/#7' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-storage/#7
 
 %p I followed the instructions in that page to delete my GCP instance.
 
@@ -541,18 +566,18 @@
 
 %p I studied the page it served me:
 %p
-  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/index.html#0' target='x')
-    https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/index.html#0
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#0' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#0
   
 %p I studied the next page in sequence:
 %p
-  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/index.html#1' target='x')
-    https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/index.html#1
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#1' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#1
   
 %p I studied the next page in sequence:
 %p
-  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/index.html#2' target='x')
-    https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/index.html#2
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#2' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#2
   
 %p In the GCP-tab, I visited this URL:
 
@@ -582,8 +607,8 @@
 
 %p In the codelabs-tab, I returned my attention to this page:
 %p
-  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/index.html#2' target='x')
-    https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/index.html#2
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#2' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#2
 
 %p In the Cloud-Shell-tab, I typed a shell command which looked familiar:
 
@@ -661,14 +686,14 @@
 %p I studied it and decided that those actions completed my interaction with the page below:
 
 %p
-  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/index.html#2' target='x')
-    https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/index.html#2
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#2' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#2
 
 %p I navigated to the next page in the sequence:
 
 %p
-  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/index.html#3' target='x')
-    https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/index.html#3
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#3' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#3
 
 %p I returned to the Cloud-Shell-tab.
 
@@ -696,8 +721,8 @@
 %p I navigated to the next page in the sequence:
 
 %p
-  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/index.html#4' target='x')
-    https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/index.html#4
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#4' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#4
 
 %p I studied that page.
 
@@ -800,8 +825,8 @@
 %p In the codelabs-tab, I navigated to the next page in the sequence:
 
 %p
-  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/index.html#5' target='x')
-    https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/index.html#5
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#5' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#5
 
 %p I studied that page.
 
@@ -838,8 +863,8 @@
 %p In the codelabs-tab, I navigated to the next page in the sequence:
 
 %p
-  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/index.html#5' target='x')
-    https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/index.html#5
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#5' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#5
 
 %p I studied that page.
 
@@ -896,8 +921,8 @@
 %p In the codelabs-tab, I navigated to the next page in the sequence:
 
 %p
-  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/index.html#6' target='x')
-    https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/index.html#6
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#6' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#6
 
 %p I noticed a page named: "8. Explore Cloud SQL".
 
