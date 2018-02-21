@@ -1,12 +1,8 @@
 <code class='bash'>
-Welcome to Cloud Shell! Type "help" to get started.
-cs101@cpb100-195004:~$
-cs101@cpb100-195004:~$
-cs101@cpb100-195004:~$
-
-
-
-cs101@cpb100-195004:~$ cd ~/training-data-analyst/CPB100/lab3a
+cs101@cpb100-195004:~/training-data-analyst/CPB100/lab3a$ cat authorize_cloudshell.sh
+#!/bin/bash
+gcloud sql instances patch rentals \
+    --authorized-networks `wget -qO - http://ipecho.net/plain`/32
 cs101@cpb100-195004:~/training-data-analyst/CPB100/lab3a$
 cs101@cpb100-195004:~/training-data-analyst/CPB100/lab3a$
 cs101@cpb100-195004:~/training-data-analyst/CPB100/lab3a$
@@ -22,17 +18,9 @@ Do you want to continue (Y/n)?  y
 
 The following message will be used for the patch API method.
 {"project": "cpb100-195004", "name": "rentals", "settings":
-{"ipConfiguration": {"authorizedNetworks": [{"value": "104.196.242.186/32"}]}}}
+{"ipConfiguration": {"authorizedNetworks": [{"value": "35.227.172.20/32"}]}}}
 Patching Cloud SQL instance...done.
 Updated [https://www.googleapis.com/sql/v1beta4/projects/cpb100-195004/instances/rentals].
-cs101@cpb100-195004:~/training-data-analyst/CPB100/lab3a$
-cs101@cpb100-195004:~/training-data-analyst/CPB100/lab3a$
-cs101@cpb100-195004:~/training-data-analyst/CPB100/lab3a$
-
-
-
-cs101@cpb100-195004:~/training-data-analyst/CPB100/lab3a$ bash find_my_ip.sh
-104.196.242.186
 cs101@cpb100-195004:~/training-data-analyst/CPB100/lab3a$
 cs101@cpb100-195004:~/training-data-analyst/CPB100/lab3a$
 cs101@cpb100-195004:~/training-data-analyst/CPB100/lab3a$
