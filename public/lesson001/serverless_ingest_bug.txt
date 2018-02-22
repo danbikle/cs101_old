@@ -1,0 +1,34 @@
+~/cs101/public/lesson001/serverless_ingest_bug.txt
+
+This file describes buggy behavior I found via the CPB100 tutorial.
+
+I opened Cloud-Shell.
+
+I did this:
+
+bikle101@cpb100-195004:~$
+bikle101@cpb100-195004:~$ git clone https://github.com/GoogleCloudPlatform/training-data-analyst
+Cloning into 'training-data-analyst'...
+remote: Counting objects: 5801, done.
+remote: Compressing objects: 100% (25/25), done.
+remote: Total 5801 (delta 16), reused 22 (delta 9), pack-reused 5767
+Receiving objects: 100% (5801/5801), 14.45 MiB | 28.86 MiB/s, done.
+Resolving deltas: 100% (3186/3186), done.
+bikle101@cpb100-195004:~$
+bikle101@cpb100-195004:~$
+
+
+
+bikle101@cpb100-195004:~$ cd training-data-analyst/
+bikle101@cpb100-195004:~/training-data-analyst$
+bikle101@cpb100-195004:~/training-data-analyst$ git log -1
+commit c9a4885f663864cb85fe910a893f60a88c5cc570
+Author: lakshmanok <lakshmanok@gmail.com>
+Date:   Thu Feb 22 14:53:39 2018 -0800
+
+    updated script for TF Serving
+bikle101@cpb100-195004:~/training-data-analyst$
+bikle101@cpb100-195004:~/training-data-analyst$
+bikle101@cpb100-195004:~/training-data-analyst$
+
+
