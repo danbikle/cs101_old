@@ -1084,29 +1084,9 @@
   %a(href='https://codelabs.developers.google.com/codelabs/cpb100-dataproc/#0' target='x')
     https://codelabs.developers.google.com/codelabs/cpb100-dataproc/#0
   
-%p In the Cloud-Shell tab I typed "ls".
+%p In the Cloud-Shell tab I verifed that repo: "training-data-analyst" was still available.
 
-%p I verifed that repo: "training-data-analyst" was still available.
-
-%p I verified that my MySQL instance was still available.
-
-%p In the GCP-tab, I navigated to the URL listed below:
-
-%p
-  %a(href='https://console.cloud.google.com/sql' target='x')
-    https://console.cloud.google.com/sql
-
-%p I clicked the icon for the MySQL instance.
-
-%p I followed the import procedure I followed in the previous lab.
-
-%p I collected output from Cloud-Shell-tab during my effort to verify tables:
-
-
-.syntax
-  %pre
-    =render 'lesson001k'
-
+%p I verified that my MySQL instance and tables were still available.
 
 %p In the codelabs-tab, I clicked the next link in the series:
 
@@ -1134,19 +1114,45 @@
 
 %p GCP served me a page with blue-button: "Create cluster".
 
+
+%p I saw this:
+
+%img(src='/lesson001/ss34.png')
+
 %p I clicked it.
 
 %p GCP served me a form to configure the cluster.
 
 %p I ensured the cluster was in same region as my Cloud SQL instance: "us-central1".
 
-%p I changed machine type of both master and worker nodes to: "n1-standard-2".
+%p I changed machine type of both master and worker nodes to: "2vCPUs 7.5 GB memory"
 
 %p I specified the cluster have two nodes (the minimum).
+
+%p I saw this:
+
+%img(src='/lesson001/ss35.png')
 
 %p I clicked the blue-button: "Create".
 
 %p GCP served a page indicating it was busy building the cluster.
+
+%p I saw this:
+
+%img(src='/lesson001/ss36.png')
+
+%p I waited for it to finish.
+
+
+
+
+
+
+
+
+
+
+
 
 %p In Cloud-Shell-tab I issued shell commands:
 
