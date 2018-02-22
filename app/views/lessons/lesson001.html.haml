@@ -933,8 +933,8 @@
 %p In the codelabs-tab, I navigated to the next page in the sequence:
 
 %p
-  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#5' target='x')
-    https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#5
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#6' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#6
 
 %p I studied that page.
 
@@ -966,7 +966,6 @@
 
 %img(src='/lesson001/ss33.png')
 
-
 %p I clicked the button.
 
 %p GCP quickly served me a page named "Instance details".
@@ -993,13 +992,11 @@
 
 %p Quickly after that it served a green-check-mark to indicate success.
 
-%p In the codelabs-tab, I navigated to the next page in the sequence:
+%p In the codelabs-tab, I visited the next page in the sequence:
 
 %p
-  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#6' target='x')
-    https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#6
-
-%p I noticed a page named: "8. Explore Cloud SQL".
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#7' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-cloud-sql/#7
 
 %p I studied that page.
 
@@ -1011,19 +1008,41 @@
   %a(href='https://console.cloud.google.com/sql' target='x')
     https://console.cloud.google.com/sql
   
-%p I used that page to get the IP address of the MySQL instance: 35.226.122.211
+%p I used that page to get the IP address of the MySQL instance: 104.197.219.252
 
 %p Next, in the Cloud-Shell-tab, I entered a shell command:
 
 .syntax
   %pre
-    %code.bash mysql --host=35.226.122.211 --user=root --password
+    %code.bash mysql --host=104.197.219.252 --user=root --password
 
 %p I saw this:
 
 .syntax
   %pre
     =render 'lesson001h'
+
+%p The above error was caused because Cloud-Shell had "lost" its IP address.
+
+%p So, GCP gave it a new IP address.
+
+%p It was up to me tell MySQL about this problem.
+
+%p I tried these shell commands:
+
+.syntax
+  %pre
+    %code
+      cd ~/training-data-analyst/CPB100/lab3a
+      bash find_my_ip.sh
+      bash authorize_cloudshell.sh
+      mysql --host=104.197.219.252 --user=root --password
+
+%p I saw this:
+
+.syntax
+  %pre
+    =render 'lesson001h2'
 
 %p At the MySQL prompt I entered a command:
 
