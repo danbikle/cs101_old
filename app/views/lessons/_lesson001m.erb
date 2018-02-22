@@ -1,19 +1,19 @@
 <code class='bash'>
-cs101@cpb100-195004:~/training-data-analyst/CPB100/lab3b$
-cs101@cpb100-195004:~/training-data-analyst/CPB100/lab3b$ bash authorize_dataproc.sh cluster-27ae us-central1 2
-Machines to authorize: cluster-27ae-m cluster-27ae-w-0 cluster-27ae-w-1 in us-central1 ... finding their IP addresses
+cs101@cpb100-195004:~/training-data-analyst/CPB100/lab3b$ bash authorize_dataproc.sh cluster-d037 us-central1 2
+Machines to authorize: cluster-d037-m cluster-d037-w-0 cluster-d037-w-1 in us-central1
+... finding their IP addresses
 ERROR: (gcloud.compute.instances.describe) Could not fetch resource:
  - Invalid value for field 'zone': 'us-central1'. Unknown zone.
 
-IP address of cluster-27ae-m is /32
+IP address of cluster-d037-m is /32
 ERROR: (gcloud.compute.instances.describe) Could not fetch resource:
  - Invalid value for field 'zone': 'us-central1'. Unknown zone.
 
-IP address of cluster-27ae-w-0 is /32
+IP address of cluster-d037-w-0 is /32
 ERROR: (gcloud.compute.instances.describe) Could not fetch resource:
  - Invalid value for field 'zone': 'us-central1'. Unknown zone.
 
-IP address of cluster-27ae-w-1 is /32
+IP address of cluster-d037-w-1 is /32
 Authorizing [/32,/32,/32] to access cloudsql=rentals
 ERROR: (gcloud.sql.instances.patch) argument --authorized-networks: Bad value [/32]:
 Must be specified in CIDR notation, also known as 'slash' notation (e.g. 192.168.100.0/24).
@@ -33,6 +33,7 @@ Usage: gcloud sql instances patch INSTANCE [optional flags]
 
 For detailed information on this command and its flags, run:
   gcloud sql instances patch --help
+cs101@cpb100-195004:~/training-data-analyst/CPB100/lab3b$
 cs101@cpb100-195004:~/training-data-analyst/CPB100/lab3b$
 cs101@cpb100-195004:~/training-data-analyst/CPB100/lab3b$
 </code>

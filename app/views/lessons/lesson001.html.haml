@@ -1147,23 +1147,13 @@
 
 %img(src='/lesson001/ss37.png')
 
-
-
-
-
-
-
-
-
-
-
 %p In Cloud-Shell-tab I issued shell commands:
 
 .syntax
   %pre
     %code.bash
       cd ~/training-data-analyst/CPB100/lab3b
-      bash authorize_dataproc.sh cluster-27ae us-central1 2
+      bash authorize_dataproc.sh cluster-d037 us-central1 2
 
 %p It served me an error:
 
@@ -1183,22 +1173,13 @@
 .syntax
   %pre
     %code.bash
-      bash authorize_dataproc.sh cluster-27ae us-central1-f 2
+      bash authorize_dataproc.sh cluster-d037 us-central1-f 2
 
-%p It served me another error:
+%p I saw this:
 
 .syntax
   %pre
     =render 'lesson001n'
-
-%p In GCP-tab, I used the web UI to authorize the addresses listed in the above error.
-
-%p I found the web UI at this URL:
-
-%p
-  %a(href='https://console.cloud.google.com/sql/instances/rentals2/authorization' target='x')
-    https://console.cloud.google.com/sql/instances/rentals2/authorization
-
 
 %p In the codelabs-tab, I clicked the next link in the series:
 
@@ -1214,7 +1195,11 @@
   %pre
     %code.bash nano sparkml/train_and_apply.py
 
-%p I typed in the IP-address of the Cloud-SQL-Instance: 35.192.114.78
+%p I typed in the IP-address of the Cloud-SQL-Instance: 104.197.219.252
+
+%p I saw this:
+
+%img(src='/lesson001/ss39.png')
 
 %p I entered a shell command:
 
@@ -1243,12 +1228,19 @@
   %pre
     %code.bash gs://cs101feb2018/train_and_apply.py
 
+%p I saw this:
+
+%img(src='/lesson001/ss40.png')
+
 %p Near the bottom, I clicked on the blue-button: "Submit"
 
 %p GCP accepted the job and then gave it a status of: "Running".
 
-%p After two minutes, GCP changed the status to "Succeeded".
+%p I saw this:
 
+%img(src='/lesson001/ss41.png')
+
+%p After two minutes, GCP changed the status to "Succeeded".
 
 %p In codelabs-tab, I clicked the next link in the series:
 
@@ -1268,7 +1260,23 @@
 
 .syntax
   %pre
-    %code.bash mysql --host=35.192.114.78 --user=root --password
+    %code mysql --host=104.197.219.252 --user=root --password
+
+%p It failed because GCP lost the authorization for Cloud-Shell.
+
+%p I got authorization again with these shell commands:
+
+.syntax
+  %pre
+    %code
+      cd ~/training-data-analyst/CPB100/lab3a
+      bash authorize_cloudshell.sh
+
+%p In Cloud-Shell-tab, I verified that I could connect to MySQL.
+
+.syntax
+  %pre
+    %code mysql --host=104.197.219.252 --user=root --password
 
 %p I issued a command:
 
