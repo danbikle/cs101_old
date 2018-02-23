@@ -398,6 +398,27 @@ Next, in the codelabs-tab, I clicked this link:
 %img(src='/lesson002/l226.png')
 %br/
 
+%p In that Cloud-Shell-tab, I entered commands:
+
+.syntax
+  %pre
+    %code
+      mkdir cp100
+      cd cp100
+      gcloud source repos clone default
+      cd default
+      ls -la
+      git pull  https://github.com/GoogleCloudPlatformTraining/cp100-bookshelf
+      ls -la
+      git push origin master
+
+%p I saw this:
+
+.syntax
+  %pre
+    =render 'lesson002a'
+
+
 
 
 
