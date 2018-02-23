@@ -1,6 +1,8 @@
 ~/cs101/public/lesson001/serverless_ingest_bug.txt
 
-This file describes buggy behavior I found via the CPB100 tutorial.
+This post describes buggy behavior I found via the CPB100 tutorial:
+
+https://codelabs.developers.google.com/cpb100
 
 I opened Cloud-Shell.
 
@@ -19,6 +21,7 @@ bikle101@cpb100-195004:~$
 
 
 
+
 bikle101@cpb100-195004:~$ cd training-data-analyst/
 bikle101@cpb100-195004:~/training-data-analyst$
 bikle101@cpb100-195004:~/training-data-analyst$ git log -1
@@ -30,10 +33,10 @@ Date:   Thu Feb 22 14:53:39 2018 -0800
 bikle101@cpb100-195004:~/training-data-analyst$
 bikle101@cpb100-195004:~/training-data-analyst$
 bikle101@cpb100-195004:~/training-data-analyst$
-
-
+    
+    
 I read these URLs:
-
+    
 https://codelabs.developers.google.com/codelabs/cpb100-serverless-ingest/#0
 https://codelabs.developers.google.com/codelabs/cpb100-serverless-ingest/#1
 https://codelabs.developers.google.com/codelabs/cpb100-serverless-ingest/#2
@@ -41,6 +44,7 @@ https://codelabs.developers.google.com/codelabs/cpb100-serverless-ingest/#3
 https://codelabs.developers.google.com/codelabs/cpb100-serverless-ingest/#4
 
 I did this:
+
 
 cd ~/training-data-analyst/CPB100/lab2b/scheduled
 vi app.yaml
@@ -67,13 +71,9 @@ bikle101@cpb100-195004:~/training-data-analyst/CPB100/lab2b/scheduled$
 bikle101@cpb100-195004:~/training-data-analyst/CPB100/lab2b/scheduled$
 
 
-- url: /ingest
-  script: ingestapp.app
 
-- url: /.*
-  script: ingestapp.app
-bikle101@cpb100-195004:~/training-data-analyst/CPB100/lab2b/scheduled$
-bikle101@cpb100-195004:~/training-data-analyst/CPB100/lab2b/scheduled$
+Then this:
+
 bikle101@cpb100-195004:~/training-data-analyst/CPB100/lab2b/scheduled$ gcloud app deploy --quiet app.yaml cron.yaml
 Services to deploy:
 
@@ -139,4 +139,33 @@ a0dabccfae11: Pushed
 latest: digest: sha256:3fd9b2f588ba5029eee000ddf428f386bb707bb2396036f32646b7dd687c0d61 size: 2202
 DONE
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Updating service [quakes] (this may take several minutes)...failed.
+ERROR: (gcloud.app.deploy) Error Response: [9]
+Application startup error:
+/usr/lib/python2.7/dist-packages/matplotlib/font_manager.py:273: UserWarning: Matplotlib is building the font cache using fc-list. This may take a moment.
+  warnings.warn('Matplotlib is building the font cache using fc-list. This may take a moment.')
+Traceback (most recent call last):
+  File "ingestapp.py", line 22, in <module>
+    import google.cloud.storage as gcs
+  File "/usr/local/lib/python2.7/dist-packages/google/cloud/storage/__init__.py", line 39, in <module>
+    from google.cloud.storage.batch import Batch
+  File "/usr/local/lib/python2.7/dist-packages/google/cloud/storage/batch.py", line 29, in <module>
+    from google.cloud.exceptions import make_exception
+ImportError: cannot import name make_exception
+
+bikle101@cpb100-195004:~/training-data-analyst/CPB100/lab2b/scheduled$
+bikle101@cpb100-195004:~/training-data-analyst/CPB100/lab2b/scheduled$
+bikle101@cpb100-195004:~/training-data-analyst/CPB100/lab2b/scheduled$
+bikle101@cpb100-195004:~/training-data-analyst/CPB100/lab2b/scheduled$
+    
+
+
+I'd welcome any tips on fixing this lab:
+
+
+https://codelabs.developers.google.com/codelabs/cpb100-serverless-ingest/#0
+
+
+Thanks, -Dan
