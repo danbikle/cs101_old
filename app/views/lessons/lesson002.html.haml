@@ -705,7 +705,30 @@ Next, in the codelabs-tab, I clicked this link:
   
 %p I studied that page.
 
+%p In the GCP-tab I visited a URL:
 
+%p
+  %a(href='https://console.cloud.google.com' target='x')
+    https://console.cloud.google.com
+
+%p In the top-right, I clicked the Cloud-Shell icon to start a new Cloud-Shell.
+
+%p I moved the new Cloud-Shell window to tab 5.
+
+%p In Cloud-Shell-tab, I entered commands:
+
+.syntax
+  %pre
+    %code
+      echo $DEVSHELL_PROJECT_ID
+      gcloud compute zones list|grep central
+      gsutil mb -l us-central1 gs://$DEVSHELL_PROJECT_ID
+
+%p I saw this:
+
+%img(src='/lesson002/l235.png')
+
+%p
 
 %a(href='#top') [top]
 %hr/
