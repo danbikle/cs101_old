@@ -99,6 +99,8 @@
     %a(href='#app-engine') app-engine
   %li
     %a(href='#cloud-storage') cloud-storage
+  %li
+    %a(href='#compute-engine') compute-engine
 
 %hr/
 
@@ -839,8 +841,92 @@ Next, in the codelabs-tab, I clicked this link:
 %a(href='#top') [top]
 %hr/
 
+%h2#compute-engine Compute-Engine
+
+%p Next, in the codelabs-tab, I clicked this link:
+
+%p
+  %a(href='https://codelabs.developers.google.com/codelabs/cp100-compute-engine' target='x')
+    https://codelabs.developers.google.com/codelabs/cp100-compute-engine
+  
+%p I saw this:
+
+%img(src='/lesson002/l241.png')
+
+%p I studied that page.
+
+%p I studied the next page:
+%p
+  %a(href='https://codelabs.developers.google.com/codelabs/cp100-compute-engine/#1' target='x')
+    https://codelabs.developers.google.com/codelabs/cp100-compute-engine/#1
+  
+%p I bookmarked links in that page:
+
+%ul
+  %li
+    %a(href='https://cloud.google.com/compute/docs/' target='x')
+      https://cloud.google.com/compute/docs/
+  %li
+    %a(href='https://cloud.google.com/python/tutorials/bookshelf-on-compute-engine#multiple_instances' target='x')
+      https://cloud.google.com/python/tutorials/bookshelf-on-compute-engine#multiple_instances
+  %li
+    %a(href='https://cloud.google.com/compute/docs/startupscript' target='x')
+      https://cloud.google.com/compute/docs/startupscript
+  %li
+    %a(href='https://cloud.google.com/solutions/google-compute-engine-management-puppet-chef-salt-ansible' target='x')
+      https://cloud.google.com/solutions/google-compute-engine-management-puppet-chef-salt-ansible
+  %li
+    %a(href='https://cloud.google.com/deployment-manager/overview' target='x')
+      https://cloud.google.com/deployment-manager/overview
+  
+%p I studied the next page:
+%p
+  %a(href='https://codelabs.developers.google.com/codelabs/cp100-compute-engine/#2' target='x')
+    https://codelabs.developers.google.com/codelabs/cp100-compute-engine/#2
+  
+%p In the GCP-tab, I visited URL:
+%p
+  %a(href='https://console.cloud.google.com/code' target='x')
+    https://console.cloud.google.com/code
+%p I clicked folder: "compute-engine".
+%p I clicked folder: "startup-scripts".
+%p I clicked file: "startup-script.sh"
+
+%p I studied lines: 20, 45, 52.
+
+%p In the codelabs-tab,  I studied the next page:
+%p
+  %a(href='https://codelabs.developers.google.com/codelabs/cp100-compute-engine/#3' target='x')
+    https://codelabs.developers.google.com/codelabs/cp100-compute-engine/#3
+
+%p I studied that page.
+
+%p In GCP-tab I visited URL:
+%p
+  %a(href='https://console.cloud.google.com' target='x')
+    https://console.cloud.google.com
+%p I used the top-right Cloud-Shell icon to start a new Cloud-Shell.
+
+%p I moved Cloud-Shell to tab-5.
+
+%p In Cloud-Shell, I issued commands:
+
+.syntax
+  %pre
+    %code
+      cd ~/cp100/default/compute-engine
+      gcloud compute zones list | grep central
+      gcloud config set compute/zone us-central1-f
+
+%p GCP indicated success.
 
 
+%p In Cloud-Shell, I entered a long command:
+
+.syntax
+  %pre
+    =render 'lesson002c'
+%p
 
 %a(href='#top') [top]
 %hr/
