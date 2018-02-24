@@ -17,8 +17,6 @@ bikle101@cp100-196102:~/cp100/default/app-engine$
 
 
 
-bikle101@cp100-196102:~/cp100/default/app-engine$
-bikle101@cp100-196102:~/cp100/default/app-engine$
 bikle101@cp100-196102:~/cp100/default/app-engine$ pip install -r requirements.txt -t lib
 Collecting Flask==0.11.1 (from -r requirements.txt (line 1))
   Downloading Flask-0.11.1-py2.py3-none-any.whl (80kB)
@@ -42,12 +40,15 @@ Collecting MarkupSafe>=0.23 (from Jinja2>=2.4->Flask==0.11.1->-r requirements.tx
   Downloading MarkupSafe-1.0.tar.gz
 Building wheels for collected packages: itsdangerous, MarkupSafe
   Running setup.py bdist_wheel for itsdangerous ... done
-  Stored in directory: /home/bikle101/.cache/pip/wheels/fc/a8/66/24d655233c757e178d45dea2de22a04c6d92766abfb741129a
+  Stored in directory:
+  /home/bikle101/.cache/pip/wheels/fc/a8/66/24d655233c757e178d45dea2de22a04c6d92766abfb741129a
   Running setup.py bdist_wheel for MarkupSafe ... done
-  Stored in directory: /home/bikle101/.cache/pip/wheels/88/a7/30/e39a54a87bcbe25308fa3ca64e8ddc75d9b3e5afa21ee32d57
+  Stored in directory:
+  /home/bikle101/.cache/pip/wheels/88/a7/30/e39a54a87bcbe25308fa3ca64e8ddc75d9b3e5afa21ee32d57
 Successfully built itsdangerous MarkupSafe
 Installing collected packages: itsdangerous, click, Werkzeug, MarkupSafe, Jinja2, Flask, gunicorn
-Successfully installed Flask-0.11.1 Jinja2-2.10 MarkupSafe-1.0 Werkzeug-0.14.1 click-6.7 gunicorn-19.6.0 itsdangerous-0.24
+Successfully installed Flask-0.11.1 Jinja2-2.10 MarkupSafe-1.0 Werkzeug-0.14.1 click-6.7
+gunicorn-19.6.0 itsdangerous-0.24
 bikle101@cp100-196102:~/cp100/default/app-engine$
 bikle101@cp100-196102:~/cp100/default/app-engine$
 bikle101@cp100-196102:~/cp100/default/app-engine$
@@ -74,12 +75,12 @@ bikle101@cp100-196102:~/cp100/default/app-engine$
 bikle101@cp100-196102:~/cp100/default/app-engine$
 
 
-bikle101@cp100-196102:~/cp100/default/app-engine$
+
 bikle101@cp100-196102:~/cp100/default/app-engine$ gcloud app deploy
 You are creating an app for project [cp100-196102].
 WARNING: Creating an App Engine application for a project is irreversible and the region
 cannot be changed. More information about regions is at
-<https://cloud.google.com/appengine/docs/locations>.
+&lt;https://cloud.google.com/appengine/docs/locations>.
 
 Please choose the region where you want your App Engine application
 located:
@@ -115,7 +116,9 @@ target url:      [https://cp100-196102.appspot.com]
 Do you want to continue (Y/n)?
 
 Beginning deployment of service [default]...
-/google/google-cloud-sdk/lib/googlecloudsdk/core/util/files.py:622: UnicodeWarning: Unicode equal comparison failed to convert both arguments to Unicode - interpreting them as being unequal
+/google/google-cloud-sdk/lib/googlecloudsdk/core/util/files.py:622: UnicodeWarning:
+Unicode equal comparison failed to convert both arguments to Unicode -
+interpreting them as being unequal
   for chunk in iter(lambda: fp.read(4096), ''):
 Some files were skipped. Pass `--verbosity=info` to see which ones.
 You may also view the gcloud log file, found at
@@ -125,7 +128,9 @@ You may also view the gcloud log file, found at
 ╚════════════════════════════════════════════════════════════╝
 File upload done.
 Updating service [default]...done.
-Waiting for operation [apps/cp100-196102/operations/127ce446-a28d-4ab7-b55d-0a3b002ca388] to complete...done.
+Waiting for operation
+[apps/cp100-196102/operations/127ce446-a28d-4ab7-b55d-0a3b002ca388]
+to complete...done.
 Updating service [default]...done.
 Deployed service [default] to [https://cp100-196102.appspot.com]
 
@@ -139,6 +144,14 @@ bikle101@cp100-196102:~/cp100/default/app-engine$
 bikle101@cp100-196102:~/cp100/default/app-engine$
 bikle101@cp100-196102:~/cp100/default/app-engine$
 
+
+
+bikle101@cp100-196102:~/cp100/default/app-engine$ gcloud app browse
+Did not detect your browser. Go to this link to view your app:
+https://cp100-196102.appspot.com
+bikle101@cp100-196102:~/cp100/default/app-engine$
+bikle101@cp100-196102:~/cp100/default/app-engine$
+bikle101@cp100-196102:~/cp100/default/app-engine$
 
 
 </code>
