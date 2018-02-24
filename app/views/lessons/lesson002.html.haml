@@ -1138,6 +1138,44 @@ Next, in the codelabs-tab, I clicked this link:
   %pre
     =render 'lesson002g'
 
+%p Next, in the GCP-tab, I entered this URL:
+
+%p
+  %a(href='https://console.cloud.google.com/code' target='x')
+    https://console.cloud.google.com/code
+%p I clicked folder: "container-engine".
+%p I clicked folder: "bookshelf".
+%p I clicked file: "storage.py".
+%p I studied line 18.
+%p I studied lines 24,25,26.
+%p I studied lines 49 through 70.
+%p I returned to folder: "container-engine".
+%p I clicked file: "bookshelf-frontend.yaml".
+%p I studied lines 24 through 52.
+%p I studied lines 63 through 77.
+
+%p In the codelabs-tab I clicked through to the next URL:
+%p
+  %a(href='https://codelabs.developers.google.com/codelabs/cp100-container-engine/#3' target='x')
+    https://codelabs.developers.google.com/codelabs/cp100-container-engine/#3
+
+%p I studied that page.
+
+%p In the Cloud-Shell-tab I entered commands:
+
+.syntax
+  %pre
+    %code
+      cd ~/cp100/default/container-engine
+      sed -i s/your-project-id/$DEVSHELL_PROJECT_ID/ config.py
+      sed -i s/your-project-id/$DEVSHELL_PROJECT_ID/ bookshelf-frontend.yaml
+      gcloud config set container/cluster bookshelf
+      docker build -t gcr.io/$DEVSHELL_PROJECT_ID/bookshelf .
+      gcloud docker -- push gcr.io/$DEVSHELL_PROJECT_ID/bookshelf
+      gcloud container clusters get-credentials bookshelf
+      kubectl create -f bookshelf-frontend.yaml
+      kubectl get pods
+      kubectl get services bookshelf-frontend
 
 
 %p
