@@ -703,7 +703,7 @@ Next, in the codelabs-tab, I clicked this link:
   %a(href='https://codelabs.developers.google.com/codelabs/cp100-cloud-storage/#3' target='x')
     https://codelabs.developers.google.com/codelabs/cp100-cloud-storage/#3
   
-%p I studied that page.
+%p I studied that page to understand the shell commands below:
 
 %p In the GCP-tab I visited a URL:
 
@@ -728,7 +728,38 @@ Next, in the codelabs-tab, I clicked this link:
 
 %img(src='/lesson002/l235.png')
 
+%p In Cloud-Shell-tab, I entered another command:
+
+.syntax
+  %pre
+    %code gsutil defacl ch -u AllUsers:R gs://$DEVSHELL_PROJECT_ID
+
+%p GCP indicated success.
+
+%p In the GCP-tab I visited a URL:
+
 %p
+  %a(href='https://console.cloud.google.com/code' target='x')
+    https://console.cloud.google.com/code
+
+%p I clicked folder: "cloud-storage".
+
+%p I clicked "config.py".
+
+%p I studied lines 47 through 49.
+%p I clicked folder: "cloud-storage".
+%p I clicked folder: "bookshelf".
+
+%p I clicked "storage.py".
+%p I studied lines 47 through 69.
+
+%p I clicked folder: "bookshelf".
+%p I clicked folder: "templates".
+%p I clicked "list.html".
+%p I studied lines 31 through 35.
+
+%p 
+
 
 %a(href='#top') [top]
 %hr/
