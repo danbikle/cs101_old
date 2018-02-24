@@ -758,7 +758,42 @@ Next, in the codelabs-tab, I clicked this link:
 %p I clicked "list.html".
 %p I studied lines 31 through 35.
 
-%p 
+
+%p I clicked the next link in the sequence:
+
+%p
+  %a(href='https://codelabs.developers.google.com/codelabs/cp100-cloud-storage/#4' target='x')
+    https://codelabs.developers.google.com/codelabs/cp100-cloud-storage/#4
+  
+%p I studied that page.
+
+%p In Cloud-Shell-tab I entered command:
+
+.syntax
+  %pre
+    %code cd ~/cp100/default/cloud-storage
+
+%p I used sed-command to edit a file:
+
+.syntax
+  %pre
+    %code
+      sed -i s/your-bucket-name/$DEVSHELL_PROJECT_ID/ config.py
+      grep BUCKET config.py
+
+%p I entered more commands:
+.syntax
+  %pre
+    %code
+      cat requirements.txt
+      pip install -r requirements.txt -t lib
+      gcloud app deploy
+      
+%p I saw this:
+
+%img(src='/lesson002/l236.png')
+
+
 
 
 %a(href='#top') [top]
