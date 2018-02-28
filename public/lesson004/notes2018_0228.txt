@@ -11,3 +11,7 @@ I want to learn enough about serverless tech so I can quickly:
     - forex
 
 
+I looked at cloud-functions.
+I see that they depend on JavaScript.
+I'd prefer to use Python.
+
