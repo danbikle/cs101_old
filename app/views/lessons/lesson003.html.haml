@@ -5,7 +5,10 @@
 %ul
   %li Anaconda
   %li Jupyter
-  %li Python
+  %li
+    %a(href='#python') Python
+  %li
+    %a(href='#ds') Data Science
 
 %p I did this lesson and collected notes during my efforts.
 
@@ -164,15 +167,53 @@
 
 %p I show you More python below.
 
-%p Try to slowly and carefull run pieces of it in Jupyter:
+%p Try to slowly and carefully run pieces of it in Jupyter:
 
 .syntax
   %pre
     =render 'lesson003py4ds1'
-    
+   
+%h2#ds Data Science
+
+%p To do this exercise I shutdown Jupyter.
+
+%p Then I downloaded two CSV files into my Downloads folder on my laptop:
+
+%ul
+  %li
+    %a(href='/lesson003/boston_housing_data.csv') boston_housing_data.csv
+  %li
+    %a(href='/lesson003/family.csv') family.csv
+
+%p I wanted Jupyter to see those two files.
+
+%p So, I used two shell commands to start Jupyter from the Downloads folder:
+
+.syntax
+  %pre
+    %code
+      cd ~/Downloads
+      jupyter notebook
+      
+%p Here is some Python which introduces you to Data Science.
+
+%p I ran the Python in my Jupyter Notebook and it worked well:
+ 
+.syntax
+  %pre
+    =render 'lesson003py4ds2'
+
+%p I saw this:
+
+%img(src='/lesson003/ds10.png')
+
+%p I saw this:
+
+%img(src='/lesson003/ds11.png')
+
+%p I saw this:
+
+%img(src='/lesson003/ds12.png')
+
 
 %hr/
-
-
-
-
