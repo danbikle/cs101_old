@@ -15,3 +15,15 @@ I looked at cloud-functions.
 I see that they depend on JavaScript.
 I'd prefer to use Python.
 
+Next I looked at "Dataprep".
+
+That is a third party service called Trifacta.
+
+I prefer to stick with something open-source.
+
+Next I looked at "Dataflow".
+
+I see evidence that it uses Python.
+
+I collected some screenshots of me setting it up.
+
