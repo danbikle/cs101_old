@@ -110,3 +110,25 @@ I acted on it:
       - https://issuetracker.google.com/issues/new?component=187143
       
     
+- I created multi-regional bucket: dandf
+- https://cloud.google.com/storage/docs/gsutil/commands/mb
+
+- gsutil mb gs://dandf
+- gsutil ls
+- locally:
+- FAILs: conda install  google-cloud-dataflow
+- FAILs: pip install google-cloud-dataflow
+- google-cloud-dataflow is python 2only I think
+- I should setup a gcloud linux account...
+
+- python -m apache_beam.examples.wordcount --output OUTPUT_FILE
+- try this in cloud-shell:
+BUCKET=gs://dandf
+echo $PROJECT
+python -m apache_beam.examples.wordcount \
+  --project $PROJECT \
+  --runner DataflowRunner \
+  --staging_location $BUCKET/staging \
+  --temp_location $BUCKET/temp \
+  --output $BUCKET/results/output
+  
