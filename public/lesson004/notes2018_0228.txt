@@ -87,10 +87,26 @@ I acted on it:
     - gcloud --help
   - download:
     - https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-191.0.0-linux-x86_64.tar.gz
+    - cp ~/dl/goog*gz ~/cs101/public/
     - ll /home/dan/dl/google-cloud-sdk
     - mv /home/dan/dl/google-cloud-sdk ~
     - cd ~
     - ln -s google-cloud-sdk gc
     - gc/bin/gcloud --help
     - Note that gcloud is a shell wrapper of a python 2.7 script
+    - gc/bin/gcloud init
+    - It worked; then served links:
+      - https://cloud.google.com/sdk/auth_success
+      - https://cloud.google.com/sdk/gcloud
+      - https://cloud.google.com/sdk/cloudplatform
+      - https://developers.google.com/api-client-library
+      - https://console.cloud.google.com/start/appengine
+      - https://cloud.google.com/compute/docs/quickstart
+      - https://cloud.google.com/bigquery/bq-command-line-tool-quickstart
+      - https://cloud.google.com/cloud-sql/docs/cloud-sdk
+      - https://cloud.google.com/cloud-dns/getting-started
+      - http://stackoverflow.com/questions/tagged/gcloud
+      - https://groups.google.com/forum/?fromgroups#!forum/google-cloud-dev
+      - https://issuetracker.google.com/issues/new?component=187143
+      
     
