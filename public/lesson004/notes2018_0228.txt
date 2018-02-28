@@ -1,0 +1,13 @@
+~/cs101/public/lesson004/notes2018_0228.txt
+
+This file should hold notes I gather while I write lesson004.
+
+I want to learn enough about serverless tech so I can quickly:
+  - gather new prices
+  - build new models
+  - issue new predictions
+  - for both:
+    - stocks
+    - forex
+
+
