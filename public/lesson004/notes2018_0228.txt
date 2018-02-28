@@ -31,3 +31,66 @@ url:
   https://github.com/GoogleCloudPlatform/DataflowJavaSDK
   https://cloud.google.com/dataflow/docs
   
+These screenshots are from a walk-through of a java-wordcount-app:
+
+
+dan@h80:~/cs101/public/lesson004 $ ll
+total 6280
+drwxrwxr-x 2 dan dan   4096 Feb 28 13:38 ./
+drwxrwxr-x 9 dan dan   4096 Feb 28 12:28 ../
+-rw-rw-r-- 1 dan dan  53573 Feb 28 13:00 df100.png
+-rw-rw-r-- 1 dan dan 106321 Feb 28 13:06 df101.png
+-rw-rw-r-- 1 dan dan 148674 Feb 28 13:08 df102.png
+-rw-rw-r-- 1 dan dan  87126 Feb 28 13:08 df103.png
+-rw-rw-r-- 1 dan dan  87024 Feb 28 13:09 df104.png
+-rw-rw-r-- 1 dan dan  84377 Feb 28 13:09 df105.png
+-rw-rw-r-- 1 dan dan  87019 Feb 28 13:10 df106.png
+-rw-rw-r-- 1 dan dan  98222 Feb 28 13:11 df107.png
+-rw-rw-r-- 1 dan dan  98486 Feb 28 13:11 df108.png
+-rw-rw-r-- 1 dan dan 185597 Feb 28 13:12 df110.png
+-rw-rw-r-- 1 dan dan 190951 Feb 28 13:13 df111.png
+-rw-rw-r-- 1 dan dan 231717 Feb 28 13:14 df112.png
+-rw-rw-r-- 1 dan dan 281559 Feb 28 13:15 df113.png
+-rw-rw-r-- 1 dan dan 285828 Feb 28 13:16 df114.png
+-rw-rw-r-- 1 dan dan 286466 Feb 28 13:17 df115.png
+-rw-rw-r-- 1 dan dan 242159 Feb 28 13:18 df116.png
+-rw-rw-r-- 1 dan dan 318965 Feb 28 13:19 df117.png
+-rw-rw-r-- 1 dan dan 278053 Feb 28 13:26 df118.png
+-rw-rw-r-- 1 dan dan 302921 Feb 28 13:27 df119.png
+-rw-rw-r-- 1 dan dan 257588 Feb 28 13:28 df120.png
+-rw-rw-r-- 1 dan dan 211161 Feb 28 13:29 df121.png
+-rw-rw-r-- 1 dan dan 203312 Feb 28 13:30 df122.png
+-rw-rw-r-- 1 dan dan 252887 Feb 28 13:30 df123.png
+-rw-rw-r-- 1 dan dan 277639 Feb 28 13:31 df124.png
+-rw-rw-r-- 1 dan dan 285199 Feb 28 13:31 df125.png
+-rw-rw-r-- 1 dan dan 130804 Feb 28 13:32 df126.png
+-rw-rw-r-- 1 dan dan 119631 Feb 28 13:33 df127.png
+-rw-rw-r-- 1 dan dan  85294 Feb 28 13:33 df128.png
+-rw-rw-r-- 1 dan dan 114232 Feb 28 13:34 df129.png
+-rw-rw-r-- 1 dan dan  96846 Feb 28 13:34 df130.png
+-rw-rw-r-- 1 dan dan 101699 Feb 28 13:35 df131.png
+-rw-rw-r-- 1 dan dan 114186 Feb 28 13:36 df132.png
+-rw-rw-r-- 1 dan dan  93028 Feb 28 13:36 df133.png
+-rw-rw-r-- 1 dan dan 124919 Feb 28 13:37 df134.png
+-rw-rw-r-- 1 dan dan 207232 Feb 28 13:38 df135.png
+
+
+Next I studied this:
+
+https://cloud.google.com/dataflow/docs/quickstarts/quickstart-python
+
+I acted on it:
+
+  - Install cloud SDK:
+    - https://cloud.google.com/sdk/docs/
+  - See if gcloud in my PATH already:
+    - gcloud --help
+  - download:
+    - https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-191.0.0-linux-x86_64.tar.gz
+    - ll /home/dan/dl/google-cloud-sdk
+    - mv /home/dan/dl/google-cloud-sdk ~
+    - cd ~
+    - ln -s google-cloud-sdk gc
+    - gc/bin/gcloud --help
+    - Note that gcloud is a shell wrapper of a python 2.7 script
+    
