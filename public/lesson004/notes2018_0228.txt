@@ -123,12 +123,37 @@ I acted on it:
 
 - python -m apache_beam.examples.wordcount --output OUTPUT_FILE
 - try this in cloud-shell:
-BUCKET=gs://dandf
+
+cd ~
+
+virtualenv venv10
+
+. venv10/bin/activate
+
+pip install google-cloud-dataflow
+
+pip install google-cloud-dataflow
+export BUCKET=gs://dandf
 echo $PROJECT
+export PROJECT=less004-196620
 python -m apache_beam.examples.wordcount \
   --project $PROJECT \
   --runner DataflowRunner \
   --staging_location $BUCKET/staging \
   --temp_location $BUCKET/temp \
   --output $BUCKET/results/output
-  
+
+It seemed to start okay...
+
+INFO:root:2018-02-28T23:40:26.179Z: JOB_MESSAGE_BASIC: (38b1db2af5f4ff13): Worker pool stopped.
+INFO:root:2018-02-28T23:40:26.216Z: JOB_MESSAGE_DEBUG: (38b1db2af5f4f94f): Tearing down pending resources...
+INFO:root:Job 2018-02-28_15_32_29-364152677400130160 is in state JOB_STATE_DONE
+INFO:root:number of empty lines: 1663
+INFO:root:average word length: 4
+(venv10) bikle101@less004-196620:~$
+(venv10) bikle101@less004-196620:~$
+
+I think it worked!
+
+It looks like I should study this:
+  - apache_beam.examples.wordcount.py
