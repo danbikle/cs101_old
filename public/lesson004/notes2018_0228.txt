@@ -157,3 +157,26 @@ I think it worked!
 
 It looks like I should study this:
   - apache_beam.examples.wordcount.py
+
+ooooooooo
+
+2018-03-01
+
+a 2nd walkthrough today
+
+I started by creating a new project: dfnow
+
+I bumped into an issue with billing.
+
+I think billing limits me to 5 projects.
+
+I disconnected some projects from billing.
+
+I think it works now.
+
+I collected some screenshots of bringing dataflow up to readiness:
+
+df150.png through df195.png
+
+Next I tried the python path again.
+
