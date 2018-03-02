@@ -180,3 +180,61 @@ df150.png through df195.png
 
 Next I tried the python path again.
 
+https://cloud.google.com/dataflow
+
+I picked my project: dfnow
+
+starting img: df200.png
+
+
+Next I studied this:
+
+https://cloud.google.com/dataflow/docs/quickstarts/quickstart-python
+Actually I should have started there.
+I would have avoided problems with billing and permissions.
+
+
+
+
+virtualenv venv10
+
+. venv10/bin/activate
+
+pip install google-cloud-dataflow
+
+
+
+# which env var has my project-id?
+env|grep PROJECT
+I see it: $DEVSHELL_PROJECT_ID
+
+Time to call python
+
+python
+
+import apache_beam
+
+(venv10) bikle101@dfnow-196701:~$ python
+Python 2.7.13 (default, Nov 24 2017, 17:33:09)
+[GCC 6.3.0 20170516] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import apache_beam
+>>>
+(venv10) bikle101@dfnow-196701:~$
+(venv10) bikle101@dfnow-196701:~$
+(venv10) bikle101@dfnow-196701:~$
+
+Now I am ready...
+
+
+I tried this:
+
+export BUCKET=gs://dfnow
+
+python -m apache_beam.examples.wordcount \
+  --project $DEVSHELL_PROJECT_ID \
+  --runner DataflowRunner \
+  --staging_location $BUCKET/staging \
+  --temp_location $BUCKET/temp \
+  --output $BUCKET/results/output
+
