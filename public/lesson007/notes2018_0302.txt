@@ -1,0 +1,6 @@
+~/cs101/public/lesson007/notes2018_0302.txt
+
+This file shows my efforts to walk through a google-ML class I found on the web:
+
+https://developers.google.com/machine-learning/crash-course/
+

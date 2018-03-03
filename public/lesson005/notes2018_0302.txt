@@ -1,0 +1,56 @@
+~/cs101/public/lesson005/notes2018_0302.txt
+
+This file descrbes my effort to walkthrough a blog post about gcp pub-sub and kubernetes:
+
+
+http://willcrichton.net/notes/gcp-job-queue/
+
+I noticed this syntax first:
+
+
+# parallelize the computation over multiple cores:
+from concurrent.futures import ProcessPoolExecutor
+with ProcessPoolExecutor() as executor:
+    list(executor.map(expensive_function, range(1000000)))
+
+I searched:
+https://www.google.com/search?q=In+Python+how+to+use+map+function
+
+tried:
+
+list(map(print, 'hello')) # works
+
+def echo(x): return x     # works
+
+list(map(echo, 'hello'))  # works
+
+list(map(lambda x: x, 'hello')) # works:
+# ['h', 'e', 'l', 'l', 'o']
+
+q: in python 3, can I do this:
+from concurrent.futures import ProcessPoolExecutor
+?
+yes!
+
+I tried this:
+
+# parallelize the computation over multiple cores:
+from concurrent.futures import ProcessPoolExecutor
+with ProcessPoolExecutor() as executor: list(executor.map(lambda x: x, range(10)))
+
+# error:
+# _pickle.PicklingError: Can't pickle <function <lambda> at 0x7fd2a132dd08>
+
+I tried this:
+
+# parallelize the computation over multiple cores:
+from concurrent.futures import ProcessPoolExecutor
+def echo(x): return x
+with ProcessPoolExecutor() as executor: list(executor.map(echo, range(10)))
+
+works! yay!!
+>>> with ProcessPoolExecutor() as executor: list(executor.map(echo, range(10)))
+... 
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> 
+
