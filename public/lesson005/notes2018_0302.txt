@@ -54,3 +54,10 @@ works! yay!!
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 >>> 
 
+
+
+I noticed links:
+
+https://kubernetes.io/docs/tasks/job/fine-parallel-processing-work-queue/
+https://docs.docker.com/install/
+https://github.com/willcrichton/gcp-job-queue
