@@ -61,3 +61,25 @@ I noticed links:
 https://kubernetes.io/docs/tasks/job/fine-parallel-processing-work-queue/
 https://docs.docker.com/install/
 https://github.com/willcrichton/gcp-job-queue
+
+
+2018-03-06
+
+I installed docker on p95:
+
+https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce-1
+
+apt-get update
+
+apt-get install apt-transport-https ca-certificates curl software-properties-common
+
+/usr/bin/curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+apt-get update
+
+apt-get install docker-ce
+
+sudo docker run hello-world
+
