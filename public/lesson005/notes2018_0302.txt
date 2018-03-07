@@ -83,3 +83,169 @@ apt-get install docker-ce
 
 sudo docker run hello-world
 
+groupadd docker
+
+usermod -aG docker dan
+
+systemctl enable docker
+
+shutdown -r now
+
+docker run hello-world
+
+https://docs.docker.com/config/daemon/
+
+google: daemon.json configuration file.
+
+{
+  "debug": true,
+  "tls": true,
+  "tlscert": "/var/docker/server.pem",
+  "tlskey": "/var/docker/serverkey.pem",
+  "hosts": ["tcp://192.168.59.3:2376"]
+}
+
+
+dockerd
+
+or something like:
+
+dockerd -D --tls=true --tlscert=/var/docker/server.pem --tlskey=/var/docker/serverkey.pem -H tcp://192.168.59.3:2376
+
+
+
+I returned to:
+http://willcrichton.net/notes/gcp-job-queue/
+
+https://research.google.com/youtube8m/
+https://groups.google.com/forum/#!forum/youtube8m-users
+
+
+pip install -r requirements.txt
+
+depends on...
+
+https://github.com/willcrichton/gcp-job-queue
+
+sudo bash
+
+echo FROM ubuntu:16.04 > /tmp/ctxt/Dockerfile
+cd /tmp/
+docker build ctxt
+
+docker image ls
+docker container ls
+
+docker rm cda6f5e55fd4 # removes container
+docker image rm f2a91732366c
+
+I should return to docker later...
+
+I returned to:
+http://willcrichton.net/notes/gcp-job-queue/
+
+login to gcp
+
+https://console.cloud.google.com/
+
+create project: pubsub
+
+check that this project can bill:
+https://console.cloud.google.com/billing
+
+Big Data > Pub/Sub.
+
+https://console.cloud.google.com/cloudpubsub
+
+enable API
+
+create topic: topic10
+  click on topic10
+    create subscription: sub10
+
+https://console.cloud.google.com/kubernetes
+
+Request failed with unknown error
+
+tried again...
+
+works now
+
+button create cluster
+
+cluster of 1 [ master node ]
+
+wait
+
+click on it
+click edit
+
+click add node pool
+
+Set Name to workers.
+Set Preemptible nodes to Yes.
+Set Autoscaling to On.
+set Minimum size to 0.
+Set Maximum size to your desired number of workers (we’ll use 3 for this example).
+Then click Save.
+
+wait
+
+create bucket: pubsub611
+
+
+on some host I need this:
+# https://cloud.google.com/sdk/downloads
+# https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-191.0.0-linux-x86_64.tar.gz
+??
+
+here is requirements.txt:
+
+google-cloud-pubsub
+google-cloud-monitoring
+youtube-dl
+pandas
+tqdm
+
+
+Can Python3 be used with these?
+
+
+On some host,laptop even, I should have this:
+
+
+# gcp-job-queue/master.py
+
+# This script should help me with pubsub demo.
+# Ref:
+# http://willcrichton.net/notes/gcp-job-queue/
+# https://github.com/willcrichton/gcp-job-queue
+
+from google.cloud import pubsub
+# How I pip install for google.cloud?
+# ans:
+# pip install -r requirements.txt
+
+from tqdm import tqdm
+
+#PROJECT = 'wc-personal'
+#TOPIC = 'queue-example'
+
+PROJECT = 'pubsub'
+TOPIC   = 'topic10'
+
+# Ref:
+# https://github.com/willcrichton/gcp-job-queue/blob/master/youtube-ids
+def main():
+    with open('youtube-ids') as f:
+        ids = [s.strip() for s in f.readlines()]
+
+    publisher = pubsub.PublisherClient()
+    topic = 'projects/{}/topics/{}'.format(PROJECT, TOPIC)
+    for id in tqdm(ids):
+        publisher.publish(topic, id)
+
+
+if __name__ == '__main__':
+    main()
+    
