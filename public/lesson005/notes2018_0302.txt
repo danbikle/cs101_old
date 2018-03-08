@@ -165,12 +165,6 @@ create topic: topic10
 
 https://console.cloud.google.com/kubernetes
 
-Request failed with unknown error
-
-tried again...
-
-works now
-
 button create cluster
 
 cluster of 1 [ master node ]
@@ -249,3 +243,12 @@ def main():
 if __name__ == '__main__':
     main()
     
+oooooooooo
+
+2018-03-07
+
+
+created cluster
+created host: tiny1
+  apt-get install git
+  git clone https://github.com/willcrichton/gcp-job-queue
