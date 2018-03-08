@@ -272,3 +272,12 @@ I should branch gcp-job-queue:
 
 git checkout -b bikle
 
+
+bikle101@tiny1:~/gcp-job-queue$ python master.py
+100% 1000/1000 [00:00<00:00, 26715.14it/s]
+bikle101@tiny1:~/gcp-job-queue$ 
+bikle101@tiny1:~/gcp-job-queue$
+
+I think it worked!
+notice the fraction: 100% 1000/1000
+
