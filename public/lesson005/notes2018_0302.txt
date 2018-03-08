@@ -349,3 +349,64 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+Above script depends on shell commands:
+  gsutil
+  youtube-dl
+  
+The tiny-instance I created seems to already have gsutil:
+  /usr/bin/gsutil
+
+Next:
+
+gcloud iam service-accounts create example-account
+gcloud projects add-iam-policy-binding $(gcloud config get-value project) \
+    --member serviceAccount:example-account@$(gcloud config get-value project).iam.gserviceaccount.com \
+    --role roles/editor
+gcloud iam service-accounts keys create service-key.json \
+    --iam-account=example-account@$(gcloud config get-value project).iam.gserviceaccount.com
+
+tiny-instance have gcloud?
+  - yes!
+  
+I tried this:
+
+gcloud iam service-accounts create srvacct1
+
+
+bikle101@tiny1:~/gcp-job-queue$ which gcloud
+/usr/bin/gcloud
+bikle101@tiny1:~/gcp-job-queue$ 
+bikle101@tiny1:~/gcp-job-queue$ gcloud iam service-accounts create srvacct1
+API [iam.googleapis.com] not enabled on project [pubsub-197323]. Would
+ you like to enable and retry?  (y/N)?  y
+
+Enabling service iam.googleapis.com on project pubsub-197323...
+Waiting for async operation operations/tmo-acf.7b901299-27c1-4e47-8f18-160dc059f60c to complete...
+Operation finished successfully. The following command can describe the Operation details:
+ gcloud services operations describe operations/tmo-acf.7b901299-27c1-4e47-8f18-160dc059f60c
+Created service account [srvacct1].
+bikle101@tiny1:~/gcp-job-queue$ 
+bikle101@tiny1:~/gcp-job-queue$
+
+Next I tried:
+
+gcloud projects add-iam-policy-binding $(gcloud config get-value project) --member serviceAccount:srvacct1@$(gcloud config get-value project).iam.gserviceaccount.com --role roles/editor
+
+
+
+bikle101@tiny1:~/gcp-job-queue$ gcloud projects add-iam-policy-binding $(gcloud config get-value project) --member serviceAccount:srvacct1@$(gcloud config get-value project).iam.gserviceaccount.com --role roles/editor
+API [cloudresourcemanager.googleapis.com] not enabled on project 
+[pubsub-197323]. Would you like to enable and retry?  (y/N)?  y
+
+Enabling service cloudresourcemanager.googleapis.com on project pubsub-197323...
+Waiting for async operation operations/tmo-acf.eb953b16-c0c2-4d03-9e3e-751912ec1743 to complete...
+Operation finished successfully. The following command can describe the Operation details:
+ gcloud services operations describe operations/tmo-acf.eb953b16-c0c2-4d03-9e3e-751912ec1743
+ERROR: (gcloud.projects.add-iam-policy-binding) Project [pubsub-197323] does not exist, or you do not have permission to access it.
+bikle101@tiny1:~/gcp-job-queue$ 
+bikle101@tiny1:~/gcp-job-queue$ 
+bikle101@tiny1:~/gcp-job-queue$
+
+
