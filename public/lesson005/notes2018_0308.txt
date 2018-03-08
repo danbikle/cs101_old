@@ -6,3 +6,58 @@ I found out today that youtube-dl is not working for me...
 
 So, I will have the workers do something simple like compute pi.
 
+steps:
+
+create cluster cluster10
+  make it ubuntu with 3.75 gb ram
+
+add workers - min 0 max 3
+
+create topic, topic10
+create subscription, sub10
+
+ssh into mgr-node
+
+apt-get install -y bzip2
+
+wget https://repo.continuum.io/archive/Anaconda2-5.1.0-Linux-x86_64.sh
+bash Anaconda2-5.1.0-Linux-x86_64.sh
+
+git clone https://github.com/willcrichton/gcp-job-queue
+
+cd gcp-job-queue
+
+cat requirements.txt
+
+conda install tqdm
+pip install google-cloud-pubsub google-cloud-monitoring
+
+
+"""
+master.py
+
+This script should publish many topics to pubsub.
+
+Ref:
+http://willcrichton.net/notes/gcp-job-queue/
+https://github.com/willcrichton/gcp-job-queue
+
+Demo:
+python master.py
+"""
+
+from google.cloud import pubsub
+from tqdm import tqdm
+
+PROJECT = 'pubsub-197323'
+TOPIC   = 'topic10'
+
+def main():
+    publisher  = pubsub.PublisherClient()
+    topic_s    = 'projects/{}/topics/{}'.format(PROJECT, TOPIC)
+    worksize_i = 10
+    for id in tqdm(range(worksize_i)):
+        publisher.publish(topic_s, id)
+
+if __name__ == '__main__':
+    main()
