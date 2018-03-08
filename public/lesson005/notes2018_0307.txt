@@ -49,6 +49,9 @@ apt-get install -y python-pip curl git
 
 git clone https://github.com/willcrichton/gcp-job-queue
 
+copy ~/Downloads/pubsub-e71b0ed6e643.json into: gcp:gcp-job-queue/service-key.json
+
+
 cd gcp-job-queue
 
 pip install -r requirements.txt
@@ -96,7 +99,7 @@ from tqdm import tqdm
 #PROJECT = 'wc-personal'
 #TOPIC = 'queue-example'
 
-PROJECT = 'pubsub'
+PROJECT = 'pubsub-197323'
 TOPIC   = 'topic10'
 
 # Ref:
@@ -120,7 +123,98 @@ if __name__ == '__main__':
 
 vi worker.py
 
+# coding utf-8
+"""
+gcp-job-queue/worker.py
+This script should help me with pubsub demo.
+Ref:
+http://willcrichton.net/notes/gcp-job-queue/
+https://github.com/willcrichton/gcp-job-queue
+"""
+
+# imports below depend on shell command:
+# pip install -r requirements.txt
+
+from google.cloud import pubsub
+from google.cloud import monitoring
+import subprocess as sp
+import time
+
+PROJECT = 'pubsub-197323'
+TOPIC   = 'topic10'
+
+SUBSCRIPTION = 'sub10'
+BUCKET       = 'pubsub611'
+
+
+def queue_empty(client):
+    result = client.query(
+        'pubsub.googleapis.com/subscription/num_undelivered_messages',
+        minutes=1).as_dataframe()
+    return result['pubsub_subscription'][PROJECT][SUBSCRIPTION][0] == 0
+
+
+def download_video(id):
+    sp.check_call(
+        'youtube-dl -f mp4 "http://youtube.com/watch?v={id}" -o {id}.mp4 --no-cache-dir'
+        .format(id=id),
+        shell=True)
+
+
+def copy_to_gcs(id):
+    sp.check_call('gsutil mv {}.mp4 gs://{}/tmp/videos/'.format(id, BUCKET), shell=True)
+
+
+def handle_message(message):
+    id = message.data
+    download_video(id)
+    # copy_to_gcs(id)
+    message.ack()
+
+
+def main():
+    client = monitoring.Client(project=PROJECT)
+
+    subscriber = pubsub.SubscriberClient()
+    subscription = subscriber.subscribe('projects/{}/subscriptions/{}'.format(
+        PROJECT, SUBSCRIPTION))
+    subscription.open(handle_message)
+
+    time.sleep(60)
+    while not queue_empty(client):
+        pass
+    subscription.close()
+
+
+if __name__ == '__main__':
+    main()
+
 
 ensure I have docker installed
 
+ref:
+  https://docs.docker.com/install/linux/linux-postinstall/
+  https://docs.docker.com/install/linux/docker-ce/debian/
 
+sudo apt-get install -y apt-transport-https ca-certificates gnupg2 software-properties-common
+     
+curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -
+
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") $(lsb_release -cs) stable"
+
+sudo apt-get update
+
+sudo apt-get install docker-ce
+
+sudo groupadd docker
+
+sudo usermod -aG docker $USER
+
+logout/login
+
+docker run hello-world
+
+sudo systemctl enable docker
+
+cd gcp-job-queue
+docker build -t gcr.io/$(gcloud config get-value project)/worker .
