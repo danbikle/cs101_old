@@ -1,8 +1,12 @@
 ~/cs101/public/lesson005/notes2018_0307.txt
 
+This file should help me remember the steps to do a kuber-pub-sub demo:
+
+copy id_rsa.pub into project metadata ssh-keys
+
 this time see if I can run the demo from the cluster-mgr-node.
 
-This file should help me remember the steps to do a kuber-pub-sub demo:
+create devhost
 
 create cluster
 add workers
@@ -38,3 +42,85 @@ Now I have this:
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/srvacct1%40pubsub-197323.iam.gserviceaccount.com"
 }
+
+ssh into devhost
+
+apt-get install -y python-pip curl git
+
+git clone https://github.com/willcrichton/gcp-job-queue
+
+cd gcp-job-queue
+
+pip install -r requirements.txt
+
+vi master.py
+
+python master.py
+
+
+Here it is:
+
+"""
+master.py
+
+This script should publish many topics to pubsub.
+
+Ref:
+http://willcrichton.net/notes/gcp-job-queue/
+https://github.com/willcrichton/gcp-job-queue
+
+master.py goes through every ID in our file: "youtube-ids"
+
+Then it publishes them to the topic we chose earlier. 
+
+You can just run this script from your laptop:
+
+python master.py
+
+Once master.py completes, your queue has been filled.
+
+Next, we need to create the script we’ll run on each worker.
+
+Demo:
+python master.py
+
+"""
+
+from google.cloud import pubsub
+# How I pip install for google.cloud?
+# ans:
+# pip install -r requirements.txt
+
+from tqdm import tqdm
+
+#PROJECT = 'wc-personal'
+#TOPIC = 'queue-example'
+
+PROJECT = 'pubsub'
+TOPIC   = 'topic10'
+
+# Ref:
+# https://github.com/willcrichton/gcp-job-queue/blob/master/youtube-ids
+def main():
+    with open('youtube-ids') as f:
+        ids = [s.strip() for s in f.readlines()]
+
+    publisher = pubsub.PublisherClient()
+    topic = 'projects/{}/topics/{}'.format(PROJECT, TOPIC)
+    for id in tqdm(ids):
+        publisher.publish(topic, id)
+
+
+if __name__ == '__main__':
+    main()
+
+
+
+
+
+vi worker.py
+
+
+ensure I have docker installed
+
+
