@@ -1,0 +1,8 @@
+~/cs101/public/lesson005/notes2018_0308.txt
+
+This file should help me prep a gcp-pubsub-kubernetes demo.
+
+I found out today that youtube-dl is not working for me...
+
+So, I will have the workers do something simple like compute pi.
+
