@@ -242,7 +242,16 @@ def main():
 
 if __name__ == '__main__':
     main()
-    
+
+
+master.py goes through every ID in our file: "youtube-ids"
+
+Then it publishes them to the topic we chose earlier. You can just run this script from your laptop:
+
+python master.py
+
+Once master.py completes, your queue has been filled to the brim with IDs ready for downloading. Next, we need to create the script we’ll run on each worker:
+
 oooooooooo
 
 2018-03-07
@@ -252,3 +261,14 @@ created cluster
 created host: tiny1
   apt-get install git
   git clone https://github.com/willcrichton/gcp-job-queue
+  apt-get install -y python-pip curl
+  pip install -r requirements.txt
+    memory error
+  enhance tiny1...
+    added mem
+    now pip works! yay!!
+    
+I should branch gcp-job-queue:
+
+git checkout -b bikle
+
