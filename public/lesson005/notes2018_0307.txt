@@ -217,4 +217,47 @@ docker run hello-world
 sudo systemctl enable docker
 
 cd gcp-job-queue
+
 docker build -t gcr.io/$(gcloud config get-value project)/worker .
+
+gcloud docker -- push gcr.io/$(gcloud config get-value project)/worker
+
+sudo apt-get install kubectl
+
+gcloud compute zones list
+
+# pubsub2 is name of my cluster
+# Get name from web:
+# https://console.cloud.google.com/kubernetes/
+gcloud container clusters get-credentials pubsub2 --zone us-central1-f 
+
+Put this file in folder: gcp-job-queue
+
+# job.yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: dl-videos
+spec:
+  parallelism: 3
+  template:
+    metadata:
+      name: dl-videos
+    spec:
+      containers:
+        - name: worker
+          image: gcr.io/pubsub-197323/worker
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 0.51
+      restartPolicy: OnFailure
+
+
+Start the job:
+
+kubectl create -f job.yaml
+
+kubectl get all
+
+gsutil ls gs://pubsub611/tmp/videos/ | head
