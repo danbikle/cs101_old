@@ -192,4 +192,5 @@ gcloud auth activate-service-account --key-file=service-key.json
 
 gsutil cp 2018.txt gs://pubsub611/
 
+python danw.py
 

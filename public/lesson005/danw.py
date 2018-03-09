@@ -21,7 +21,6 @@ TOPIC   = 'topic10'
 SUBSCRIPTION = 'sub10'
 BUCKET       = 'pubsub611'
 
-
 def queue_empty(client):
     result = client.query(
         'pubsub.googleapis.com/subscription/num_undelivered_messages',
@@ -40,9 +39,20 @@ def copy_to_gcs(id):
         .format(id, BUCKET),
         shell=True)
 
+def handle_message(message):
+    id = message.data
+    dothis(id)
+    copy_to_gcs(id)
+    message.ack()
+
+def main():
+    print('main() is busy...')
+    client       = monitoring.Client(project=PROJECT)
+    subscriber   = pubsub.SubscriberClient()
+    print('main() done.')
+    
 if __name__ == '__main__':
-    id_s = '2018'
-    dothis(id_s)
-    copy_to_gcs(id_s)
+    main()
+
     
 'bye'
