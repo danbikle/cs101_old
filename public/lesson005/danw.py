@@ -35,7 +35,7 @@ def dothis(id):
 
 def copy_to_gcs(id):
     sp.check_call(
-        'gsutil mv {}.txt gs://{}/'
+        'gsutil cp {}.txt gs://{}/'
         .format(id, BUCKET),
         shell=True)
 
@@ -46,10 +46,17 @@ def handle_message(message):
     message.ack()
 
 def main():
-    print('main() is busy...')
     client       = monitoring.Client(project=PROJECT)
     subscriber   = pubsub.SubscriberClient()
-    print('main() done.')
+    subscription = subscriber.subscribe(
+        'projects/{}/subscriptions/{}'
+        .format(PROJECT, SUBSCRIPTION))
+    subscription.open(handle_message)
+
+    time.sleep(60)
+    while not queue_empty(client):
+        pass
+    subscription.close()
     
 if __name__ == '__main__':
     main()
