@@ -5,6 +5,24 @@ ref:
   https://github.com/willcrichton/gcp-job-queue
   http://willcrichton.net/notes/gcp-job-queue/
   
+create service account
+  https://console.cloud.google.com/iam-admin/serviceaccounts
+    service-acct-name: "srvacct"
+  
+create service-key.json
+  web-form-way:
+    https://console.cloud.google.com/iam-admin/serviceaccounts
+    click-permissions
+      select role: editor
+    generate a key:
+      - 3 dots:
+        - ~/Downloads/pubsub-e71b0ed6e643.json
+        - copy downloaded-file to service-key.json
+	
+make srvacct an admin of pubsub611 bucket
+  - https://console.cloud.google.com/storage/browser/pubsub611
+  - 3 dots
+  
 This file should help me prep a gcp-pubsub-kubernetes demo.
 
 steps:
@@ -168,8 +186,10 @@ ignore /home/kubernetes/bin/kubectl
 
 on worker:
 
-touch 2018.txt
-gsutil cp 2018.txt gs://pubsub611/
-ImportError: No module named google_compute_engine
+export BOTO_CONFIG=/dev/null
 
-goog: gsutil gives ImportError: No module named google_compute_engine
+gcloud auth activate-service-account --key-file=service-key.json
+
+gsutil cp 2018.txt gs://pubsub611/
+
+
