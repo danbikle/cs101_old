@@ -27,12 +27,12 @@ apt-get install -y bzip2
 wget https://repo.continuum.io/archive/Anaconda2-5.1.0-Linux-x86_64.sh
 bash Anaconda2-5.1.0-Linux-x86_64.sh
 
+conda install tqdm
+pip install google-cloud-pubsub google-cloud-monitoring
+
 # git clone https://github.com/willcrichton/gcp-job-queue
 mkdir  gcp-job-queue
 cd     gcp-job-queue
-
-conda install tqdm
-pip install google-cloud-pubsub google-cloud-monitoring
 
 vi publish_topics.py
 
@@ -233,7 +233,7 @@ tqdm
 
 continue with docker
 
-cat Dockerfile
+vi Dockerfile
 
 FROM ubuntu:16.04
 
@@ -256,15 +256,18 @@ CMD python myworker.py
 
 gcloud config get-value project
 
-sudo docker build -t gcr.io/$(gcloud config get-value project)/worker .
+echo sudo usermod -aG docker $USER
 
-sudo /home/bikle101/google-cloud-sdk/bin/gcloud docker -- push gcr.io/$(gcloud config get-value project)/worker
+echo docker build -t gcr.io/$(gcloud config get-value project)/worker .
+
+echo /home/bikle101/google-cloud-sdk/bin/gcloud docker -- push gcr.io/$(gcloud config get-value project)/worker
 
 gcloud compute zones list
 
 # cluster10 is name of my cluster
 # Get name from web:
 # https://console.cloud.google.com/kubernetes/
+
 gcloud container clusters get-credentials cluster10 --zone us-central1-f 
 
 
