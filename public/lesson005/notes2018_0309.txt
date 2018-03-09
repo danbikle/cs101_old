@@ -75,7 +75,7 @@ if __name__ == '__main__':
     main()
 
 
-Next, python publish_topics.py
+
 
 
 
@@ -140,3 +140,36 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+scp publish_topics.py myworker.py mgr:
+scp publish_topics.py myworker.py worker:
+
+on mgr:
+  python publish_topics.py
+
+
+
+
+install gcloud
+
+wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-192.0.0-linux-x86_64.tar.gz
+
+tar xf google-cloud-sdk-192.0.0-linux-x86_64.tar.gz
+
+ln -s google-cloud-sdk gcloud
+
+~/gcloud/install.sh
+
+bash
+
+gcloud components install kubectl
+ignore /home/kubernetes/bin/kubectl
+
+on worker:
+
+touch 2018.txt
+gsutil cp 2018.txt gs://pubsub611/
+ImportError: No module named google_compute_engine
+
+goog: gsutil gives ImportError: No module named google_compute_engine
