@@ -15,8 +15,115 @@
 
 %p
   I list below steps I followed to create a simple GCP job-queue:
-  
-  
+
+%ul
+  %li
+    Login to GCP:
+    %a(href='https://console.cloud.google.com' target='x')
+      https://console.cloud.google.com
+  %li
+    Create a bucket: pubsub611
+    %br/
+    %a(href='https://console.cloud.google.com/storage' target='x')
+      https://console.cloud.google.com/storage
+  %li
+    Create a service account: "srvacct":
+    %a(href='https://console.cloud.google.com/iam-admin/serviceaccounts' target='x')
+      https://console.cloud.google.com/iam-admin/serviceaccounts
+  %li
+    Create service-key.json:
+    %a(href='https://console.cloud.google.com/iam-admin/serviceaccounts' target='x')
+      https://console.cloud.google.com/iam-admin/serviceaccounts
+  %li
+    click-permissions, select role: editor, generate a key:
+    %br/
+    3 dots:
+    %br/
+    ~/Downloads/pubsub-e71b0ed6e643.json
+    copy downloaded-file to service-key.json
+  %li
+    Make srvacct an admin of pubsub611 bucket:
+    %a(href='https://console.cloud.google.com/storage' target='x')
+      https://console.cloud.google.com/storage
+    3 dots near bucket
+  %li
+    Create cluster cluster10,
+    Make it ubuntu with 3.75 gb ram
+    %br
+    %a(href='https://console.cloud.google.com/kubernetes' target='x')
+      https://console.cloud.google.com/kubernetes
+    %br
+    Add 1 worker, ubuntu
+  %li
+    When done, Get IP addresses from here:
+    %a(href='https://console.cloud.google.com/compute' target='x')
+      https://console.cloud.google.com/compute
+  %li
+    On laptop:
+    %br
+    vi .ssh/config
+    .syntax
+      %pre
+        =render 'lesson005a'
+  %li
+    Create topic, topic10
+    Create subscription, sub10
+    %br/
+    %a(href='https://console.cloud.google.com/cloudpubsub' target='x')
+      https://console.cloud.google.com/cloudpubsub
+  %li ssh both mgr and worker
+  %li
+    .syntax
+      %pre
+        %code
+	  apt-get install -y bzip2
+          wget https://repo.continuum.io/archive/Anaconda2-5.1.0-Linux-x86_64.sh
+          bash Anaconda2-5.1.0-Linux-x86_64.sh
+          conda install tqdm
+          pip install google-cloud-pubsub google-cloud-monitoring
+          cd ~
+          vi publish_topics.py
+          vi myworker.py
+
+  %li
+    .syntax
+      %pre
+        =render 'lesson005myworker'
+
+
+on mgr:
+  python publish_topics.py
+
+
+On both hosts, install gcloud
+
+
+wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-192.0.0-linux-x86_64.tar.gz
+
+tar xf google-cloud-sdk-192.0.0-linux-x86_64.tar.gz
+
+ln -s google-cloud-sdk gcloud
+
+~/gcloud/install.sh
+
+bash
+
+gcloud components install kubectl
+ignore /home/kubernetes/bin/kubectl
+
+on worker:
+
+export BOTO_CONFIG=/dev/null
+
+gcloud auth activate-service-account --key-file=service-key.json
+
+gsutil cp 2018.txt gs://pubsub611/
+
+subscribe to jobs and then complete them:
+
+python myworker.py
+
+
 
 %p
   %a(href='#top') [top]
