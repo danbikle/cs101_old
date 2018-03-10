@@ -1,4 +1,9 @@
-%h1#top Lesson 005 [ Under Construction ]
+%h1#top Lesson 005 [ Under Construction , Screenshots coming...]
+
+%p Refer to 2018-03-09 Meetup:
+%p
+  %a(href='https://www.meetup.com/cs101A/events/248451696' target='x')
+    https://www.meetup.com/cs101A/events/248451696
 
 %p This lesson is inspired by a Will Crichton and his github repo:
 
@@ -39,7 +44,7 @@
     %br/
     3 dots:
     %br/
-    ~/Downloads/pubsub-e71b0ed6e643.json
+    \~/Downloads/pubsub-e71b0ed6e643.json
     copy downloaded-file to service-key.json
   %li
     Make srvacct an admin of pubsub611 bucket:
@@ -76,54 +81,48 @@
     .syntax
       %pre
         %code
-	  apt-get install -y bzip2
+          apt-get install -y bzip2
           wget https://repo.continuum.io/archive/Anaconda2-5.1.0-Linux-x86_64.sh
           bash Anaconda2-5.1.0-Linux-x86_64.sh
           conda install tqdm
           pip install google-cloud-pubsub google-cloud-monitoring
           cd ~
-          vi publish_topics.py
           vi myworker.py
+          vi publish_topics.py
 
   %li
     .syntax
       %pre
         =render 'lesson005myworker'
 
+  %li
+    .syntax
+      %pre
+        =render 'lesson005publish_topics'
 
-on mgr:
-  python publish_topics.py
+  %li
+    On mgr:
+    .syntax
+      %pre
+        %code python publish_topics.py
+  %li
+    On both hosts, install gcloud:
+    .syntax
+      %pre
+        =render 'lesson005gci'
+  %li
+    On worker:
+    .syntax
+      %pre
+        %code
+          export BOTO_CONFIG=/dev/null
+          gcloud auth activate-service-account --key-file=service-key.json
+          date > 2018.txt
+          gsutil cp 2018.txt gs://pubsub611/
+          \# Subscribe to jobs and then complete them:
+          python myworker.py
 
-
-On both hosts, install gcloud
-
-
-wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-192.0.0-linux-x86_64.tar.gz
-
-tar xf google-cloud-sdk-192.0.0-linux-x86_64.tar.gz
-
-ln -s google-cloud-sdk gcloud
-
-~/gcloud/install.sh
-
-bash
-
-gcloud components install kubectl
-ignore /home/kubernetes/bin/kubectl
-
-on worker:
-
-export BOTO_CONFIG=/dev/null
-
-gcloud auth activate-service-account --key-file=service-key.json
-
-gsutil cp 2018.txt gs://pubsub611/
-
-subscribe to jobs and then complete them:
-
-python myworker.py
-
-
+%p This lesson is Under Construction; I offer more content and discussion soon.
 
 %p
   %a(href='#top') [top]
