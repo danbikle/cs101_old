@@ -45,3 +45,9 @@ https://monitoring.googleapis.com/v3/projects/pubsub-197323/timeSeries/?filter=m
 User is not authorized to access the project monitoring records.
 
 py2@h80:~/cs101/public/lesson005 $
+
+I was able to fix the 403-error:
+  visited the pubsub page:
+    on rhs of topic10 I found permission controls which allowed me to add srvacct
+    on rhs of sub10   I found permission controls which allowed me to add srvacct
+    
