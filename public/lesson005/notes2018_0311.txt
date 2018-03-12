@@ -34,4 +34,14 @@ gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
 trash-recreate topic10,sub10
 
 python publish_topics.py
+python pubsub_example.py
 
+problem
+
+google.api_core.exceptions.Forbidden: 403 GET
+
+https://monitoring.googleapis.com/v3/projects/pubsub-197323/timeSeries/?filter=metric.type+%3D+%22pubsub.googleapis.com%2Fsubscription%2Fnum_undelivered_messages%22&interval.endTime=2018-03-12T07%3A40%3A00.000000Z&interval.startTime=2018-03-12T07%3A39%3A00.000000Z:
+
+User is not authorized to access the project monitoring records.
+
+py2@h80:~/cs101/public/lesson005 $
