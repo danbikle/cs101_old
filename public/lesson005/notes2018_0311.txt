@@ -1,0 +1,16 @@
+~/cs101/public/lesson005/notes2018_0311.txt
+
+This file describes my efforts to operate pub/sub on my laptop.
+
+I took these steps:
+
+useradd -m -s /bin/bash -G sudo py2
+passwd py2
+
+ssha py2@lh
+
+cd ~py2
+wget https://repo.continuum.io/archive/Anaconda2-5.1.0-Linux-x86_64.sh
+bash Anaconda2-5.1.0-Linux-x86_64.sh
+
+
