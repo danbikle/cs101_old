@@ -13,4 +13,25 @@ cd ~py2
 wget https://repo.continuum.io/archive/Anaconda2-5.1.0-Linux-x86_64.sh
 bash Anaconda2-5.1.0-Linux-x86_64.sh
 
+conda install tqdm
+pip install google-cloud-pubsub google-cloud-monitoring
+wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-192.0.0-linux-x86_64.tar.gz
+
+tar xf google-cloud-sdk-192.0.0-linux-x86_64.tar.gz
+
+ln -s google-cloud-sdk gcloud
+
+~/gcloud/install.sh
+
+bash
+
+export BOTO_CONFIG=/dev/null
+
+export GOOGLE_APPLICATION_CREDENTIALS=/home/py2/cs101/public/lesson005/service-key.json
+
+gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
+
+trash-recreate topic10,sub10
+
+python publish_topics.py
 
