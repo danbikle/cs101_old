@@ -53,9 +53,8 @@ def main():
 
     # Waits until the queue is empty to exit. See queue_empty for more
     # explanation.
-    time.sleep(60)
-    while not queue_empty(client):
-        pass
+    time.sleep(11)
+    # broken    while not queue_empty(client): pass
     subscription.close()
 
 
