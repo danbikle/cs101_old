@@ -109,8 +109,20 @@
       %pre
         %code gcloud auth activate-service-account --key-file=service-key.json
 
-  %li Use gcloud shell commands to test publish-subscribe.
-
+  %li On mgr, I used gcloud shell commands to test publish-subscribe:
+  %li
+    .syntax
+      %pre
+        %code
+          gcloud pubsub topics        create         topic11       --project pubsub-197323
+          gcloud pubsub subscriptions create --topic topic11 sub11 --project pubsub-197323
+          gcloud pubsub topics publish topic11 --message "hello0" --project pubsub-197323
+          gcloud pubsub topics publish topic11 --message "hello1" --project pubsub-197323
+          gcloud pubsub topics publish topic11 --message "hello2" --project pubsub-197323
+	  sleep 20
+          gcloud pubsub subscriptions pull --auto-ack sub11 --project pubsub-197323
+          gcloud pubsub subscriptions delete sub11          --project pubsub-197323
+          gcloud pubsub topics        delete topic11        --project pubsub-197323
 
 
   %li
