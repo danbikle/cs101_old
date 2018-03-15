@@ -70,16 +70,14 @@
         =render 'lesson005a'
   %li ssh both mgr and worker
   %li
-    On both hosts, I installed Python 2 via Anaconda:
+    On both hosts, I installed Python 3 via Anaconda:
   %li
     .syntax
       %pre
         %code
           sudo apt-get install -y bzip2
-          wget https://repo.continuum.io/archive/Anaconda2-5.1.0-Linux-x86_64.sh
-          bash Anaconda2-5.1.0-Linux-x86_64.sh
-          conda install tqdm
-          pip install google-cloud-pubsub google-cloud-monitoring
+          wget https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux-x86_64.sh
+          bash Anaconda3-5.1.0-Linux-x86_64.sh
   %li
     On both hosts, I installed gcloud:
     .syntax
@@ -117,35 +115,30 @@
 
   %li
     Next, on mgr:
-    vi ~/publish_topics.py
+    vi ~/publish_tkrs.bash
 
   %li
     .syntax
       %pre
-        =render 'lesson005publish_topics'
+        =render 'lesson005publish_tkrs'
 
   %li
     On mgr:
     .syntax
       %pre
-        %code python publish_topics.py
+        %code bash ~/publish_tkrs.bash
   %li
     Next, on worker:
-    vi ~/myworker.py
+    vi ~/workon_tkrs.bash
   %li
     .syntax
       %pre
-        =render 'lesson005myworker'
+        =render 'lesson005workon_tkrs'
   %li
     On worker:
     .syntax
       %pre
-        %code
-          export BOTO_CONFIG=/dev/null
-          date > 2018.txt
-          gsutil cp 2018.txt gs://pubsub611/
-          \# Subscribe to jobs and then complete them:
-          python myworker.py
+        %code bash ~/workon_tkrs.bash
 
 %p This lesson is Under Construction; I offer more content and discussion soon.
 
