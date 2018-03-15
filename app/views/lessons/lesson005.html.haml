@@ -42,8 +42,6 @@
   %li
     click-permissions, select role: pub/sub-admin, generate a key:
     %br/
-    3 dots:
-    %br/
     \~/Downloads/pubsub-e71b0ed6e643.json
     copy downloaded-file to service-key.json
   %li
@@ -70,14 +68,6 @@
     .syntax
       %pre
         =render 'lesson005a'
-  %li
-    I created topic, topic10
-    I created subscription, sub10
-    %br/
-    %a(href='https://console.cloud.google.com/cloudpubsub' target='x')
-      https://console.cloud.google.com/cloudpubsub
-  %li I granted permission to srvacct to be admin of topic10 via RHS-form.
-  %li I granted permission to srvacct to be admin of sub10   via RHS-form.
   %li ssh both mgr and worker
   %li
     On both hosts, I installed Python 2 via Anaconda:
@@ -114,15 +104,15 @@
     .syntax
       %pre
         %code
-          gcloud pubsub topics        create         topic11       --project pubsub-197323
-          gcloud pubsub subscriptions create --topic topic11 sub11 --project pubsub-197323
-          gcloud pubsub topics publish topic11 --message "hello0" --project pubsub-197323
-          gcloud pubsub topics publish topic11 --message "hello1" --project pubsub-197323
-          gcloud pubsub topics publish topic11 --message "hello2" --project pubsub-197323
+          gcloud pubsub topics        create         topic10       --project pubsub-197323
+          gcloud pubsub subscriptions create --topic topic10 sub10 --project pubsub-197323
+          gcloud pubsub topics publish topic10 --message "hello0" --project pubsub-197323
+          gcloud pubsub topics publish topic10 --message "hello1" --project pubsub-197323
+          gcloud pubsub topics publish topic10 --message "hello2" --project pubsub-197323
 	  sleep 20
-          gcloud pubsub subscriptions pull --auto-ack sub11 --project pubsub-197323
-          gcloud pubsub subscriptions delete sub11          --project pubsub-197323
-          gcloud pubsub topics        delete topic11        --project pubsub-197323
+          gcloud pubsub subscriptions pull --auto-ack sub10 --project pubsub-197323
+          gcloud pubsub subscriptions delete sub10          --project pubsub-197323
+          gcloud pubsub topics        delete topic10        --project pubsub-197323
 
 
   %li
