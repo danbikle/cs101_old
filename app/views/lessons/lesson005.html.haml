@@ -40,7 +40,7 @@
     %a(href='https://console.cloud.google.com/iam-admin/serviceaccounts' target='x')
       https://console.cloud.google.com/iam-admin/serviceaccounts
   %li
-    click-permissions, select role: editor, generate a key:
+    click-permissions, select role: pub/sub-admin, generate a key:
     %br/
     3 dots:
     %br/
@@ -52,33 +52,53 @@
       https://console.cloud.google.com/storage
     3 dots near bucket
   %li
-    Create cluster cluster10,
-    Make it ubuntu with 3.75 gb ram
+    I Created cluster cluster10,
+    I made it Ubuntu with 3.75 gb ram, I ensured it has full access to cloud-APIs.
     %br
     %a(href='https://console.cloud.google.com/kubernetes' target='x')
       https://console.cloud.google.com/kubernetes
     %br
-    Add 1 worker, ubuntu
+    I added 1 worker, Ubuntu
   %li
     When done, Get IP addresses from here:
     %a(href='https://console.cloud.google.com/compute' target='x')
       https://console.cloud.google.com/compute
   %li
-    On laptop:
+    On laptop I did this:
     %br
     vi .ssh/config
     .syntax
       %pre
         =render 'lesson005a'
   %li
-    Create topic, topic10
-    Create subscription, sub10
+    I created topic, topic10
+    I created subscription, sub10
     %br/
     %a(href='https://console.cloud.google.com/cloudpubsub' target='x')
       https://console.cloud.google.com/cloudpubsub
-  %li Grant permission to srvacct to be admin of topic10 via RHS-form.
-  %li Grant permission to srvacct to be admin of sub10   via RHS-form.
+  %li I granted permission to srvacct to be admin of topic10 via RHS-form.
+  %li I granted permission to srvacct to be admin of sub10   via RHS-form.
   %li ssh both mgr and worker
+  %li
+    On both hosts, I installed gcloud:
+    .syntax
+      %pre
+        =render 'lesson005gci'
+
+  %li
+    I copied service-key.json from my laptop to both hosts:
+    .syntax
+      %pre
+        %code
+	  scp ~/Downloads/service-key.json mgr:
+	  scp ~/Downloads/service-key.json worker:
+  %li
+    On both hosts I authenticated:
+    .syntax
+      %pre
+        %code gcloud auth activate-service-account --key-file=service-key.json
+  %li
+    On both hosts, I installed Python 2 via Anaconda:
   %li
     .syntax
       %pre
@@ -107,11 +127,6 @@
     .syntax
       %pre
         %code python publish_topics.py
-  %li
-    On both hosts, install gcloud:
-    .syntax
-      %pre
-        =render 'lesson005gci'
   %li
     On worker:
     .syntax
