@@ -80,24 +80,6 @@
   %li I granted permission to srvacct to be admin of sub10   via RHS-form.
   %li ssh both mgr and worker
   %li
-    On both hosts, I installed gcloud:
-    .syntax
-      %pre
-        =render 'lesson005gci'
-
-  %li
-    I copied service-key.json from my laptop to both hosts:
-    .syntax
-      %pre
-        %code
-	  scp ~/Downloads/service-key.json mgr:
-	  scp ~/Downloads/service-key.json worker:
-  %li
-    On both hosts I authenticated:
-    .syntax
-      %pre
-        %code gcloud auth activate-service-account --key-file=service-key.json
-  %li
     On both hosts, I installed Python 2 via Anaconda:
   %li
     .syntax
@@ -108,14 +90,32 @@
           bash Anaconda2-5.1.0-Linux-x86_64.sh
           conda install tqdm
           pip install google-cloud-pubsub google-cloud-monitoring
-          cd ~
-          vi myworker.py
-          vi publish_topics.py
-
   %li
+    On both hosts, I installed gcloud:
     .syntax
       %pre
-        =render 'lesson005myworker'
+        =render 'lesson005gci'
+
+  %li
+    I copied service-key.json from my laptop to both hosts:
+    .syntax
+      %pre
+        %code
+          scp ~/Downloads/service-key.json mgr:
+          scp ~/Downloads/service-key.json worker:
+  %li
+    On both hosts I authenticated:
+    .syntax
+      %pre
+        %code gcloud auth activate-service-account --key-file=service-key.json
+
+  %li Use gcloud shell commands to test publish-subscribe.
+
+
+
+  %li
+    Next, on mgr:
+    vi ~/publish_topics.py
 
   %li
     .syntax
@@ -128,12 +128,18 @@
       %pre
         %code python publish_topics.py
   %li
+    Next, on worker:
+    vi ~/myworker.py
+  %li
+    .syntax
+      %pre
+        =render 'lesson005myworker'
+  %li
     On worker:
     .syntax
       %pre
         %code
           export BOTO_CONFIG=/dev/null
-          gcloud auth activate-service-account --key-file=service-key.json
           date > 2018.txt
           gsutil cp 2018.txt gs://pubsub611/
           \# Subscribe to jobs and then complete them:
