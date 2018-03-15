@@ -21,9 +21,9 @@ TOPIC   = 'topic10'
 def main():
     publisher  = pubsub.PublisherClient()
     topic_s    = 'projects/{}/topics/{}'.format(PROJECT, TOPIC)
-    worksize_i = 10
-    for id in tqdm(list(range(worksize_i))):
-        publisher.publish(topic_s, str(id))
+    tkrs_l = ['FB','AAPL','AMZN','NFLX','GOOG','IBM','SPY','WMT','MSFT','XOM','ORCL','NVDA']
+    for id in tqdm(tkrs_l):
+        publisher.publish(topic_s, 'You should predict: '+id)
 
 if __name__ == '__main__':
     main()
