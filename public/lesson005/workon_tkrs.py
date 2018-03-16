@@ -33,7 +33,8 @@ print('tkr:')
 print(tkr_s)
 
 # I should use the tkr to get prices:
-
-price_df = pd.read_csv('https://cs101.herokuapp.com/lesson005/FB.csv')
+url_s    = 'https://cs101.herokuapp.com/lesson005/'+tkr_s+'.csv'
+price_df = pd.read_csv(url_s)
+print(price_df.head())
 
 'bye'
