@@ -11,6 +11,8 @@ python workon_tkrs.py
 import numpy      as np
 import pandas     as pd
 import subprocess as sp
+import sys
+
 PROJECT = 'pubsub-197323'
 cmd_s = 'gcloud pubsub subscriptions pull --auto-ack sub10 --project '+PROJECT
 out_s = sp.run(cmd_s, shell=True, stdout=sp.PIPE)
@@ -25,6 +27,11 @@ I should match something like this:
 """
 # I should use a list to find the tkr_s:
 out_l = out_s.stdout.decode('utf-8').split()
+if len(out_l) == 0:
+    print('No tkr available now.')
+    print('Maybe all work is done.')
+    sys.exit()
+
 # I should find the index of 'on'.
 # The tkr-index is one-plus the on-index:
 tkr_i = 1+out_l.index('on') # exception ok here
@@ -38,11 +45,15 @@ price_df = pd.read_csv(url_s)
 # I should generate ML-features from prices:
 feat0_df         = price_df[['Date','Close']]
 feat0_df.columns = ['cdate','cp']
-feat1_df = feat0_df.sort_values('cdate')
+feat1_df         = feat0_df.sort_values('cdate')
 
-# I should compute pctlag1 and then get pctlead from it:
+# I should compute feature: pctlag1 and then get pctlead from it:
 feat1_df['pctlag1'] = (100.0 * (feat1_df.cp - feat1_df.cp.shift(1)) / feat1_df.cp).fillna(0)
 feat1_df['pctlead'] = feat1_df.pctlag1.shift(-1).fillna(0)
 # In ML-terms, I hope that pctlead depends on pctlag1 (and other features).
+
+# I should compute feature, slope5, which is slope of 5-day rolling-mean:
+rollx              = feat1_df.rolling(window=5)
+feat1_df['slope5'] = 100.0*(rollx.mean().cp - rollx.mean().cp.shift(1))/rollx.mean().cp
 
 'bye'
