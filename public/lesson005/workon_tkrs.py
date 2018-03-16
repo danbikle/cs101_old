@@ -64,4 +64,22 @@ train_df = feat_df.iloc[10:-10]
 train_df.tail()
 test_df
 
+x_train_a = np.array(train_df[['pctlag1','slope5']])
+y_train_a = train_df.pctlead
+
+# I should fit a model to x_train, y_train:
+import sklearn.linear_model as lm
+linr_model = lm.LinearRegression()
+linr_model.fit(x_train_a,y_train_a)
+
+# I should predict values of pctlead in test_df
+x_test_a       = np.array(test_df[['pctlag1','slope5']])
+predictions_a  = linr_model.predict(x_test_a)
+# I should use copy() to Avoid SettingWithCopyWarning:
+predictions_df = test_df.copy() 
+predictions_df['prediction'] = list(predictions_a)
+
+# I should write to csv file:
+predictions_df.to_csv('/tmp/'+tkr_s+'_predictions.csv', float_format='%0.4f', index=False)
+
 'bye'
