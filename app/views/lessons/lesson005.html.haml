@@ -107,7 +107,7 @@
           gcloud pubsub topics publish topic10 --message "hello0" --project pubsub-197323
           gcloud pubsub topics publish topic10 --message "hello1" --project pubsub-197323
           gcloud pubsub topics publish topic10 --message "hello2" --project pubsub-197323
-	  sleep 20
+          sleep 20
           gcloud pubsub subscriptions pull --auto-ack sub10 --project pubsub-197323
           gcloud pubsub subscriptions delete sub10          --project pubsub-197323
           gcloud pubsub topics        delete topic10        --project pubsub-197323
