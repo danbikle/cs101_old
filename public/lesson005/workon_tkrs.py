@@ -80,6 +80,11 @@ predictions_df = test_df.copy()
 predictions_df['prediction'] = list(predictions_a)
 
 # I should write to csv file:
-predictions_df.to_csv('/tmp/'+tkr_s+'_predictions.csv', float_format='%0.4f', index=False)
+csvf_s = '/tmp/'+tkr_s+'_predictions.csv'
+predictions_df.to_csv(csvf_s, float_format='%0.4f', index=False)
+
+# I should copy CSV file to bucket:
+# gsutil cp SPY_predictions.csv gs://pubsub611/predictions/
+sp.run('gsutil cp '+csvf_s+' gs://pubsub611/predictions/', shell=True)
 
 'bye'
