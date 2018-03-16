@@ -41,19 +41,27 @@ print(tkr_s)
 
 # I should use the tkr to get prices:
 url_s    = 'https://cs101.herokuapp.com/lesson005/'+tkr_s+'.csv'
-price_df = pd.read_csv(url_s)
+price0_df = pd.read_csv(url_s)
 # I should generate ML-features from prices:
-feat0_df         = price_df[['Date','Close']]
-feat0_df.columns = ['cdate','cp']
-feat1_df         = feat0_df.sort_values('cdate')
+price1_df         = price0_df[['Date','Close']]
+price1_df.columns = ['cdate','cp']
+feat_df           = price1_df.sort_values('cdate')
 
 # I should compute feature: pctlag1 and then get pctlead from it:
-pctlag1_sr          = (100.0 * (feat1_df.cp - feat1_df.cp.shift(1)) / feat1_df.cp).fillna(0)
-feat1_df['pctlead'] = pctlag1_sr.shift(-1).fillna(0)
+pctlag1_sr         = (100.0 * (feat_df.cp - feat_df.cp.shift(1)) / feat_df.cp).fillna(0)
+feat_df['pctlead'] = pctlag1_sr.shift(-1).fillna(0)
 # In ML-terms, I hope that pctlead depends on pctlag1 (and other features).
-feat1_df['pctlag1'] = pctlag1_sr
+feat_df['pctlag1'] = pctlag1_sr
 # I should compute another feature, slope5, which is slope of 5-day rolling-mean:
-rollx              = feat1_df.rolling(window=5)
-feat1_df['slope5'] = 100.0*(rollx.mean().cp - rollx.mean().cp.shift(1))/rollx.mean().cp
+rollx             = feat_df.rolling(window=5)
+feat_df['slope5'] = 100.0*(rollx.mean().cp - rollx.mean().cp.shift(1))/rollx.mean().cp
+
+# I should predict the last 10 rows:
+test_df = feat_df.iloc[-10:]
+
+# I should learn from the rows before the last 10 rows:
+train_df = feat_df.iloc[10:-10]
+train_df.tail()
+test_df
 
 'bye'
