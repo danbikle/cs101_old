@@ -13,7 +13,7 @@ import pandas     as pd
 import subprocess as sp
 import sys
 
-PROJECT = 'pubsub-197323'
+PROJECT = 'pubsub-197323' # You should use a different project than mine.
 cmd_s = 'gcloud pubsub subscriptions pull --auto-ack sub10 --project '+PROJECT
 out_s = sp.run(cmd_s, shell=True, stdout=sp.PIPE)
 
