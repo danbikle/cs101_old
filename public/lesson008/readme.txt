@@ -136,6 +136,40 @@ docker container ls -a
 
 How to kill detached container?
 A:
-docker container stop id
+docker container stop id # partial hash ok
 demo:
+docker container stop 2a4
+
+Demo of how I deployed/ran a shell script:
+
+mkdir ~/dock11
+cd    ~/dock11
+cat>Dockerfile<<EOF
+FROM ubuntu:16.04
+
+# Set the working directory to /app
+WORKDIR /app
+
+# Copy the current directory contents into the container at /app
+ADD . /app
+
+CMD ["/bin/bash", "hello.bash"]
+EOF
+
+#hello.bash
+echo hello docker
+
+That works well!
+
+
+Try this:
+mkdir ~/dock11
+cd    ~/dock11
+ref:
+  https://hub.docker.com/r/continuumio/anaconda/
+  https://www.google.com/search?q=what+does+docker+pull+do
+docker pull continuumio/anaconda
+docker run -i -t continuumio/anaconda /bin/bash
+
+That works well!
 
