@@ -135,3 +135,7 @@ docker container ls
 docker container ls -a
 
 How to kill detached container?
+A:
+docker container stop id
+demo:
+
