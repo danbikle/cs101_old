@@ -127,5 +127,11 @@ docker build -t friendlyhello .  # I can call it this too
 
 docker image ls
 
-docker run -p 4000:80 friendlyhello
+docker run    -p 4000:80 friendlyhello
+docker run -d -p 4000:80 friendlyhello # I can detach
 
+docker ps
+docker container ls
+docker container ls -a
+
+How to kill detached container?
