@@ -142,8 +142,8 @@ docker container stop 2a4
 
 Demo of how I deployed/ran a shell script:
 
-mkdir ~/dock11
-cd    ~/dock11
+mkdir ~/dock12
+cd    ~/dock12
 cat>Dockerfile<<EOF
 FROM ubuntu:16.04
 
@@ -159,10 +159,17 @@ EOF
 #hello.bash
 echo hello docker
 
+docker build -t dock12 .
+
 That works well!
 
+I tried this:
+cd ~/dock12
+docker run -i -t dock12 /bin/bash
 
-Try this:
+That worked well!
+
+I tried this:
 mkdir ~/dock11
 cd    ~/dock11
 ref:
@@ -172,4 +179,16 @@ docker pull continuumio/anaconda
 docker run -i -t continuumio/anaconda /bin/bash
 
 That works well!
+
+
+I tried this:
+mkdir ~/dock13
+cd    ~/dock13
+ref:
+  https://hub.docker.com/r/continuumio/anaconda3/
+  https://www.google.com/search?q=what+does+docker+pull+do
+docker pull continuumio/anaconda3
+docker run -i -t continuumio/anaconda3 /bin/bash
+
+That works well?
 
