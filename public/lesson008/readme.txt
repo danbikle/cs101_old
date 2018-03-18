@@ -242,14 +242,24 @@ ADD . /app
 RUN apt-get update --fix-missing
 RUN apt-get install -y wget bzip2 ca-certificates
 
-RUN echo 'export PATH=/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin' > /etc/profile.d/conda.sh
+RUN echo 'export PATH=/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin' >> /root/.bashrc
 RUN wget --quiet https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux-x86_64.sh
 RUN /bin/bash Anaconda3-5.1.0-Linux-x86_64.sh -b -p /opt/conda
-
-ENV PATH /opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-
+RUN /opt/conda/bin/conda update conda -y
+RUN conda install keras -y
 EOF
 
 docker build -t dock15 .
 
 docker run -it dock15 /bin/bash
+
+tried docker cp:
+
+docker container ls
+docker cp e6:/opt/conda/LICENSE.txt .
+
+It worked!
+
+experiment:
+  see if I can back/restore /opt/conda from container1 to container2
+  
