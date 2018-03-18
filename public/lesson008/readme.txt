@@ -44,3 +44,18 @@ docker --version
 
 docker info
 
+docker run hello-world
+docker image ls # I should see hello-world image
+
+# image gives me many containers:
+## List Docker containers (running, all, all in quiet mode)
+docker container ls
+docker container ls --all
+docker container ls -aq
+
+mkdir ~/dock10
+cd    ~/dock10
+cat>Dockerfile<<EOF
+# Use an official Python runtime as a parent image
+FROM python:2.7-slim
+EOF
