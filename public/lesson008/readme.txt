@@ -190,5 +190,66 @@ ref:
 docker pull continuumio/anaconda3
 docker run -i -t continuumio/anaconda3 /bin/bash
 
-That works well?
+conda update conda
+conda install keras
 
+That works well!
+
+This works well too:
+docker run -it hello-world  /bin/bash
+docker run -it ubuntu:16.04 /bin/bash
+
+
+
+
+I tried this:
+mkdir ~/dock14
+cd    ~/dock14
+
+cat>Dockerfile<<EOF
+FROM continuumio/anaconda3
+
+# Set the working directory to /app
+WORKDIR /app
+ADD . /app
+
+RUN conda update conda
+RUN conda install keras
+EOF
+
+docker build -t dock14 .
+
+docker run -it dock14 /bin/bash
+
+That worked well!
+
+
+I tried this:
+
+ref:
+  https://hub.docker.com/r/continuumio/anaconda3/~/dockerfile/
+  
+mkdir ~/dock15
+cd    ~/dock15
+
+cat>Dockerfile<<EOF
+FROM ubuntu:16.04
+
+# Set the working directory to /app
+WORKDIR /app
+ADD . /app
+
+RUN apt-get update --fix-missing
+RUN apt-get install -y wget bzip2 ca-certificates
+
+RUN echo 'export PATH=/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin' > /etc/profile.d/conda.sh
+RUN wget --quiet https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux-x86_64.sh
+RUN /bin/bash Anaconda3-5.1.0-Linux-x86_64.sh -b -p /opt/conda
+
+ENV PATH /opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+EOF
+
+docker build -t dock15 .
+
+docker run -it dock15 /bin/bash
