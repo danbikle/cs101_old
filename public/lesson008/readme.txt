@@ -38,3 +38,9 @@ docker run hello-world
 ref:
   https://docs.docker.com/get-started/
 
+docker ps # what is docker doing now?
+
+docker --version
+
+docker info
+
