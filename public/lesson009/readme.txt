@@ -123,6 +123,11 @@ sudo docker run -it continuumio/anaconda3 /bin/bash
 
 Both of the above commands depended on images that had been built for me by other people.
 
+Both of the images are stored on hub.docker.com:
+
+https://hub.docker.com/_/ubuntu/
+https://hub.docker.com/r/continuumio/anaconda3/
+
 
 
 
