@@ -26,15 +26,29 @@
     Login to GCP:
     %a(href='https://console.cloud.google.com' target='x')
       https://console.cloud.google.com
+  %li I saw this:
   %li
-    Create a bucket: pubsub611
+    %img(src='/lesson005/z001.png')
+  %li
+    I created a bucket: pubsub611
     %br/
     %a(href='https://console.cloud.google.com/storage' target='x')
       https://console.cloud.google.com/storage
+  %li I saw this:
   %li
-    Create a service account: "srvacct":
+    %img(src='/lesson005/z002.png')
+
+  %li
+    At
     %a(href='https://console.cloud.google.com/iam-admin/serviceaccounts' target='x')
       https://console.cloud.google.com/iam-admin/serviceaccounts
+
+  %li
+    I created a service account: "srvacct":
+  %li I saw this:
+  %li
+    %img(src='/lesson005/z003.png')
+
   %li
     Create service-key.json:
     %a(href='https://console.cloud.google.com/iam-admin/serviceaccounts' target='x')
@@ -44,19 +58,37 @@
     %br/
     \~/Downloads/pubsub-e71b0ed6e643.json
     copy downloaded-file to service-key.json
+  %li I did that by starting here:
+  %li
+    %img(src='/lesson005/z004.png')
+  
   %li
     Make srvacct an admin of pubsub611 bucket:
+  %li
     %a(href='https://console.cloud.google.com/storage' target='x')
       https://console.cloud.google.com/storage
-    3 dots near bucket
+
+  %li I did that by starting here:
+  %li
+    %img(src='/lesson005/z005.png')
   %li
     I Created cluster cluster10,
     I made it Ubuntu with 3.75 gb ram, I ensured it has full access to cloud-APIs.
     %br
     %a(href='https://console.cloud.google.com/kubernetes' target='x')
       https://console.cloud.google.com/kubernetes
-    %br
-    I added 1 worker, Ubuntu
+  %li I captured screen shots:
+  %li
+    %img(src='/lesson005/z006.png')
+  %li
+    %img(src='/lesson005/z007.png')
+  %li
+    %img(src='/lesson005/z008.png')
+  %li
+    I added 1 worker, Ubuntu:
+  %li
+    %img(src='/lesson005/z009.png')
+    
   %li
     When done, Get IP addresses from here:
     %a(href='https://console.cloud.google.com/compute' target='x')
