@@ -96,6 +96,12 @@ So, the initial creation of the container was slow because Docker needed to pull
 
 But, after the image was cached locally, I could access it instantly.
 
+Next, I exited the node-shell.
+
+Finally I deleted the 1-node-cluster from a link in this URL:
+
+https://console.cloud.google.com/kubernetes
+
 
 
 
