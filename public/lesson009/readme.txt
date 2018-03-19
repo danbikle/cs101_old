@@ -110,8 +110,18 @@ So, the initial creation of the container was slow because Docker needed to pull
 
 But, after the image was cached locally, I could access it instantly.
 
+So, those last two lessons showed how to create a container from an image and then run /bin/bash in the container.
 
+A main idea to remember about Docker is that I can get one or more containers from an image.
 
+Once I have a container, I can boot it up and then use it to support shell commands.
+
+I reviewed the two docker commands I ran above to create containers:
+
+sudo docker run -it ubuntu:16.04 /bin/bash
+sudo docker run -it continuumio/anaconda3 /bin/bash
+
+Both of the above commands depended on images that had been built for me by other people.
 
 
 
