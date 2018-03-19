@@ -4,6 +4,9 @@ This file describes my walkthrough of a docker tutorial.
 
 part-1: GCP Kubernetes Create Cluster of 1 Node
 
+Q: Why use GCP Kubernetes node to operate Docker?
+A: A GCP Kubernetes node comes with Docker installed; I avoid the chore of Docker installation.
+
 I started by asking GCP to create a VM with Docker installed for me.
 
 I did this by creating a kubernetes cluster of 1 host.
@@ -132,9 +135,12 @@ Both of the images are stored on hub.docker.com:
 https://hub.docker.com/_/ubuntu/
 https://hub.docker.com/r/continuumio/anaconda3/
 
+Q: How do I create an image?
+A: I create a file: "Dockerfile", then I use the "docker build" command to create an image.
 
+I followed the above information and wrote some notes.
 
-Next, on the cluster-node, I entered some shell commands to create an image of my own:
+On the cluster-node, I entered some shell commands to create an image of my own:
 
 mkdir /dock1804
 cd    /dock1804
@@ -145,13 +151,13 @@ sudo docker run  -it dock1804 /bin/bash
 That worked well.
 
 Next, I copied Dockerfile into a github repo.
-I connected that repo to
+I connected that repo to the bikle101 account in 
 https://cloud.docker.com/
 I asked the site to build.
 
 Next I ran this shell command:
 
-docker run -it mag11989/dock1804 /bin/bash
+docker run -it bikle101/dock1804 /bin/bash
 
 It worked great!
 
@@ -161,10 +167,58 @@ Then type:
 sudo docker build -t dock1804 .
 sudo docker run  -it dock1804 /bin/bash
 
+Here is a screen shot of me doing that:
 
 
+dan@p95:~ $ 
+dan@p95:~ $ cd ~
+dan@p95:~ $ git clone https://github.com/danbikle/dock1804
+Cloning into 'dock1804'...
+remote: Counting objects: 3, done.        
+remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0        
+Unpacking objects: 100% (3/3), done.
+Checking connectivity... done.
+dan@p95:~ $ 
+dan@p95:~ $ 
+dan@p95:~ $ cd dock1804/
+dan@p95:~/dock1804 $ 
+dan@p95:~/dock1804 $ 
+dan@p95:~/dock1804 $ ll
+total 16
+drwxrwxr-x  3 dan dan 4096 Mar 19 16:01 ./
+drwxr-xr-x 53 dan dan 4096 Mar 19 16:01 ../
+-rw-rw-r--  1 dan dan   18 Mar 19 16:01 Dockerfile
+drwxrwxr-x  8 dan dan 4096 Mar 19 16:01 .git/
+dan@p95:~/dock1804 $ 
+dan@p95:~/dock1804 $ 
+dan@p95:~/dock1804 $ sudo docker build -t dock1804 .
+[sudo] password for dan: 
+Sending build context to Docker daemon  48.13kB
+Step 1/1 : From ubuntu:18.04
+18.04: Pulling from library/ubuntu
+Digest: sha256:4decfd6e336e1cf246127151753d2a24a3185b5f667b91b925e8b38e7ea903a0
+Status: Downloaded newer image for ubuntu:18.04
+ ---> 02f9d6707661
+Successfully built 02f9d6707661
+Successfully tagged dock1804:latest
+dan@p95:~/dock1804 $ 
+dan@p95:~/dock1804 $ sudo docker run  -it dock1804 /bin/bash
+]0;root@ae6cfbed0a9b: /root@ae6cfbed0a9b:/# 
 
+]0;root@ae6cfbed0a9b: /root@ae6cfbed0a9b:/# cat /etc/lsb-release
+cat /etc/lsb-release
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=18.04
+DISTRIB_CODENAME=bionic
+DISTRIB_DESCRIPTION="Ubuntu Bionic Beaver (development branch)"
+]0;root@ae6cfbed0a9b: /root@ae6cfbed0a9b:/# 
 
+]0;root@ae6cfbed0a9b: /root@ae6cfbed0a9b:/# exit
+exit
+exit
+dan@p95:~/dock1804 $ 
+dan@p95:~/dock1804 $ 
+dan@p95:~/dock1804 $ 
 
 
 
@@ -173,12 +227,4 @@ Next, I exited the node-shell.
 Finally I deleted the 1-node-cluster from a link in this URL:
 
 https://console.cloud.google.com/kubernetes
-
-
-
-
-
-
-
-
 
