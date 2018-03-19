@@ -106,6 +106,10 @@ I exited Python using the quit() command.
 
 I exited the container with the shell command: "exit".
 
+
+
+part-3 Docker build an image
+
 So, the initial creation of the container was slow because Docker needed to pull an "image" from the net.
 
 But, after the image was cached locally, I could access it instantly.
@@ -127,6 +131,38 @@ Both of the images are stored on hub.docker.com:
 
 https://hub.docker.com/_/ubuntu/
 https://hub.docker.com/r/continuumio/anaconda3/
+
+
+
+Next, on the cluster-node, I entered some shell commands to create an image of my own:
+
+mkdir /dock1804
+cd    /dock1804
+echo From ubuntu:18.04 > Dockerfile
+sudo docker build -t dock1804 .
+sudo docker run  -it dock1804 /bin/bash
+
+That worked well.
+
+Next, I copied Dockerfile into a github repo.
+I connected that repo to
+https://cloud.docker.com/
+I asked the site to build.
+
+Next I ran this shell command:
+
+docker run -it mag11989/dock1804 /bin/bash
+
+It worked great!
+
+An alternative would be to clone the repo and cd into its folder.
+
+Then type:
+sudo docker build -t dock1804 .
+sudo docker run  -it dock1804 /bin/bash
+
+
+
 
 
 
