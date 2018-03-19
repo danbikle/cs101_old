@@ -2,6 +2,8 @@
 
 This file describes my walkthrough of a docker tutorial.
 
+part-1: GCP Kubernetes Create Cluster of 1 Node
+
 I started by asking GCP to create a VM with Docker installed for me.
 
 I did this by creating a kubernetes cluster of 1 host.
@@ -21,6 +23,15 @@ It quickly created 1-node-cluster.
 After GCP created the node, I found it listed in this URL:
 
 https://console.cloud.google.com/compute/instances
+
+
+part-2: Run /bin/bash in new Docker Containers
+
+I started by visiting this URL:
+
+https://console.cloud.google.com/compute/instances
+
+I found the node I create in part-1.
 
 I clicked the SSH link to gain shell access to the node.
 
@@ -47,10 +58,13 @@ I typed exit to exit the container.
 
 I was now back inside a shell of the cluster node.
 
+So, that was a simple demo of creating a new Docker container and then running /bin/bash inside it.
+
+Here is a another similar demo.
+
 I ran another Docker shell command to bring up another container with Anaconda Python in it:
 
 sudo docker run -it continuumio/anaconda3 /bin/bash
-
 
 After a bit of work, Docker served me a shell prompt from a newly hatched container.
 
@@ -95,6 +109,13 @@ I exited the container with the shell command: "exit".
 So, the initial creation of the container was slow because Docker needed to pull an "image" from the net.
 
 But, after the image was cached locally, I could access it instantly.
+
+
+
+
+
+
+
 
 Next, I exited the node-shell.
 
