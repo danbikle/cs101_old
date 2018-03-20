@@ -201,7 +201,28 @@
     %img(src='/lesson005/z014.png')
   %li
     %img(src='/lesson005/z015.png')
-
+%h2 Lesson Summary:
+%ul
+  %li Login to GCP
+  %li Create Bucket: pubsub611
+  %li Create Service Account: srvacct
+  %li Get Service Account key: service-key.json
+  %li Grant pubsub611 access to srvacct
+  %li Create a kubernetes cluster of 2 Ubuntu nodes
+  %li In each:
+  %li
+    %ul
+      %li Install gcloud
+      %li Install Anaconda
+      %li Install service-key.json
+      %li Use srvacct to login to gcloud
+  %li On mgr create pub/sub topic and subsription
+  %li test pub/sub
+  %li On mgr publish tkrs
+  %li On worker, work-on tkrs to generate predictions
+  %li Copy predictions to bucket: pubsub611
+  %li Look at predictions
+  
 %p
   %a(href='#top') [top]
 %hr/
