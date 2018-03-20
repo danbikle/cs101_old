@@ -119,6 +119,8 @@
           sudo apt-get install -y bzip2
           wget https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux-x86_64.sh
           bash Anaconda3-5.1.0-Linux-x86_64.sh -b
+          echo PATH="${HOME}/anaconda3/bin:$PATH" >> ${HOME}/.bashrc
+          bash
   %li
     On both hosts, I installed gcloud:
     .syntax
@@ -166,7 +168,7 @@
         =render 'lesson005publish_tkrs'
 
   %li
-    On mgr I ran this:
+    On mgr I ran the above script:
     .syntax
       %pre
         %code bash ~/publish_tkrs.bash
@@ -177,6 +179,9 @@
     .syntax
       %pre
         =render 'lesson005workon_tkrs0'
+  %li
+    Next, on worker:
+    vi ~/workon_tkrs.py
   %li
     .syntax
       %pre
