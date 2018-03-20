@@ -9,6 +9,9 @@
 # Demo:
 # bash workon_tkrs.bash
 
+# Work-around GCP gsutil bug:
+export BOTO_CONFIG=/dev/null
+
 cd ~
 python workon_tkrs.py
 
