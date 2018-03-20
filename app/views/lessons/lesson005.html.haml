@@ -88,11 +88,20 @@
     I added 1 worker, Ubuntu:
   %li
     %img(src='/lesson005/z009.png')
+  %li
+    %img(src='/lesson005/z010.png')
+  %li
+    %img(src='/lesson005/z011.png')
+  %li
+    %img(src='/lesson005/z012.png')
     
   %li
-    When done, Get IP addresses from here:
+    When done, I read IP addresses from here:
+  %li
     %a(href='https://console.cloud.google.com/compute' target='x')
       https://console.cloud.google.com/compute
+  %li
+    %img(src='/lesson005/z013.png')
   %li
     On laptop I did this:
     %br
@@ -109,7 +118,7 @@
         %code
           sudo apt-get install -y bzip2
           wget https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux-x86_64.sh
-          bash Anaconda3-5.1.0-Linux-x86_64.sh
+          bash Anaconda3-5.1.0-Linux-x86_64.sh -b
   %li
     On both hosts, I installed gcloud:
     .syntax
@@ -148,7 +157,7 @@
   %li
     The above test worked well so I moved on.
   %li
-    Next, on mgr:
+    Next, on mgr, I did this:
     vi ~/publish_tkrs.bash
 
   %li
@@ -167,7 +176,11 @@
   %li
     .syntax
       %pre
-        =render 'lesson005workon_tkrs'
+        =render 'lesson005workon_tkrs0'
+  %li
+    .syntax
+      %pre
+        =render 'lesson005workon_tkrs1'
   %li
     On worker I ran this:
     .syntax
