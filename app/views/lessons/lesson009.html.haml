@@ -2,7 +2,7 @@
 
 %p This lesson shows how I stepped through some Docker tasks.
 
-%h3 part-1: Create GCP Kubernetes Cluster of 1 Node
+%h2 part-1: Create GCP Kubernetes Cluster of 1 Node
 
 %p
   Q: Why use GCP Kubernetes node to operate Docker?
@@ -22,6 +22,7 @@
   %a(href='https://console.cloud.google.com/kubernetes' target='x')
     https://console.cloud.google.com/kubernetes
 %p I saw this:
+
 %img(src='/lesson009/z001.png')
 
 %p
@@ -33,11 +34,13 @@
   %li Ubuntu instead of "cos"
   %li Size 1 instead of 3
 %p I saw this:
+
 %img(src='/lesson009/z002.png')
 
 %p
   It quickly created 1-node-cluster.
 %p I saw this:
+
 %img(src='/lesson009/z003.png')
 
 %p
@@ -48,7 +51,136 @@
     https://console.cloud.google.com/compute/instances
   
 %p I saw this:
+
 %img(src='/lesson009/z004.png')
+
+%h2 part-2: Run /bin/bash in new Docker Containers
+
+%p
+  I started by visiting this URL:
+
+%p
+  %a(href='https://console.cloud.google.com/compute/instances' target='x')
+    https://console.cloud.google.com/compute/instances
+  
+%p
+  I found the node I created in part-1.
+
+%p
+  I clicked the SSH link to gain shell access to the node.
+
+%p
+  I entered a shell command:
+
+.syntax
+  %pre
+    %code sudo docker run -it ubuntu:16.04 /bin/bash
+
+%p
+  After a bit of work, Docker served me a shell prompt from a newly hatched container.
+
+%p
+  I entered a shell command:
+
+.syntax
+  %pre
+    %code cat /etc/lsb-release
+
+%p
+  I saw this:
+
+.syntax
+  %pre
+    %code 
+      root@08bfb05c6ca3:/etc# cat /etc/lsb-release
+      DISTRIB_ID=Ubuntu
+      DISTRIB_RELEASE=16.04
+      DISTRIB_CODENAME=xenial
+      DISTRIB_DESCRIPTION="Ubuntu 16.04.4 LTS"
+      root@08bfb05c6ca3:/etc#
+
+%p
+  I typed exit to exit the container.
+
+%p
+  I was now back inside a shell of the cluster node.
+
+%p
+  So, that was a simple demo of creating a new Docker container and then running /bin/bash inside it.
+
+%p
+  Here is a another similar demo.
+
+%p
+  I ran another Docker shell command to bring up another container with Anaconda Python in it:
+
+.syntax
+  %pre
+    %code sudo docker run -it continuumio/anaconda3 /bin/bash
+
+%p
+  After a bit of work, Docker served me a shell prompt from a newly hatched container.
+
+%p
+  I entered a shell command:
+
+.syntax
+  %pre
+    %code python
+
+%p
+  It served me a Python-3 prompt.
+
+%p
+  I entered Python commands:
+
+.syntax
+  %pre
+    %code
+      import pandas as pd
+      from sklearn.datasets import load_boston
+      bos_df = pd.DataFrame(load_boston().data)
+      bos_df.columns = load_boston().feature_names
+      bos_df.describe()
+
+%p
+  The above commands worked well.
+
+%p
+  So, I could quickly gain access to a container running Anaconda Python.
+
+%p
+  I exited Python using the quit() command.
+
+%p
+  I exited the container with the shell command: "exit".
+
+%p
+  I ran another Docker shell command to bring up another container with Anaconda Python in it:
+
+.syntax
+  %pre
+    %code sudo docker run -it continuumio/anaconda3 /bin/bash
+
+%p
+  Instantly, Docker served me a shell prompt from a newly hatched container.
+
+%p
+  I entered a shell command:
+
+.syntax
+  %pre
+    %code python
+
+%p
+  Instantly, I saw a Python prompt.
+
+%p
+  I exited Python using the quit() command.
+
+%p
+  I exited the container with the shell command: "exit".
+
 
 %p
   %a(href='#top') [top]

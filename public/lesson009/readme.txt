@@ -34,7 +34,7 @@ I started by visiting this URL:
 
 https://console.cloud.google.com/compute/instances
 
-I found the node I create in part-1.
+I found the node I created in part-1.
 
 I clicked the SSH link to gain shell access to the node.
 
