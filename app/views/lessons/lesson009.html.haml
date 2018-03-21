@@ -1,0 +1,55 @@
+%h1#top Lesson 009 [ Simple Docker Introductory Tutorial ]
+
+%p This lesson shows how I stepped through some Docker tasks.
+
+%h3 part-1: Create GCP Kubernetes Cluster of 1 Node
+
+%p
+  Q: Why use GCP Kubernetes node to operate Docker?
+%p
+  A: A GCP Kubernetes node comes with Docker installed; I avoid the chore of Docker installation.
+
+%p
+  I started by asking GCP to create a VM with Docker installed for me.
+
+%p
+  I did this by creating a kubernetes cluster of 1 host.
+
+%p
+  I started at this URL:
+
+%p
+  %a(href='https://console.cloud.google.com/kubernetes' target='x')
+    https://console.cloud.google.com/kubernetes
+%p I saw this:
+%img(src='/lesson009/z001.png')
+
+%p
+  I clicked blue-button: "Create Cluster"
+
+%p
+  I made small changes to the form it served me:
+%ul
+  %li Ubuntu instead of "cos"
+  %li Size 1 instead of 3
+%p I saw this:
+%img(src='/lesson009/z002.png')
+
+%p
+  It quickly created 1-node-cluster.
+%p I saw this:
+%img(src='/lesson009/z003.png')
+
+%p
+  After GCP created the node, I found it listed in this URL:
+
+%p
+  %a(href='https://console.cloud.google.com/compute/instances' target='x')
+    https://console.cloud.google.com/compute/instances
+  
+%p I saw this:
+%img(src='/lesson009/z004.png')
+
+%p
+  %a(href='#top') [top]
+%hr/
