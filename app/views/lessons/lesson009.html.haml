@@ -69,6 +69,12 @@
 %p
   I clicked the SSH link to gain shell access to the node.
 
+%p I saw this:
+
+
+%img(src='/lesson009/z005.png')
+
+
 %p
   I entered a shell command:
 
@@ -78,6 +84,10 @@
 
 %p
   After a bit of work, Docker served me a shell prompt from a newly hatched container.
+
+%p I saw this:
+
+%img(src='/lesson009/z006.png')
 
 %p
   I entered a shell command:
@@ -91,14 +101,15 @@
 
 .syntax
   %pre
-    %code 
-      root@08bfb05c6ca3:/etc# cat /etc/lsb-release
+    %code
+      root@84d3aed24cbd:/# cat /etc/lsb-release
       DISTRIB_ID=Ubuntu
       DISTRIB_RELEASE=16.04
       DISTRIB_CODENAME=xenial
       DISTRIB_DESCRIPTION="Ubuntu 16.04.4 LTS"
-      root@08bfb05c6ca3:/etc#
+      root@84d3aed24cbd:/#
 
+%p The above output convinced me that I had just deployed a Docker container running Ubuntu 16.04.4.
 %p
   I typed exit to exit the container.
 
@@ -112,7 +123,7 @@
   Here is a another similar demo.
 
 %p
-  I ran another Docker shell command to bring up another container with Anaconda Python in it:
+  I ran a Docker shell command to bring up another container with Anaconda Python in it:
 
 .syntax
   %pre
@@ -120,6 +131,10 @@
 
 %p
   After a bit of work, Docker served me a shell prompt from a newly hatched container.
+
+%p I saw this:
+
+%img(src='/lesson009/z007.png')
 
 %p
   I entered a shell command:
@@ -146,8 +161,12 @@
 %p
   The above commands worked well.
 
+%p I saw this:
+
+%img(src='/lesson009/z008.png')
+
 %p
-  So, I could quickly gain access to a container running Anaconda Python.
+  That convinced me that I could quickly gain access to a container running Anaconda Python.
 
 %p
   I exited Python using the quit() command.
@@ -165,6 +184,12 @@
 %p
   Instantly, Docker served me a shell prompt from a newly hatched container.
 
+%p This was different behavior than before.
+
+%p Previously, Docker needed several minutes to bring up the container.
+
+%p Now, Docker brought up the container instantly.
+
 %p
   I entered a shell command:
 
@@ -173,7 +198,7 @@
     %code python
 
 %p
-  Instantly, I saw a Python prompt.
+  Quickly, I saw a Python prompt.
 
 %p
   I exited Python using the quit() command.
