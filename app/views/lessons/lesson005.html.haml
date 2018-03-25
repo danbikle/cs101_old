@@ -29,6 +29,28 @@
 
 %p If you want to follow the steps listed in this lab, you will need to create a GCP account.
 
+%p A useful URL is listed below:
+
+%p
+  %a(href='https://console.cloud.google.com/freetrial' target='x')
+    https://console.cloud.google.com/freetrial
+%p After you create a GCP account, you should login to it.
+
+%p Then, you should create a project.
+
+%p When I did that, I created a project named: "pubsub"
+
+%p When I create a project I use a short name with only lower-case letters.
+
+%p After you create a project, you should "upgrade" your account to gain extra GCP privileges.
+
+%p I learned about "upgrade" while following a lab in Feb-2018:
+%p
+  %a(href='https://codelabs.developers.google.com/codelabs/cpb100-free-trial/#3' target='x')
+    https://codelabs.developers.google.com/codelabs/cpb100-free-trial/#3
+    
+%p After you have a GCP account which has been "upgraded", you will be on a good path.
+
 
 %h2 Part 1:
 %p
@@ -42,6 +64,11 @@
   %li I saw this:
   %li
     %img(src='/lesson005/z001.png')
+  %li I noticed at the top of the page that I was inside the "pubsub" project.
+  %li During the time I have spent with GCP, I learned that I must have a sharp awareness of my projects.
+  %li Eventually I gained a sense of how GCP pages are affected by projects.
+  %li Initially I ignored projects which led me to some confusing situations.
+  %li Enough about projects.
   %li
     I created a bucket: pubsub611
     %br/
@@ -51,11 +78,13 @@
   %li
     %img(src='/lesson005/z002.png')
 
+
+%h2 Part 2:
+%ul
   %li
     At
     %a(href='https://console.cloud.google.com/iam-admin/serviceaccounts' target='x')
       https://console.cloud.google.com/iam-admin/serviceaccounts
-
   %li
     I created a service account: "srvacct":
   %li I saw this:
@@ -75,6 +104,8 @@
   %li
     %img(src='/lesson005/z004.png')
   
+%h2 Part 3:
+%ul
   %li
     Make srvacct an admin of pubsub611 bucket:
   %li
@@ -84,6 +115,9 @@
   %li I did that by starting here:
   %li
     %img(src='/lesson005/z005.png')
+
+%h2 Part 4:
+%ul
   %li
     I Created cluster cluster10,
     I made it Ubuntu with 3.75 gb ram, I ensured it has full access to cloud-APIs.
@@ -115,6 +149,8 @@
       https://console.cloud.google.com/compute
   %li
     %img(src='/lesson005/z013.png')
+%h2 Part 5:
+%ul
   %li
     On laptop I did this:
     %br
@@ -122,7 +158,9 @@
     .syntax
       %pre
         =render 'lesson005a'
-  %li ssh both mgr and worker
+%h2 Part 6:
+%ul
+  %li ssh into both mgr and worker
   %li
     On both hosts, I installed Python 3 via Anaconda:
   %li
@@ -154,6 +192,8 @@
       %pre
         %code gcloud auth activate-service-account --key-file=service-key.json
 
+%h2 Part 7:
+%ul
   %li On mgr, I used gcloud shell commands to test publish-subscribe:
   %li
     .syntax
@@ -170,6 +210,8 @@
           gcloud pubsub topics        delete topic10        --project pubsub-197323
 
 
+%h2 Part 8:
+%ul
   %li
     The above test worked well so I moved on.
   %li
@@ -186,6 +228,9 @@
     .syntax
       %pre
         %code bash ~/publish_tkrs.bash
+
+%h2 Part 9:
+%ul     
   %li
     Next, on worker, I did this:
     vi ~/workon_tkrs.bash
@@ -217,6 +262,7 @@
     %img(src='/lesson005/z015.png')
 %h2 Lesson Summary:
 %ul
+  %li Create GCP account
   %li Login to GCP
   %li Create Bucket: pubsub611
   %li Create Service Account: srvacct
