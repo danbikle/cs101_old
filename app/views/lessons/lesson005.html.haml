@@ -93,6 +93,11 @@
       https://console.cloud.google.com/iam-admin/serviceaccounts
   %li I created a service account: "srvacct"
   %li During that process, I asked GCP to generate a key for that account.
+  %li Also I granted Pub/Sub-Admin privilege to "srvacct"
+  %li I saw this:
+  %li
+    %img(src='/lesson005/z002d.png')
+  
   %li When GCP generated the key, it asked to place the key in my Downloads-folder.
   %li I allowed that download to happen.
   %li After that, I copied the key to: ~/Downloads/service-key.json
@@ -102,7 +107,7 @@
     %img(src='/lesson005/z003.png')
 
   %li
-    I learned that I can create service-key.json at will:
+    I learned that I can create more service-key.json files at will:
   %li
     %a(href='https://console.cloud.google.com/iam-admin/serviceaccounts' target='x')
       https://console.cloud.google.com/iam-admin/serviceaccounts
@@ -110,6 +115,7 @@
   %li
     %img(src='/lesson005/z004.png')
   
+
 %h2 Part 3:
 %ul
   %li
