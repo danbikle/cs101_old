@@ -42,20 +42,28 @@
 
 %p When I create a project I use a short name with only lower-case letters.
 
-%p After you create a project, you should "upgrade" your account to gain extra GCP privileges.
+%p After I created my first project, I "upgraded" to gain extra GCP privileges.
 
 %p I learned about "upgrade" while following a lab in Feb-2018:
 %p
   %a(href='https://codelabs.developers.google.com/codelabs/cpb100-free-trial/#3' target='x')
     https://codelabs.developers.google.com/codelabs/cpb100-free-trial/#3
     
-%p After you have a GCP account which has been "upgraded", you will be on a good path.
+%p I am not sure if you should "upgrade" but the above page suggests it is a good idea.
 
-%p During project creation, GCP will give you an opportunity to attach your ssh-public-key to that project.
+%p The downside to upgrade is that if you start a GCP service or VM and then forget about it, Google will start charging your credit card after you spend the initial $300 credit.
+
+%p During initial project creation, GCP may give you an opportunity to attach your ssh-public-key to that project.
 
 %p If you have a ssh-public-key, and know how to use it, you should take advantage of that opportunity.
 
-%p Otherwise, ignore ssh for now.
+%p After you create a project, you will have an opportunity to add a public-key via the URL listed below:
+
+%p
+  %a(href='https://console.cloud.google.com/compute/metadata/sshKeys' target='x')
+    https://console.cloud.google.com/compute/metadata/sshKeys
+
+%p If ssh is unfamiliar to you, ignore ssh for now.
 
 
 %h2 Part 1:
@@ -75,6 +83,7 @@
   %li Eventually I gained a sense of how GCP pages are affected by projects.
   %li Initially I ignored projects which led me to some confusing situations.
   %li Enough about projects.
+  %li I enabled some APIs.
   %li
     I created a bucket: pubsub611
     %br/
