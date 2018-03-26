@@ -18,12 +18,10 @@ cmd_s = 'gcloud pubsub subscriptions pull --auto-ack sub10 --project '+PROJECT
 out_s = sp.run(cmd_s, shell=True, stdout=sp.PIPE)
 
 """
-I should match something like this:
-┌─────────────────────────┬────────────────┬────────────┐
-│           DATA          │   MESSAGE_ID   │ ATTRIBUTES │
-├─────────────────────────┼────────────────┼────────────┤
-│ Please work on AAPL now │ 55903378213755 │            │
-└─────────────────────────┴────────────────┴────────────┘
+I should match a string looking like this:
+
+| Please work on AAPL now | 55903378213755 |
+
 """
 # I should use a list to find the tkr_s:
 out_l = out_s.stdout.decode('utf-8').split()
