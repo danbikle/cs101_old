@@ -135,6 +135,16 @@
 
 %p Now you know enough Jupyter to learn some Python.
 
+%p Another way to run Jupyter is to use "Google Colab".
+
+%p First, you need to login to your gmail account.
+
+%p Then, you will find it at the URL listed below:
+
+%p
+  %a(href='https://colab.research.google.com' target='x')
+    https://colab.research.google.com
+
 %a(href='#top') [top]
 %hr/
 
@@ -220,6 +230,22 @@
 %p I saw this:
 
 %img(src='/lesson003/ds12.png')
+
+%p If I want to upload family.csv to Google Colab, I enter this Python syntax into a Colab-cell:
+.syntax
+  %pre
+    %code
+      from google.colab import files
+      files.upload()
+%p Then, Colab should serve me a file-upload-button.
+
+%p Next, I can verify my uploaded worked with this Python command:
+
+.syntax
+  %pre
+    %code files.os.listdir()
+
+
 
 %hr/
 
@@ -437,6 +463,10 @@
     In Data Science, why use a "Scatter Plot"?
   %li
     In Python how to create a "Scatter Plot"?
-
+    
+  %li How to upload a CSV file to Google Colab?
+  
+  %li How to see my uploaded files in Google Colab?
+  
 %a(href='#top') [top]
 %hr/
