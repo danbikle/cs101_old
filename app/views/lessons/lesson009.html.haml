@@ -366,7 +366,30 @@
       gcloud config set project pubsub-197323
       sudo docker run -it gcr.io/pubsub-197323/dock1804 /bin/bash
 
-%p It worked!
+%p It failed.
+
+%p I saw this:
+
+.syntax
+  %pre
+    %code
+      bikle101@gke-cluster-2-default-pool-24d6b02b-cfs4:~$ sudo docker run -it gcr.io/pubsub-197323/dock1804 /bin/bash
+      Unable to find image 'gcr.io/pubsub-197323/dock1804:latest' locally
+      Pulling repository gcr.io/pubsub-197323/dock1804
+      docker: unauthorized: authentication required.
+      See 'docker run --help'.
+      bikle101@gke-cluster-2-default-pool-24d6b02b-cfs4:~$ 
+
+%p I visited a page inside GCP-kubernetes:
+
+%p
+  %a(href='https://console.cloud.google.com/kubernetes/workload' target='x')
+    https://console.cloud.google.com/kubernetes/workload
+%p I saw this:
+
+%img(src='/lesson009/z009.png')
+
+%p I clicked the blue-button: "Deploy".
 
 %p Getting docker images from gcr.io and then running them is an important step.
 
