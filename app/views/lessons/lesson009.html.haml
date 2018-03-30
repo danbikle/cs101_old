@@ -354,7 +354,6 @@
 
 %p It worked!
 
-
 %p Getting docker images from gcr.io and then running them is an important step.
 
 %p Later, I will show further steps to automate deployment of docker images from gcr.io and then running software in those images.
@@ -363,7 +362,7 @@
 
 %p Next, I exited the node-shell.
   
-%p Finally I deleted the 1-node-cluster from a link in this URL:
+%p Finally I deleted the cluster from a link in this URL:
 %p
   %a(href='https://console.cloud.google.com/kubernetes' target='x')
     https://console.cloud.google.com/kubernetes
@@ -444,7 +443,7 @@
           gcloud projects list
           gcloud config set project pubsub-197323
           sudo docker tag dock1804 gcr.io/pubsub-197323/dock1804
-          sudo docker -- push gcr.io/pubsub-197323/dock1804
+          gcloud docker -- push gcr.io/pubsub-197323/dock1804
           sudo docker run -it gcr.io/pubsub-197323/dock1804 /bin/bash
   %li Start another node in the cluster
   %li Install gcloud on new cluster node
