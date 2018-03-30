@@ -2,6 +2,18 @@
 
 %p This lesson shows how I stepped through some Docker tasks.
 
+%h2 Part-0: Create a GCP account, then Login
+
+%p If you want to see how I did Part-0, study the content at this URL:
+
+%p
+  %a(href='/lessons/lesson001#free-trial') lesson001#free-trial
+%p After I created my GCP account, I created a Project called: "pubsub".
+%p After you login, you can create a Project at this URL:
+%p
+  %a(href='https://console.cloud.google.com/projectcreate' target='x')
+    https://console.cloud.google.com/projectcreate
+  
 %h2 Part-1: Create GCP Kubernetes Cluster of 1 Node
 
 %p
@@ -24,6 +36,8 @@
 %p I saw this:
 
 %img(src='/lesson009/z001.png')
+
+%p Notice the page lists my pubsub-Project near the top.
 
 %p
   I clicked blue-button: "Create Cluster"
@@ -343,7 +357,7 @@
 
 %p It worked!
 
-%p I started another node in the cluster.
+%p I started another one-node cluster.
 
 %p On that node, I installed gcloud and I tried this:
 .syntax
