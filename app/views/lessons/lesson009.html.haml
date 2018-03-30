@@ -305,11 +305,65 @@
   %pre
     =render 'lesson009ss1'
   
+
+%p So, it turns out that GCP offers a service like cloud.docker.com
+
+%p It is called: "gcr.io"
+
+%p I visited gcr.io and my browser redirected me to this page:
+
 %p
-  Next, I exited the node-shell.
+  %a(href='https://cloud.google.com/container-registry' target='x')
+    https://cloud.google.com/container-registry
+%p In order to use it, I need to install gcloud.
+
+%p I installed gcloud with the shell commands listed below:
+
+.syntax
+  %pre
+    %code
+      wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-193.0.0-linux-x86_64.tar.gz
+      tar xf google-cloud-sdk-193.0.0-linux-x86_64.tar.gz
+      google-cloud-sdk/install.sh
+      bash
+%p Next I issued some shell commands:
+
+.syntax
+  %pre
+    %code
+      gcloud projects list
+      gcloud config set project pubsub-197323
+      sudo docker tag dock1804 gcr.io/pubsub-197323/dock1804
+      sudo docker -- push gcr.io/pubsub-197323/dock1804
+
+%p I tried this:
+.syntax
+  %pre
+    %code sudo docker run -it gcr.io/pubsub-197323/dock1804 /bin/bash
+
+%p It worked!
+
+%p I started another node in the cluster.
+
+%p On that node, I installed gcloud and I tried this:
+.syntax
+  %pre
+    %code
+      gcloud config set project pubsub-197323
+      sudo docker run -it gcr.io/pubsub-197323/dock1804 /bin/bash
+
+%p It worked!
+
+
+%p Getting docker images from gcr.io and then running them is an important step.
+
+%p Later, I will show further steps to automate deployment of docker images from gcr.io and then running software in those images.
+
+%p That is all for this lesson.
+
+%p Next, I exited the node-shell.
   
-%p
-  Finally I deleted the 1-node-cluster from a link in this URL:
+%p Finally I deleted the 1-node-cluster from a link in this URL:
 %p
   %a(href='https://console.cloud.google.com/kubernetes' target='x')
     https://console.cloud.google.com/kubernetes
@@ -381,7 +435,27 @@
   %li
     %a(href='https://console.cloud.google.com/kubernetes' target='x')
       https://console.cloud.google.com/kubernetes
-  %li Delete the 1-node-cluster to limit GCP cost         
+
+  %li Install gcloud on cluster node
+  %li 
+    .syntax
+      %pre
+        %code
+          gcloud projects list
+          gcloud config set project pubsub-197323
+          sudo docker tag dock1804 gcr.io/pubsub-197323/dock1804
+          sudo docker -- push gcr.io/pubsub-197323/dock1804
+          sudo docker run -it gcr.io/pubsub-197323/dock1804 /bin/bash
+  %li Start another node in the cluster
+  %li Install gcloud on new cluster node
+  %li 
+    .syntax
+      %pre
+        %code
+          gcloud config set project pubsub-197323
+          sudo docker run -it gcr.io/pubsub-197323/dock1804 /bin/bash
+          
+  %li Delete the cluster to limit GCP cost         
           
 %p
   %a(href='#top') [top]
