@@ -680,8 +680,36 @@
         %code sudo docker build -t dock1804 .
     %hr/
 
+  %li Q: What is "gcr.io"?
+  %li
+    It is a google-server where I can store Images.
+    %hr/
 
 
+  %li Q: How to install "gcloud" on Linux?
+  %li
+    Demo:
+    .syntax
+      %pre
+        %code
+          wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-193.0.0-linux-x86_64.tar.gz
+          tar xf google-cloud-sdk-193.0.0-linux-x86_64.tar.gz
+          google-cloud-sdk/install.sh
+          bash  
+    %hr/
+
+  %li Q: How to "push" dock1804-Image into gcr.io?
+  %li
+    Demo:
+    .syntax
+      %pre
+        %code
+          gcloud projects list
+          gcloud config set project pubsub-197323
+          sudo docker tag dock1804 gcr.io/pubsub-197323/dock1804
+          gcloud docker
+          sudo docker -- push gcr.io/pubsub-197323/dock1804
+    %hr/
 
 %p
   %a(href='#top') [top]
