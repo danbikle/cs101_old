@@ -614,6 +614,37 @@
       %li Button: Allow full access to all Cloud APIs
     %hr/
 
+  %li Q: After I create a 1-node-cluster, how to login to the node?
+  %li Visit the link below:
+  %li
+    %a(href='https://console.cloud.google.com/compute/instances' target='x')
+      https://console.cloud.google.com/compute/instances
+  %li
+    Find the node; click the SSH link to access a shell inside the node.
+    %hr/
+    
+  %li Q: What is a Dockerfile?
+  %li
+    I can use a Dockerfile to create an "Image".
+    %hr/
+    
+  %li Q: What is an Image?
+  %li
+    I can use an Image to create one or more "Containers".
+    %hr/
+    
+  %li Q: What is a Container?
+  %li
+    A Container is an active Linux-environment which accepts my shell commands.
+    %hr/
+    
+  %li Q: How to run a bash-shell inside Docker Ubuntu Container?
+  %li ssh into 1-node-cluster then enter shell command:
+  %li
+    .syntax
+      %pre
+        %code sudo docker run -it ubuntu:16.04 /bin/bash
+    %hr/
 
 %p
   %a(href='#top') [top]
