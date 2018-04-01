@@ -559,17 +559,45 @@
 
 %ul
   %li Q: What is Docker?
-  %li Docker allows me to create a command-line linux environment inside another host.
-
+  %li
+    Docker allows me to create a command-line linux environment inside another host.
+    %hr/
   %li Q: Is it easy to install Docker?
-  %li Sometimes yes or no. Installing Docker on windows can be a problem.
+  %li
+    Sometimes yes or no. Installing Docker on windows can be a problem.
+    %hr/
 
   %li Q: How to get a free GCP account with $300 credit?
   %li Start here:
   %li
     %a(href='https://console.developers.google.com/freetrial' target='x')
       https://console.developers.google.com/freetrial
-
+    %hr/
+  %li Q: How to create a project inside GCP?
+  %li
+    %a(href='https://console.cloud.google.com/projectcreate' target='x')
+      https://console.cloud.google.com/projectcreate
+    %hr/
+  %li Q: Why create a project inside GCP?
+  %li
+    Google wants you to create a project.
+    %hr/
+  %li Q: How to create GCP Kubernetes Cluster of 1 Node?
+  %li
+    Visit:
+    %a(href='https://console.cloud.google.com/kubernetes' target='x')
+      https://console.cloud.google.com/kubernetes
+  %li
+    Fill out the cluster creation form:
+    %ul
+      %li Pick Ubuntu not cos.
+      %li Size: 1
+      %li Autoscaling: On
+      %li Min size == Max size == 1
+      %li Preemptible: Enabled (ignore warning)
+      %li Boot size: 40 GB
+      %li Button: Allow full access to all Cloud APIs
+    %hr/
 
 
 %p
