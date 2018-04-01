@@ -645,6 +645,43 @@
       %pre
         %code sudo docker run -it ubuntu:16.04 /bin/bash
     %hr/
+  %li Q: Do I need an Image to run the above Container?
+  %li Yes, but you can ignore the Image.
+  %li
+    Docker will get the Image from hub.docker.com and install it for you.
+    %hr/
+
+  %li Q: How to see my current version of Ubuntu?
+  %li
+    .syntax
+      %pre
+        %code cat /etc/lsb-release
+    %hr/
+  %li Q: How to run a Container with Anaconda Python inside it?
+  %li
+    .syntax
+      %pre
+        %code sudo docker run -it continuumio/anaconda3 /bin/bash
+    %hr/
+
+  %li Q: How to create a one-line Dockerfile?
+  %li
+    Demo:
+    .syntax
+      %pre
+        %code echo From ubuntu:18.04 > Dockerfile
+    %hr/
+
+  %li Q: How to build an Image from above Dockerfile?
+  %li
+    Demo:
+    .syntax
+      %pre
+        %code sudo docker build -t dock1804 .
+    %hr/
+
+
+
 
 %p
   %a(href='#top') [top]
