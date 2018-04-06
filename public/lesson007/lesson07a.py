@@ -1,24 +1,13 @@
-~/cs101/public/lesson007/notes2018_0302.txt
+"""
+lesson07a.py
 
-This file shows my efforts to walk through a google-ML class I found on the web:
-
-https://developers.google.com/machine-learning/crash-course/
-
-I started at the above URL.
-
-I studied this page:
-
+Ref:
 https://developers.google.com/machine-learning/crash-course/prereqs-and-prework
 
-I studied this page:
-
-https://colab.research.google.com/notebooks/mlcc/intro_to_pandas.ipynb?hl=en
-
-I logged into gmail.
-
-The above page started working.
-
-syntax from the above page:
+This script contains syntax from Google.
+Demo:
+python lesson07a.py
+"""
 
 import pandas as pd
 pd.__version__
@@ -43,15 +32,15 @@ california_housing_dataframe.hist('housing_median_age')
 
 
 cities = pd.DataFrame({ 'City name': city_names, 'Population': population })
-print type(cities['City name'])
+print(type(cities['City name']))
 cities['City name']
 
 
-print type(cities['City name'][1])
+print(type(cities['City name'][1]))
 cities['City name'][1]
 
 
-print type(cities[0:2])
+print(type(cities[0:2]))
 cities[0:2]
 
 
@@ -87,8 +76,4 @@ cities.reindex(np.random.permutation(cities.index))
 
 
 cities.reindex([0, 4, 5, 2])
-
-
-
-
 
