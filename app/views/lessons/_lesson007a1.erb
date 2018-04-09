@@ -1,9 +1,15 @@
 <code class='bash'>"""
 estimator1.py
 
+Will this run or give exception?
+
 Ref:
 https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator
+
+Demo:
+python estimator1.py
 """
+import tensorflow as tf
 estimator = tf.estimator.DNNClassifier(
     feature_columns=[categorical_feature_a_emb, categorical_feature_b_emb],
     hidden_units=[1024, 512, 256],
