@@ -11,7 +11,7 @@ python estimator1.py
 """
 import tensorflow as tf
 estimator = tf.estimator.DNNClassifier(
-    feature_columns=[categorical_feature_a_emb, categorical_feature_b_emb],
-    hidden_units=[1024, 512, 256],
-    warm_start_from="/tmp/checkpoint_dir")
+    feature_columns=[]
+    ,hidden_units=[1024, 512, 256]
+    ,warm_start_from="/tmp/checkpoint_dir")
 </code>
