@@ -11,5 +11,8 @@ a:
   - sage notebook
   - sage CLI
   - sage programs/scripts
+    - http://localhost:8080/doc/live/tutorial/programming.html#section-loadattach
+    - http://localhost:8080/doc/live/tutorial/programming.html#section-compile
   - python scripts which call the sage library
-  
+    - http://localhost:8080/doc/live/tutorial/programming.html#section-standalone
+    
