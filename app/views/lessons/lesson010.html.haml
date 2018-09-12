@@ -117,4 +117,45 @@
       chmod 600 ~/Downloads/dan1.pem
       cp        ~/Downloads/dan1.pem ~/.ssh/
 
+
+%p The above syntax is Bash syntax.
+
+%p Bash is installed for me on both Mac and Linux.
+
+%p On Windows, I need to download Bash from this URL and install it:
+
+%a(href='https://git-scm.com/download/win' target='x')
+  https://git-scm.com/download/win
   
+%p After I download the pem-file I click the blue-button: "Launch Instances".
+
+%p AWS needs a few minutes to launch an instance from ami-a0cfeed8.
+
+%p While waiting I visit this URL:
+
+%a(href='https://console.aws.amazon.com/iam/home#/security_credential' target='x')
+  https://console.aws.amazon.com/iam/home#/security_credential
+
+%p I found the above URL by exploring links served from the upper right.
+
+%p In the security_credential page, I clicked link:
+%p   "Access keys (access key ID and secret access key)"
+
+
+%p Next, I visited this URL:
+
+%a(href='https://console.aws.amazon.com/ec2' target='x')
+  https://console.aws.amazon.com/ec2
+  
+
+%p In that page I found information about the instance I just launched.
+
+%p I located the IP-address: 34.223.225.17
+
+%p I connected to the instance with a long shell command:
+
+.syntax
+  %pre
+    %code
+      ssh -i ~/.ssh/dan1.pem ec2-user@34.223.225.17
+
