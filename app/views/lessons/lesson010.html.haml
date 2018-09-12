@@ -264,47 +264,32 @@
   %pre=render 'lesson010f'
 
 
-On my laptop I tried to connect:
+%p On my laptop I tried to connect:
 
-ssh -i ~/.ssh/dan1.pem ec2-user@54.148.20.197
+.syntax
+  %pre
+    %code.bash ssh -i ~/.ssh/dan1.pem ec2-user@54.148.20.197
 
-It failed because I had neglected to open port 22 when I started the instance.
+%p It failed because I had neglected to open port 22 when I started the instance.
 
-So, I terminated the instance:
+%p So, I terminated the instance:
 
-aws ec2 terminate-instances --instance-ids i-02cf6fc0229d0e46b
+.syntax
+  %pre
+    %code.bash aws ec2 terminate-instances --instance-ids i-02cf6fc0229d0e46b
 
-I looked for the name of security group which will open port 22:
-
-https://docs.aws.amazon.com/cli/latest/reference/ec2/index.html
-
-https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html
+%p I looked for the name of security group which will open port 22:
 
 
-[ec2-user@ip-172-31-18-71 ~]$ aws ec2 describe-security-groups|grep 22
-                    "FromPort": 22, 
-                    "ToPort": 22, 
-                    "FromPort": 22, 
-                    "ToPort": 22, 
-                    "FromPort": 22, 
-                    "ToPort": 22, 
-                    "FromPort": 22, 
-                    "ToPort": 22, 
-                    "FromPort": 22, 
-                    "ToPort": 22, 
-                    "FromPort": 22, 
-                    "ToPort": 22, 
-[ec2-user@ip-172-31-18-71 ~]$ aws ec2 describe-security-groups|grep sg-
-            "GroupId": "sg-007426953b705a65b"
-            "GroupId": "sg-0134b90a752637715"
-            "GroupId": "sg-02d169f65d03982f8"
-            "GroupId": "sg-03474335ff2896050"
-            "GroupId": "sg-0d39a57c13faf786a"
-            "GroupId": "sg-0f2b2db4389bacbfd"
-                            "GroupId": "sg-b0e2acc3"
-            "GroupId": "sg-b0e2acc3"
-[ec2-user@ip-172-31-18-71 ~]$ 
-[ec2-user@ip-172-31-18-71 ~]$
+%a(href='https://docs.aws.amazon.com/cli/latest/reference/ec2/index.html' target='x')
+  https://docs.aws.amazon.com/cli/latest/reference/ec2/index.html
+%p  
+
+%a(href='https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html' target='x')
+  https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html
+  
+.syntax
+  %pre=render 'lesson010g'
 
 
 I looked for the security group attached to "PublicIpAddress": "34.223.225.17"
