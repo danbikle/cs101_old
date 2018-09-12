@@ -309,38 +309,39 @@ I looked for the security group attached to "PublicIpAddress": "34.223.225.17"
   %pre=render 'lesson010i'
 
 
-I connected to it from my laptop:
+%p I connected to it from my laptop:
 
-dan@d81:~ $ ssh -i ~/.ssh/dan1.pem ec2-user@34.222.74.199
-Warning: Permanently added '34.222.74.199' (ECDSA) to the list of known hosts.
+.syntax
+  %pre=render 'lesson010j'
 
-       __|  __|_  )
-       _|  (     /   Amazon Linux AMI
-      ___|\___|___|
+%p It worked!
+%p Yay!!
 
-https://aws.amazon.com/amazon-linux-ami/2018.03-release-notes/
-8 package(s) needed for security, out of 14 available
-Run "sudo yum update" to apply all updates.
-[ec2-user@ip-172-31-8-223 ~]$ 
-[ec2-user@ip-172-31-8-223 ~]$
+%p To prevent charges, I terminated both instances:
 
-It worked!
-Yay!!
+.syntax
+  %pre
+    %code.bash
+      aws ec2 describe-instances|grep Instance
+      aws ec2 terminate-instances --instance-ids i-0e44a13041b2df559
+      aws ec2 terminate-instances --instance-ids i-096dff2257c940641
 
-To prevent charges, I terminated both instances:
+%p After a few minutes I used the web-UI to ensure all instances were terminated:
 
-aws ec2 describe-instances|grep Instance
+%a(href='https://console.aws.amazon.com/ec2' target='x')
+  https://console.aws.amazon.com/ec2
+  
 
-aws ec2 terminate-instances --instance-ids i-0e44a13041b2df559
-aws ec2 terminate-instances --instance-ids i-096dff2257c940641
+%p Also I removed all keys which are listed in this document:
 
-After a few minutes I used the web-UI to ensure all instances were terminated:
+%a(href='https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#KeyPairs:sort=keyName' target='x')
+  https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#KeyPairs:sort=keyName
 
-https://console.aws.amazon.com/ec2/
+%p
 
-Also I removed all keys which are listed in this document:
+%a(href='https://console.aws.amazon.com/iam/home?region=us-west-2#/security_credential' target='x')
+  https://console.aws.amazon.com/iam/home?region=us-west-2#/security_credential
 
-https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#KeyPairs:sort=keyName
+%hr/
 
-https://console.aws.amazon.com/iam/home?region=us-west-2#/security_credential
 
