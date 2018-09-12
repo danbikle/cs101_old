@@ -183,5 +183,185 @@
   %li For a RHEL AMI, the user name is ec2-user or root.
   %li For a SUSE AMI, the user name is ec2-user or root.
   %li For an Ubuntu AMI, the user name is ubuntu
+
+%p On my laptop I created a file:
+
+.syntax
+  %pre
+    %code ~/.ssh/config
+
+
+%p I added a few lines of syntax:
+
+.syntax
+  %pre=render 'lesson010a'
+
+%p The above syntax allows me to use a very short shell command to connect to the instance:
+
+.syntax
+  %pre
+    %code.bash ssh ec2
+
+%p So I did that and I saw this:
+
+.syntax
+  %pre=render 'lesson010b'
+    
+
+
+%p Inside of the instance I ran a shell command:
+
+.syntax
+  %pre
+    %code sudo yum update
+
+%pre That updated software inside the instance.
+
+
+%p The description of the AMI claimed that the instance will contain: "AWS command line tools"
+
+%p Google revealed to me that the main shell command of "AWS command line tools" is "aws".
+
+%p I typed that at the shell prompt and saw this:
+
+.syntax
+  %pre=render 'lesson010c'
   
+%p I studied content from this URL:
+
+%a(href='https://docs.aws.amazon.com/cli/latest/userguide/' target='x')
+  https://docs.aws.amazon.com/cli/latest/userguide/
   
+
+%p I ran this shell command to configure AWS-CLI:
+
+.syntax
+  %pre
+    %code.bash aws configure
+
+%p It asked some simple questions and I answered.
+
+%p I saw this:
+
+.syntax
+  %pre=render 'lesson010d'
+
+
+%p Next, I used the aws shell command to request another instance:
+
+.syntax
+  %pre
+    %code.bash aws ec2 run-instances --image-id ami-a0cfeed8 --key-name dan1
+
+%p I used another shell command to list my instances:
+
+.syntax
+  %pre=render 'lesson010e'
+
+%p I got the IP-addresses:
+
+.syntax
+  %pre=render 'lesson010f'
+
+
+On my laptop I tried to connect:
+
+ssh -i ~/.ssh/dan1.pem ec2-user@54.148.20.197
+
+It failed because I had neglected to open port 22 when I started the instance.
+
+So, I terminated the instance:
+
+aws ec2 terminate-instances --instance-ids i-02cf6fc0229d0e46b
+
+I looked for the name of security group which will open port 22:
+
+https://docs.aws.amazon.com/cli/latest/reference/ec2/index.html
+
+https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html
+
+
+[ec2-user@ip-172-31-18-71 ~]$ aws ec2 describe-security-groups|grep 22
+                    "FromPort": 22, 
+                    "ToPort": 22, 
+                    "FromPort": 22, 
+                    "ToPort": 22, 
+                    "FromPort": 22, 
+                    "ToPort": 22, 
+                    "FromPort": 22, 
+                    "ToPort": 22, 
+                    "FromPort": 22, 
+                    "ToPort": 22, 
+                    "FromPort": 22, 
+                    "ToPort": 22, 
+[ec2-user@ip-172-31-18-71 ~]$ aws ec2 describe-security-groups|grep sg-
+            "GroupId": "sg-007426953b705a65b"
+            "GroupId": "sg-0134b90a752637715"
+            "GroupId": "sg-02d169f65d03982f8"
+            "GroupId": "sg-03474335ff2896050"
+            "GroupId": "sg-0d39a57c13faf786a"
+            "GroupId": "sg-0f2b2db4389bacbfd"
+                            "GroupId": "sg-b0e2acc3"
+            "GroupId": "sg-b0e2acc3"
+[ec2-user@ip-172-31-18-71 ~]$ 
+[ec2-user@ip-172-31-18-71 ~]$
+
+
+I looked for the security group attached to "PublicIpAddress": "34.223.225.17"
+
+
+[ec2-user@ip-172-31-18-71 ~]$ aws ec2 describe-instances|grep sg-
+                            "GroupId": "sg-03474335ff2896050"
+                                    "GroupId": "sg-03474335ff2896050"
+[ec2-user@ip-172-31-18-71 ~]$ 
+[ec2-user@ip-172-31-18-71 ~]$
+
+I use that group to launch another instance with port 22 open:
+
+aws ec2 run-instances --image-id ami-a0cfeed8 --key-name dan1 --security-group-ids sg-03474335ff2896050
+
+I waited a few minutes and then got the IP-Address:
+
+
+[ec2-user@ip-172-31-18-71 ~]$ aws ec2 describe-instances|grep PublicIpAdd
+                    "PublicIpAddress": "34.222.74.199", 
+                    "PublicIpAddress": "34.223.225.17", 
+[ec2-user@ip-172-31-18-71 ~]$ 
+[ec2-user@ip-172-31-18-71 ~]$
+
+
+I connected to it from my laptop:
+
+dan@d81:~ $ ssh -i ~/.ssh/dan1.pem ec2-user@34.222.74.199
+Warning: Permanently added '34.222.74.199' (ECDSA) to the list of known hosts.
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/2018.03-release-notes/
+8 package(s) needed for security, out of 14 available
+Run "sudo yum update" to apply all updates.
+[ec2-user@ip-172-31-8-223 ~]$ 
+[ec2-user@ip-172-31-8-223 ~]$
+
+It worked!
+Yay!!
+
+To prevent charges, I terminated both instances:
+
+aws ec2 describe-instances|grep Instance
+
+aws ec2 terminate-instances --instance-ids i-0e44a13041b2df559
+aws ec2 terminate-instances --instance-ids i-096dff2257c940641
+
+After a few minutes I used the web-UI to ensure all instances were terminated:
+
+https://console.aws.amazon.com/ec2/
+
+Also I removed all keys which are listed in this document:
+
+https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#KeyPairs:sort=keyName
+
+https://console.aws.amazon.com/iam/home?region=us-west-2#/security_credential
+
