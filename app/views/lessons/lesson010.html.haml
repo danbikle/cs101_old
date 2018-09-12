@@ -41,4 +41,80 @@
 
 %a(href='https://console.aws.amazon.com/ec2' target='x')
   https://console.aws.amazon.com/ec2
+
+%p AWS serves me a page called EC2 Dashboard.
+
+%p I click a blue-button: "Launch Instance".
+
+%p AWS serves me a page called "Choose an Amazon Machine Image (AMI)".
+
+%p An AMI is an image of an Instance.
+
+%p An Instance is a machine I login to and run software.
+
+%p As of today 2018-09-09, I like this Image:
+
+%p Amazon Linux AMI 2018.03.0 (HVM), SSD Volume Type - ami-a0cfeed8
+
+%p It is the second image listed in the page: "Choose an Amazon Machine Image (AMI)".
+
+%p I list its description below:
+
+%p The Amazon Linux AMI is an EBS-backed, AWS-supported image.
+
+%p The default image includes:
+%ul
+  %li AWS command line tools, Python, Ruby, Perl, and Java.
+  %li The repositories include:
+  %li
+    %ul
+      %li Docker
+      %li PHP
+      %li MySQL
+      %li PostgreSQL and other packages.
+
+%p I Notice the description lists: "AWS command line tools".
+
+%p Often I want to use those tools rather than the web-UI.
+
+%p In the page I select the ami-a0cfeed8 image.
+
+%p AWS serves me a page which is Step-2 of a launch-wizard.
+
+%p I click thorugh to the next step.
+
+%p Soon, AWS wants to serve me a key-pair.
+
+%p A key-pair is a bunch of random text inside a file with "pem" at the end of the name.
+
+%p The file is not the key-pair.
+
+%p The key-pair is the text in the file.
+
+%p AWS allows me to create a new key-pair.
+
+%p So, I do that and call it dan1.
+
+%p I prefer to give my key-pairs a short name like dan1.
+
+%p I have seen long names create problems.
+
+%p Next, I click the button Download-Key-Pair.
+
+%p AWS places dan1.pem into my downloads folder.
+
+%p The text in dan1.pem is 1 piece of the pair, called private key.
+
+%p The second part of the pair is called the public key.
+
+%p AWS stores the public key for me because I can ignore it.
+
+%p I copy dan1.pem to my .ssh folder with this syntax:
+.syntax
+  %pre
+    %code.bash
+      mkdir -p  ~/.ssh
+      chmod 600 ~/Downloads/dan1.pem
+      cp        ~/Downloads/dan1.pem ~/.ssh/
+
   
