@@ -294,25 +294,19 @@
 
 I looked for the security group attached to "PublicIpAddress": "34.223.225.17"
 
+.syntax
+  %pre=render 'lesson010h'
 
-[ec2-user@ip-172-31-18-71 ~]$ aws ec2 describe-instances|grep sg-
-                            "GroupId": "sg-03474335ff2896050"
-                                    "GroupId": "sg-03474335ff2896050"
-[ec2-user@ip-172-31-18-71 ~]$ 
-[ec2-user@ip-172-31-18-71 ~]$
+%p I use that group to launch another instance with port 22 open:
 
-I use that group to launch another instance with port 22 open:
+.syntax
+  %pre
+    %code aws ec2 run-instances --image-id ami-a0cfeed8 --key-name dan1 --security-group-ids sg-03474335ff2896050
 
-aws ec2 run-instances --image-id ami-a0cfeed8 --key-name dan1 --security-group-ids sg-03474335ff2896050
+%p I waited a few minutes and then got the IP-Address:
 
-I waited a few minutes and then got the IP-Address:
-
-
-[ec2-user@ip-172-31-18-71 ~]$ aws ec2 describe-instances|grep PublicIpAdd
-                    "PublicIpAddress": "34.222.74.199", 
-                    "PublicIpAddress": "34.223.225.17", 
-[ec2-user@ip-172-31-18-71 ~]$ 
-[ec2-user@ip-172-31-18-71 ~]$
+.syntax
+  %pre=render 'lesson010i'
 
 
 I connected to it from my laptop:
