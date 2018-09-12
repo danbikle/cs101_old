@@ -159,3 +159,29 @@
     %code
       ssh -i ~/.ssh/dan1.pem ec2-user@34.223.225.17
 
+
+%p The above shell command references a user-name: "ec2-user".
+
+%p I found other user-names using google:
+
+%a(href='https://www.google.com/search?q=which+account+do+I+login+to+with+amazon+linux+ami' target='x')
+  https://www.google.com/search?q=which+account+do+I+login+to+with+amazon+linux+ami
+  
+
+%p Which sent me here:
+
+%a(href='https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html' target='x')
+  https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html
+  
+
+%p And I noted these user-names:
+%ul
+  %li For Amazon Linux 2 or the Amazon Linux AMI, the user name is ec2-user.
+  %li For a Centos AMI, the user name is centos.
+  %li For a Debian AMI, the user name is admin or root.
+  %li For a Fedora AMI, the user name is ec2-user or fedora.
+  %li For a RHEL AMI, the user name is ec2-user or root.
+  %li For a SUSE AMI, the user name is ec2-user or root.
+  %li For an Ubuntu AMI, the user name is ubuntu
+  
+  
