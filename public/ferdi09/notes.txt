@@ -118,3 +118,53 @@ nouns
     jdbc:redshift://endpoint:port/database
 
 
+2018-09-14
+
+I downloaded jar file to:
+
+~/sqlwb/ext/RedshiftJDBC42-1.2.16.1027.jar
+
+
+
+go to aws.amazon.com
+
+redshift...
+
+launch cluster
+
+.33/hr
+
+url
+
+jdbc:redshift//ferdi-test-cluster:5439/dev
+
+ferdi
+Ferdi123
+
+gsb rcpedia
+
+avoid career builder
+
+like linkedin , indeed
+
+https://sites.google.com/a/stanford.edu/rcpedia/
+
+jdbc:redshift://ferdi-test-cluster.cgepfzsr5ubf.us-west-1.redshift.amazonaws.com:5439/dev
+
+
+
+    Go into EC2 Management Console
+    On the left navigation pane, look for Network & Security header and click on Security Groups. (https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#SecurityGroups:sort=groupId)
+    Notice the row with name "launch-wizard-1" in the Group Name's column. Click that. Then select the Inbound tab, and click Edit.
+    Add Rule: Type=Redshift, Source=MyIP. (auto-fill)
+    Save it.
+    Try to connect again from within SQLWorkbench/J.
+
+
+create role ...
+
+
+https://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html
+
+https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-create-an-iam-role.html
+
