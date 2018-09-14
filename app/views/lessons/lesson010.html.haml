@@ -15,14 +15,22 @@
 %hr/
 %p This lesson shows how I worked some simple AWS CLI tasks.
 
-%p To start, I must Sign-Up for an AWS account.
+%p To start, I Signed-Up for an AWS account.
 
-%p I see a Sign-Up button at this URL:
+%p I saw a Sign-Up button at this URL:
 
 %a(href='https://aws.amazon.com' target='x')
   https://aws.amazon.com
+%p
+%img(src='/lesson010/z012.png')
 
-%p There, using a link in the upper right, I set my region to Oregon.
+%p After I signed-up and logged-in, using a link in the upper right, I set my region to Oregon:
+
+%p
+%img(src='/lesson010/z013.png')
+%hr/
+
+
 
 %p I know that the Oregon region also has these names:
 %ul
@@ -49,9 +57,28 @@
 
 %p AWS serves me a page called EC2 Dashboard.
 
-%p I click a blue-button: "Launch Instance".
+%p I saw this:
 
-%p AWS serves me a page called "Choose an Amazon Machine Image (AMI)".
+%p
+%img(src='/lesson010/z014.png')
+
+%p I list some questions which I should eventually answer:
+
+%ul
+  %li What is a Running Instance?
+  %li What is a Volume?
+  %li What are Key Pairs?
+  %li What are Elastic IPs?
+  %li What are Snapshots?
+  %li What are Security Groups?
+  %li What are Spot Requests?
+
+%p I clicked blue-button: "Launch Instance".
+
+%p AWS served me a page called "Choose an Amazon Machine Image (AMI)":
+
+%p
+%img(src='/lesson010/z015.png')
 
 %p An AMI is an image of an Instance.
 
@@ -61,7 +88,11 @@
 
 %p Amazon Linux AMI 2018.03.0 (HVM), SSD Volume Type - ami-a0cfeed8
 
-%p It is the second image listed in the page: "Choose an Amazon Machine Image (AMI)".
+%p It is the second image listed in the page: "Choose an Amazon Machine Image (AMI)":
+
+%p
+%img(src='/lesson010/z016.png')
+%hr/
 
 %p I list its description below:
 
@@ -82,13 +113,21 @@
 
 %p Often I want to use those tools rather than the web-UI.
 
-%p In the page I select the ami-a0cfeed8 image.
+%p So while I was in that page I selected the ami-a0cfeed8 image.
 
-%p AWS serves me a page which is Step-2 of a launch-wizard.
+%p AWS served me a page which is Step-2 of a launch-wizard:
+
+%p
+%img(src='/lesson010/z017.png')
 
 %p I click thorugh to the next step.
 
-%p Soon, AWS wants to serve me a key-pair.
+%p Then, EC2 wanted to serve me a key-pair:
+
+%p
+%img(src='/lesson010/z018.png')
+
+
 
 %p A key-pair is a bunch of random text inside a file with "pem" at the end of the name.
 
@@ -98,7 +137,12 @@
 
 %p AWS allows me to create a new key-pair.
 
-%p So, I do that and call it dan1.
+%p So, I did that and called it dan1:
+
+
+%p
+%img(src='/lesson010/z019.png')
+
 
 %p I prefer to give my key-pairs a short name like dan1.
 
@@ -108,9 +152,9 @@
 
 %p AWS places dan1.pem into my downloads folder.
 
-%p The text in dan1.pem is 1 piece of the pair, called private key.
+%p The text in dan1.pem is 1 piece of the pair, called the "private key".
 
-%p The second part of the pair is called the public key.
+%p The second part of the pair is called the "public key".
 
 %p AWS stores the public key for me because I can ignore it.
 
@@ -134,14 +178,25 @@
   
 %p After I download the pem-file I click the blue-button: "Launch Instances".
 
-%p AWS needs a few minutes to launch an instance from ami-a0cfeed8.
+%p AWS needs a few minutes to launch an instance from ami-a0cfeed8:
 
-%p While waiting I visit this URL:
+%p
+%img(src='/lesson010/z020.png')
+
+%p While waiting I explored links served from the upper right:
+
+%p
+%img(src='/lesson010/z021.png')
+
+%p I clicked link: "My Security Credentials".
+
+%p I landed at this URL:
 
 %a(href='https://console.aws.amazon.com/iam/home#/security_credential' target='x')
   https://console.aws.amazon.com/iam/home#/security_credential
 
-%p I found the above URL by exploring links served from the upper right.
+%p
+%img(src='/lesson010/z022.png')
 
 %p In the security_credential page, I clicked link:
 %p   "Access keys (access key ID and secret access key)"
