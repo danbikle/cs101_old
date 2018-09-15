@@ -1,13 +1,15 @@
 %h1#top Lesson 010 [ Simple AWS CLI Intro. ]
 
-%p AWS CLI is short for Amazon Web Services Command Line Interface.
+%p AWS CLI is a short name for Amazon Web Services Command Line Interface.
 
-%p Developers often use the web-UI when interacting with AWS:
+%p We do not need to use AWS CLI; Why?
+
+%p Because developers often use the web-UI when interacting with AWS:
 
 %img(src='/lesson010/z010.png')
 
 %hr/
-%p AWS CLI is useful for developers who want to automate interactions with AWS:
+%p But, AWS CLI is useful for developers who want to automate interactions with AWS:
 
 %a(href='https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html' target='x')
   %img(src='/lesson010/z011.png')
@@ -111,16 +113,14 @@
 
 %p I Notice the description lists: "AWS command line tools".
 
-%p Often I want to use those tools rather than the web-UI.
-
-%p So while I was in that page I selected the ami-a0cfeed8 image.
+%p So, while I was in that page I selected the ami-a0cfeed8 image.
 
 %p AWS served me a page which is Step-2 of a launch-wizard:
 
 %p
 %img(src='/lesson010/z017.png')
 
-%p I click thorugh to the next step.
+%p I click through to the next step.
 
 %p Then, EC2 wanted to serve me a key-pair:
 
@@ -148,15 +148,17 @@
 
 %p I have seen long names create problems.
 
-%p Next, I click the button Download-Key-Pair.
+%p Next, I click the button: "Download Key Pair".
 
-%p AWS places dan1.pem into my downloads folder.
+%p In my opinion the button should be called: "Download Private Key".
 
-%p The text in dan1.pem is 1 piece of the pair, called the "private key".
+%p Anyway, AWS places dan1.pem into my downloads folder.
 
-%p The second part of the pair is called the "public key".
+%p The text in dan1.pem is 1 piece of the pair, called the "Private Key".
 
-%p AWS stores the public key for me because I can ignore it.
+%p The second part of the pair is called the "Public Key".
+
+%p AWS stores the Public Key for me and I can ignore it.
 
 %p I copy dan1.pem to my .ssh folder with this syntax:
 .syntax
@@ -165,7 +167,6 @@
       mkdir -p  ~/.ssh
       chmod 600 ~/Downloads/dan1.pem
       cp        ~/Downloads/dan1.pem ~/.ssh/
-
 
 %p The above syntax is Bash syntax.
 
@@ -214,11 +215,18 @@
   %pre
     %code.bash ~/.ssh/rootkey.csv
 
+%p At that point I had two key-files in my .ssh folder:
+%ul
+  %li ~/.ssh/rootkey.csv
+  %li ~/.ssh/dan1.pem
+
+%p The first file, rootkey.csv, contains keys I need in order to operate AWS CLI.
+%p The second file, dan1.pem, contains a Private Key I use to ssh-into my AWS instance.
+
 %p Next, I visited this URL:
 
 %a(href='https://console.aws.amazon.com/ec2' target='x')
   https://console.aws.amazon.com/ec2
-  
 
 %p In that page I found information about the instance I just launched.
 
@@ -262,7 +270,6 @@
   %pre
     %code ~/.ssh/config
 
-
 %p I added a few lines of syntax:
 
 .syntax
@@ -278,8 +285,6 @@
 
 .syntax
   %pre=render 'lesson010b'
-    
-
 
 %p Inside of the instance I ran a shell command:
 
@@ -287,8 +292,7 @@
   %pre
     %code sudo yum update
 
-%pre That updated software inside the instance.
-
+%p That updated software inside the instance.
 
 %p The description of the AMI claimed that the instance will contain: "AWS command line tools"
 
@@ -303,7 +307,6 @@
 
 %a(href='https://docs.aws.amazon.com/cli/latest/userguide/' target='x')
   https://docs.aws.amazon.com/cli/latest/userguide/
-  
 
 %p I ran this shell command to configure AWS-CLI:
 
@@ -311,13 +314,12 @@
   %pre
     %code.bash aws configure
 
-%p It asked some simple questions and I answered.
+%p It asked some simple questions and I answered using text in ~/.ssh/rootkey.csv
 
 %p I saw this:
 
 .syntax
   %pre=render 'lesson010d'
-
 
 %p Next, I used the aws shell command to request another instance:
 
@@ -335,7 +337,6 @@
 .syntax
   %pre=render 'lesson010f'
 
-
 %p On my laptop I tried to connect:
 
 .syntax
@@ -352,9 +353,9 @@
 
 %p I looked for the name of security group which will open port 22:
 
-
 %a(href='https://docs.aws.amazon.com/cli/latest/reference/ec2/index.html' target='x')
   https://docs.aws.amazon.com/cli/latest/reference/ec2/index.html
+
 %p  
 
 %a(href='https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html' target='x')
@@ -362,7 +363,6 @@
   
 .syntax
   %pre=render 'lesson010g'
-
 
 I looked for the security group attached to "PublicIpAddress": "34.223.225.17"
 
@@ -402,7 +402,6 @@ I looked for the security group attached to "PublicIpAddress": "34.223.225.17"
 
 %a(href='https://console.aws.amazon.com/ec2' target='x')
   https://console.aws.amazon.com/ec2
-  
 
 %p Also I removed all keys which are listed in this document:
 
@@ -415,5 +414,3 @@ I looked for the security group attached to "PublicIpAddress": "34.223.225.17"
   https://console.aws.amazon.com/iam/home?region=us-west-2#/security_credential
 
 %hr/
-
-
