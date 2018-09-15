@@ -173,3 +173,22 @@ The window disappeared.
 I landed in the Select Connection Profile form-window.
 
 The Driver field allowed me to pulldown value: "Amazon Redshift (com.amazon.redshift.jdbc.Driver)"
+
+In the URL field I pasted a string:
+
+  jdbc:redshift://redshift-cluster-1.cmea74qjjc8h.us-west-2.redshift.amazonaws.com:5439/dev
+
+In Username field I typed:  awsuser
+
+password: Dan12345
+
+I checked box: Autocommit
+
+At upper left I clicked the floppy to save my work.
+
+At lower right I clicked button: "OK"
+
+It did a tiny bounce and then disappeared.
+
+I landed in window: "SQL Workbench/J dan1"
+
