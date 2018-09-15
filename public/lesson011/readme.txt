@@ -71,3 +71,73 @@ pass: Dan12345
 
 Cluster redshift-cluster-1 is being created. Your cluster may take a few minutes to launch.
 
+
+
+    If you launched your cluster in the EC2-VPC platform, follow the steps in To Configure the VPC Security Group (EC2-VPC Platform).
+
+    If you launched your cluster in the EC2-Classic platform, follow the steps in To Configure the Amazon Redshift Security Group.
+
+I checked my cluster here:
+
+https://us-west-2.console.aws.amazon.com/redshift
+
+I saw this:
+
+Cluster Properties
+VPC IDVPC ID of the cluster subnet group associated with this cluster.	
+vpc-14eb2d6c ( View VPCs )
+
+So, my cluster is in  the EC2-VPC platform
+
+
+
+How to Configure the VPC Security Group (EC2-VPC Platform):
+
+visit
+https://us-west-2.console.aws.amazon.com/redshift
+choose Clusters.
+click redshift-cluster-1
+
+I should land in Configuration tab.
+
+Find my security group
+
+I saw this link:
+
+VPC security groupsList of VPC Security Groups associated with this cluster.	
+default (sg-b0e2acc3)
+ ( active )
+
+I clicked it
+
+I landed here:
+
+https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#SecurityGroups:search=sg-b0e2acc3;sort=groupId
+
+I clicked the Inbound tab. 
+
+I clicked button: "Edit"
+
+I clicked button: "Add Rule"
+
+I entered the following
+
+    Type: Custom TCP Rule.
+
+    Protocol: TCP.
+
+    Port Range: type the same port number that you used when you launched the cluster. The default port for Amazon Redshift is 5439, but your port might be different.
+
+    Source: select Custom IP, then type 0.0.0.0/0.
+I clicked Save.
+
+
+
+How To Configure the Amazon Redshift Security Group
+
+    In the Amazon Redshift console, in the navigation pane, choose Clusters.
+
+    Choose redshift-cluster-1 I should land in the Configuration tab.
+
+    Under Cluster Properties, for Cluster Security Groups, choose default to open the default security group. 
+
