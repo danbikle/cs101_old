@@ -133,11 +133,12 @@ I clicked Save.
 
 
 
-How To Configure the Amazon Redshift Security Group
+How To Get Your Connection String
 
     In the Amazon Redshift console, in the navigation pane, choose Clusters.
 
-    Choose redshift-cluster-1 I should land in the Configuration tab.
+    Choose redshift-cluster-1 to open it, I should land in the Configuration tab.
 
-    Under Cluster Properties, for Cluster Security Groups, choose default to open the default security group. 
-
+    I copied the JDBC URL of the cluster:
+    
+jdbc:redshift://redshift-cluster-1.cmea74qjjc8h.us-west-2.redshift.amazonaws.com:5439/dev    
