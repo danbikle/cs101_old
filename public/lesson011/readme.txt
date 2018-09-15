@@ -142,3 +142,27 @@ How To Get Your Connection String
     I copied the JDBC URL of the cluster:
     
 jdbc:redshift://redshift-cluster-1.cmea74qjjc8h.us-west-2.redshift.amazonaws.com:5439/dev    
+
+
+
+how To Connect from SQL Workbench/J to Your Cluster
+
+    Open SQL Workbench/J.
+
+    Choose File, and then choose Connect window.
+
+    Choose Create a new connection profile.
+
+    In the New profile text box, type a name for the profile.
+
+    Choose button "Manage Drivers" at bottom. The Manage Drivers dialog should open.
+
+    Choose the Create a new entry button. In the Name text box, type a name for the driver.
+
+    I Interacted with the form until it contained this info:
+    
+    Name: Amazon Redshift
+    Library: /home/dan/sqlwb/ext/RedshiftJDBC42-1.2.16.1027.jar
+    Classname: com.amazon.redshift.jdbc.Driver
+    Sample URL: jdbc:redshift://endpoint:port/database
+    
