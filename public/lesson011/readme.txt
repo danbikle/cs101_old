@@ -166,3 +166,10 @@ how To Connect from SQL Workbench/J to Your Cluster
     Classname: com.amazon.redshift.jdbc.Driver
     Sample URL: jdbc:redshift://endpoint:port/database
     
+I clicked okay.
+
+The window disappeared.
+
+I landed in the Select Connection Profile form-window.
+
+The Driver field allowed me to pulldown value: "Amazon Redshift (com.amazon.redshift.jdbc.Driver)"
